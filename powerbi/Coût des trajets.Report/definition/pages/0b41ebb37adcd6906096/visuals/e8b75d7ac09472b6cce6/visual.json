@@ -1,0 +1,132 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "e8b75d7ac09472b6cce6",
+  "position": {
+    "x": 588,
+    "y": 120,
+    "z": 1001,
+    "height": 212,
+    "width": 676,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Coûts standard d'un ensemble citerne 44 t (valeurs fictives, ordres de grandeur du secteur), revus chaque année pour valoriser chaque voyage :",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Coût conducteur / h : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "salaire conventionnel + charges patronales + frais de route, ramenés à l'heure de service ; revalorisé d'environ 3 % par an.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Gazole + AdBlue / km : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "consommation moyenne (~33 L/100 km) × prix moyen HT du gazole de l'année, + ~5 % d'AdBlue ; suit le prix du carburant (repli depuis 2023).",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Maintenance / km : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "entretien préventif et réparations (pièces + main-d'œuvre atelier) du parc, rapportés aux kilomètres parcourus.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Pneus / km : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "achat et rechapage des pneumatiques rapportés à leur durée de vie en kilomètres.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Coût total chargé = (gazole + maintenance + pneus) × km + heures de conduite × coût conducteur. ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5E6B7A"
+                    }
+                  },
+                  {
+                    "value": "Périmètre : hors décroche / raccroche, chargement et livraison réalisés la même semaine, semaine non à cheval sur deux mois.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

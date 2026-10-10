@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Tableau de bord QHSE"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ae803c34-e0e9-41db-bb1b-75e98ea80dbd"
+  }
+}

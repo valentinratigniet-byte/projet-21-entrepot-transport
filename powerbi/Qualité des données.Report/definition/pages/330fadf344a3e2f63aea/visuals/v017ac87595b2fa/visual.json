@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "v017ac87595b2fa",
+  "position": {
+    "x": 651.4,
+    "y": 56,
+    "z": 1001,
+    "height": 626,
+    "width": 612.6,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Résultat dbt"
+                    }
+                  },
+                  "Property": "Type nœud"
+                }
+              },
+              "queryRef": "Résultat dbt.Type nœud",
+              "nativeQueryRef": "Type nœud"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Résultat dbt"
+                    }
+                  },
+                  "Property": "Nom"
+                }
+              },
+              "queryRef": "Résultat dbt.Nom",
+              "nativeQueryRef": "Nom"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Résultat dbt"
+                    }
+                  },
+                  "Property": "Statut"
+                }
+              },
+              "queryRef": "Résultat dbt.Statut",
+              "nativeQueryRef": "Statut"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Résultat dbt"
+                        }
+                      },
+                      "Property": "Échecs"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Résultat dbt.Échecs)",
+              "nativeQueryRef": "Échecs",
+              "displayName": "Échecs"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Résultat dbt"
+                        }
+                      },
+                      "Property": "Durée s"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Résultat dbt.Durée s)",
+              "nativeQueryRef": "Durée s",
+              "displayName": "Durée s"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

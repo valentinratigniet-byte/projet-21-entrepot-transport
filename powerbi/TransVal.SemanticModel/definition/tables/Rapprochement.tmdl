@@ -1,0 +1,68 @@
+table Rapprochement
+	lineageTag: 8382f961-1da1-5fe5-b5e6-12ee3f8d6bdf
+
+	column 'N° facture'
+		dataType: int64
+		lineageTag: 1fce6755-1dc8-57a5-af0b-b1cda9704154
+		summarizeBy: none
+		sourceColumn: N° facture
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: ba3f17e8-9ba8-54fd-a839-3a460c0f2a2d
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column 'Date OT'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 5187bc7d-7434-58dc-9c0f-4102ef6bebc2
+		summarizeBy: none
+		sourceColumn: Date OT
+
+	column 'Date pièce'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 351cfa00-7465-5901-9754-0985ff944147
+		summarizeBy: none
+		sourceColumn: Date pièce
+
+	column 'Date référence'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f4c1239f-cfa7-55fc-8753-9c7ff3e5e909
+		summarizeBy: none
+		sourceColumn: Date référence
+
+	column 'HT atelier'
+		dataType: double
+		lineageTag: d7eb0be5-2b73-5a48-9861-f288408a70be
+		summarizeBy: sum
+		sourceColumn: HT atelier
+
+	column 'HT compta'
+		dataType: double
+		lineageTag: b4727468-d76c-52cc-8048-9c192fcb3d0f
+		summarizeBy: sum
+		sourceColumn: HT compta
+
+	column 'Écart HT'
+		dataType: double
+		lineageTag: fb7e95e7-2f73-5e72-abf0-3cb7e5fe8a71
+		summarizeBy: sum
+		sourceColumn: Écart HT
+
+	column Statut
+		dataType: string
+		lineageTag: 451e680c-17fa-5616-a2e4-2c6c844465d0
+		summarizeBy: none
+		sourceColumn: Statut
+
+	partition Rapprochement = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Rapprochement.parquet"))
+				in
+				    Source
+

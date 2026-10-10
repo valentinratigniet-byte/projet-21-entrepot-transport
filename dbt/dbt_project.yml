@@ -1,0 +1,23 @@
+name: transport_dwh
+version: "1.0.0"
+profile: transport_dwh
+config-version: 2
+
+vars:
+  as_of: "2026-09-30"   # remplace TODAY() (passé par run_all.py depuis common.py) : un rapport rejoué donne toujours le même chiffre
+
+models:
+  transport_dwh:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  transport_dwh:
+    +schema: referentiel

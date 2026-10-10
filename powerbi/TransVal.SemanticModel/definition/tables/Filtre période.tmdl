@@ -1,0 +1,21 @@
+table 'Filtre période'
+	lineageTag: 2b428233-8005-511f-bdbe-7ba55cb0fc06
+
+	column Période
+		dataType: string
+		lineageTag: 2365ce4d-5093-55ff-ba6a-895dc7d04760
+		summarizeBy: none
+		sourceColumn: [Période]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: 3f4c935a-dce9-570d-93cd-937729f87874
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Filtre période' = calculated
+		mode: import
+		source = DATATABLE("Période", STRING, "Ordre", INTEGER, {{"N-1", 1}, {"Semaine en cours", 2}})
+

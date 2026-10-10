@@ -1,0 +1,583 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "0ea8f139fb8725ba54f1",
+  "position": {
+    "x": 15.544270467817835,
+    "y": 226.0984795318958,
+    "z": 1001,
+    "height": 558.18062134436775,
+    "width": 1247.78098391665,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Code matériel"
+                }
+              },
+              "queryRef": "Matériel.Code matériel",
+              "nativeQueryRef": "Code matériel",
+              "displayName": "N° Parc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Statut"
+                }
+              },
+              "queryRef": "Matériel.Statut",
+              "nativeQueryRef": "Statut"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Équipement"
+                }
+              },
+              "queryRef": "Matériel.Équipement",
+              "nativeQueryRef": "Équipement",
+              "displayName": "Equipement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Modèle"
+                }
+              },
+              "queryRef": "Matériel.Modèle",
+              "nativeQueryRef": "Modèle",
+              "displayName": "Modèle"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Immatriculation"
+                }
+              },
+              "queryRef": "Matériel.Immatriculation",
+              "nativeQueryRef": "Immatriculation",
+              "displayName": "Immatriculation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Date entrée"
+                }
+              },
+              "queryRef": "Matériel.Date entrée",
+              "nativeQueryRef": "Date entrée",
+              "displayName": "Date Entrée"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Activité type"
+                }
+              },
+              "queryRef": "Matériel.Activité type",
+              "nativeQueryRef": "Activité type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Code activité"
+                }
+              },
+              "queryRef": "Matériel.Code activité",
+              "nativeQueryRef": "Code activité"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Compteur km"
+                }
+              },
+              "queryRef": "Matériel.Compteur km",
+              "nativeQueryRef": "Compteur km",
+              "displayName": "Dernier Tachy"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Date compteur"
+                }
+              },
+              "queryRef": "Matériel.Date compteur",
+              "nativeQueryRef": "Date compteur",
+              "displayName": "Date Dernier Tachy"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Nb matériels"
+                }
+              },
+              "queryRef": "Mesures.Nb matériels",
+              "nativeQueryRef": "Nb matériels"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Km total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Km total)",
+              "nativeQueryRef": "Somme de Km total",
+              "displayName": "Nb Km"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Temps total h"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Temps total h)",
+              "nativeQueryRef": "Somme de Temps total h"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Km par tracteur"
+                }
+              },
+              "queryRef": "Mesures.Km par tracteur",
+              "nativeQueryRef": "Km par tracteur"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Heures par tracteur"
+                }
+              },
+              "queryRef": "Mesures.Heures par tracteur",
+              "nativeQueryRef": "Heures par tracteur"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Heures d'utilisation / jour ouvré par matériel"
+                }
+              },
+              "queryRef": "Mesures.Heures d'utilisation / jour ouvré par matériel",
+              "nativeQueryRef": "Heures d'utilisation / jour ouvré par matériel",
+              "displayName": "h usage/ J"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Matériel"
+                  }
+                },
+                "Property": "Date entrée"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "952fd0ef3274a03770af",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Statut"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e29e7c1f848e8776deeb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Type matériel"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "6eb6453779985b0373ec",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Code matériel"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "733f67c06010b7aac136",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Équipement"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b175acb5578f864535ca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Modèle"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aebf606a803802831e3c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Immatriculation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6b1179f80b2a5616df58",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Date entrée"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "211ce1f339082b4d66de",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Activité type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "60a27042fd397ea9736e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Code activité"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fea7e99f7b7f026fbcbf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Compteur km"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c47a994c8b450a441425",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Date compteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4103ec56da703a5118cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Nb matériels"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a94d383a792438bf91ac",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Km total"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d560a3cee489827931d6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Temps total h"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1daba4a4ce2a588db21a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Km par tracteur"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "56b019e9a690b5dca62b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Heures par tracteur"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c810972e97d7a53d1810",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Heures d'utilisation / jour ouvré par matériel"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

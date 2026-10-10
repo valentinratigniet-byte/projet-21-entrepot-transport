@@ -1,0 +1,151 @@
+table Atelier
+	lineageTag: 44bd9c0e-27e8-53ec-a7f6-869346cdbf20
+
+	column 'Ligne ID'
+		dataType: int64
+		lineageTag: 2b6ed29e-e746-5a46-9c04-d8a83aa4da8f
+		summarizeBy: none
+		sourceColumn: Ligne ID
+
+	column 'Type ligne'
+		dataType: string
+		lineageTag: cf0cbad0-d96f-5f24-a206-dc393e93ba42
+		summarizeBy: none
+		sourceColumn: Type ligne
+
+	column Libellé
+		dataType: string
+		lineageTag: c3bd449b-2d4a-51ca-be82-b4fbafa48471
+		summarizeBy: none
+		sourceColumn: Libellé
+
+	column Quantité
+		dataType: double
+		lineageTag: 3f2cfb69-2705-5548-b3b5-f3d5521e2551
+		summarizeBy: sum
+		sourceColumn: Quantité
+
+	column Montant
+		dataType: double
+		lineageTag: e1abb2df-b6b3-5c18-9c66-0b17fd14fc8c
+		summarizeBy: sum
+		sourceColumn: Montant
+
+	column 'Matricule mécanicien'
+		dataType: int64
+		lineageTag: 1ba2122a-ba77-50e0-a39e-20ceb052ca2b
+		summarizeBy: sum
+		sourceColumn: Matricule mécanicien
+
+	column 'OT ID'
+		dataType: int64
+		lineageTag: 7d58c7db-3eed-593e-abbe-62455bea11f1
+		summarizeBy: none
+		sourceColumn: OT ID
+
+	column 'Date OT'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f3dfd8ea-c360-5f1c-9007-504ede3600c4
+		summarizeBy: none
+		sourceColumn: Date OT
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 2b3caede-fe67-58cf-93da-23b721d76e02
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Famille
+		dataType: string
+		lineageTag: 3e8d419d-34d3-5529-ab42-f93473c02bec
+		summarizeBy: none
+		sourceColumn: Famille
+
+	column Raison
+		dataType: string
+		lineageTag: 8bd25ed7-bdfc-5735-8361-d423c4a0e4b7
+		summarizeBy: none
+		sourceColumn: Raison
+
+	column 'Type document'
+		dataType: string
+		lineageTag: 2f6d2449-5ffc-591f-906f-b4630799419d
+		summarizeBy: none
+		sourceColumn: Type document
+
+	column 'Est externe'
+		dataType: boolean
+		lineageTag: 51c09550-b7a2-5573-8b99-366a31efcfa7
+		summarizeBy: none
+		sourceColumn: Est externe
+
+	column Fournisseur
+		dataType: string
+		lineageTag: d07b7d67-a248-5970-9170-21aa50751259
+		summarizeBy: none
+		sourceColumn: Fournisseur
+
+	column Demandeur
+		dataType: string
+		lineageTag: 84d82dc5-b054-5cf7-b4c1-9a13e3acafa6
+		summarizeBy: none
+		sourceColumn: Demandeur
+
+	column 'Motif sous traitance'
+		dataType: string
+		lineageTag: 96f700ec-293c-5f40-8acb-3554ffd863f7
+		summarizeBy: none
+		sourceColumn: Motif sous traitance
+
+	column 'N° facture interne'
+		dataType: string
+		lineageTag: 738939c7-09b6-51a4-8e50-106398f47fb2
+		summarizeBy: none
+		sourceColumn: N° facture interne
+
+	column 'N° facture'
+		dataType: int64
+		lineageTag: 94d8b3df-6029-5c95-9b6f-3aae650001b8
+		summarizeBy: none
+		sourceColumn: N° facture
+
+	column 'Matricule responsable'
+		dataType: int64
+		lineageTag: cc26a3ac-bae2-56d6-8434-e644c4b8d781
+		summarizeBy: sum
+		sourceColumn: Matricule responsable
+
+	column 'Est casse interne'
+		dataType: boolean
+		lineageTag: 06cb066e-720d-54c0-883b-9532f4e77bb3
+		summarizeBy: none
+		sourceColumn: Est casse interne
+
+	column 'Compte dans sous traitance'
+		dataType: boolean
+		lineageTag: c128b78b-8207-5f1f-b959-0fdcf293bcdb
+		summarizeBy: none
+		sourceColumn: Compte dans sous traitance
+
+	column Mécanicien
+		dataType: string
+		lineageTag: 94d0c1bc-21bb-5463-b62d-45fed68b5e2f
+		summarizeBy: none
+		sourceColumn: Mécanicien
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 493fb437-f824-5761-99e1-c3367bfef8c3
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition Atelier = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Atelier.parquet"))
+				in
+				    Source
+

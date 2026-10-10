@@ -1,0 +1,48 @@
+table 'Heures mécanicien'
+	lineageTag: c6dc7fd8-89f0-5427-b88e-09a357766710
+
+	column 'Matricule mécanicien'
+		dataType: int64
+		lineageTag: 63909cff-a915-51b2-bd8a-969ea3226156
+		summarizeBy: sum
+		sourceColumn: Matricule mécanicien
+
+	column Mécanicien
+		dataType: string
+		lineageTag: c41f36cd-ba5e-5a23-b1fa-d172648b3299
+		summarizeBy: none
+		sourceColumn: Mécanicien
+
+	column Mois
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 03120cec-c00f-5b84-b09a-bb7058bb6ffa
+		summarizeBy: none
+		sourceColumn: Mois
+
+	column 'Heures payées'
+		dataType: double
+		lineageTag: 19d326e3-dac5-5643-b5c2-8162ba06ff99
+		summarizeBy: sum
+		sourceColumn: Heures payées
+
+	column 'Heures produites'
+		dataType: double
+		lineageTag: 9f05f071-98bf-5efe-bced-25cb17b51472
+		summarizeBy: sum
+		sourceColumn: Heures produites
+
+	column 'Coût produit'
+		dataType: double
+		lineageTag: f1c41758-4d77-522d-a490-35b57ed63c65
+		summarizeBy: sum
+		sourceColumn: Coût produit
+
+	partition 'Heures mécanicien' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Heures mécanicien.parquet"))
+				in
+				    Source
+

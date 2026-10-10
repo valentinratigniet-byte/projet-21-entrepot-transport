@@ -1,0 +1,218 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "f19a2debe175a09081f6",
+  "position": {
+    "x": 16,
+    "y": 120,
+    "z": 1000,
+    "height": 212,
+    "width": 560,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Coût standard"
+                    }
+                  },
+                  "Property": "Année"
+                }
+              },
+              "queryRef": "Coût standard.Année",
+              "nativeQueryRef": "Année"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Coût standard"
+                    }
+                  },
+                  "Property": "Coût chauffeur heure"
+                }
+              },
+              "queryRef": "Coût standard.Coût chauffeur heure",
+              "nativeQueryRef": "Coût chauffeur heure",
+              "displayName": "Coût conducteur / h"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Coût standard"
+                    }
+                  },
+                  "Property": "Coût gazole adblue km"
+                }
+              },
+              "queryRef": "Coût standard.Coût gazole adblue km",
+              "nativeQueryRef": "Coût gazole adblue km",
+              "displayName": "Gazole + AdBlue / km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Coût standard"
+                    }
+                  },
+                  "Property": "Coût maintenance parc km"
+                }
+              },
+              "queryRef": "Coût standard.Coût maintenance parc km",
+              "nativeQueryRef": "Coût maintenance parc km",
+              "displayName": "Maintenance / km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Coût standard"
+                    }
+                  },
+                  "Property": "Coût pneus km"
+                }
+              },
+              "queryRef": "Coût standard.Coût pneus km",
+              "nativeQueryRef": "Coût pneus km",
+              "displayName": "Pneus / km"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "82b4322374179bc11edc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Coût standard"
+              }
+            },
+            "Property": "Année"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "736cdaa618f736d1cad9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Coût standard"
+              }
+            },
+            "Property": "Coût chauffeur heure"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f6144457044e9f71c59",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Coût standard"
+              }
+            },
+            "Property": "Coût gazole adblue km"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "08281c26d4f18206add3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Coût standard"
+              }
+            },
+            "Property": "Coût maintenance parc km"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4f1e94c891b2301a8ea6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Coût standard"
+              }
+            },
+            "Property": "Coût pneus km"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

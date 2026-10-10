@@ -1,0 +1,86 @@
+{
+  "id": "TrVlAlerteEchec1",
+  "name": "TransVal - Alerte d'échec de l'actualisation",
+  "active": false,
+  "nodes": [
+    {
+      "id": "e1",
+      "name": "Échec d'un workflow",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "notes": "Déclenché par n8n quand l'actualisation échoue (import, test dbt bloquant, parité, modèle).",
+      "parameters": {}
+    },
+    {
+      "id": "e2",
+      "name": "Préparer le message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const e = $input.first().json;\nconst message = [\n  `Le workflow « ${e.workflow.name} » a échoué.`,\n  `Nœud : ${e.execution.lastNodeExecuted}`,\n  `Erreur : ${e.execution.error?.message ?? 'inconnue'}`,\n  `Exécution : ${e.execution.url ?? e.execution.id}`,\n  '',\n  'Les rapports Power BI affichent les données de la dernière actualisation réussie.',\n].join('\\n');\nreturn [{ json: { message, nom: e.workflow.name } }];"
+      }
+    },
+    {
+      "id": "e3",
+      "name": "Prévenir l'équipe data (e-mail)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        0
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "fromEmail": "entrepot@transval.example",
+        "toEmail": "data@transval.example",
+        "subject": "=TransVal - ÉCHEC : {{ $json.nom }}",
+        "emailFormat": "text",
+        "text": "={{ $json.message }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "smtp": {
+          "id": "SmtpTransVal0001",
+          "name": "SMTP TransVal"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Échec d'un workflow": {
+      "main": [
+        [
+          {
+            "node": "Préparer le message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Préparer le message": {
+      "main": [
+        [
+          {
+            "node": "Prévenir l'équipe data (e-mail)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

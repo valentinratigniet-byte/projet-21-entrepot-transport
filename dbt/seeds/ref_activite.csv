@@ -1,0 +1,6 @@
+activite_cd,activite_libelle,type_activite
+VL,Vrac liquide,TAD
+PU,Pulvérulent,TAD
+AL,Alimentaire,LOG
+CH,Chimie,TAD
+CT,Conteneur,LOG

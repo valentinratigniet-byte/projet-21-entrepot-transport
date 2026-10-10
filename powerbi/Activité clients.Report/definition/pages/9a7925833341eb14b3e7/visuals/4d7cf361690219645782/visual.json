@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "4d7cf361690219645782",
+  "position": {
+    "x": 16.466607480862326,
+    "y": 278.56010988458769,
+    "z": 2000,
+    "height": 403.431883281127,
+    "width": 1247.3455166753213,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Année"
+                }
+              },
+              "queryRef": "Date.Année",
+              "nativeQueryRef": "Année",
+              "active": true,
+              "displayName": "Années"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Appairage"
+                }
+              },
+              "queryRef": "Mesures.Appairage",
+              "nativeQueryRef": "Appairage"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ce453c71306b3e1135fb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date"
+              }
+            },
+            "Property": "Année"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1bf26a7794fb6ee4ff4f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Appairage"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

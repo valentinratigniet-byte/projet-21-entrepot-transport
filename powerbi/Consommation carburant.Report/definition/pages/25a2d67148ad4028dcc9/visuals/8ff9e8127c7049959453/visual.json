@@ -1,0 +1,384 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "8ff9e8127c7049959453",
+  "position": {
+    "x": 16,
+    "y": 220,
+    "z": 1000,
+    "height": 462,
+    "width": 1059.4,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conso FMS"
+                    }
+                  },
+                  "Property": "N° tracteur"
+                }
+              },
+              "queryRef": "Conso FMS.N° tracteur",
+              "nativeQueryRef": "N° tracteur",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conso FMS"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Conso FMS.Date",
+              "nativeQueryRef": "Date",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur",
+              "active": false,
+              "displayName": "Conducteur"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Conso moyenne L/100 km"
+                }
+              },
+              "queryRef": "Mesures.Conso moyenne L/100 km",
+              "nativeQueryRef": "Conso moyenne L/100 km"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Conso moyenne conduite L/100 km"
+                }
+              },
+              "queryRef": "Mesures.Conso moyenne conduite L/100 km",
+              "nativeQueryRef": "Conso moyenne conduite L/100 km"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Conso FMS"
+                        }
+                      },
+                      "Property": "Distance km"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Conso FMS.Distance km)",
+              "nativeQueryRef": "Somme de Distance km",
+              "displayName": "Distance parcourue"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Conso FMS"
+                        }
+                      },
+                      "Property": "Conso totale l"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Conso FMS.Conso totale l)",
+              "nativeQueryRef": "Somme de Conso totale l",
+              "displayName": "Carburant Consommé Total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Conso FMS"
+                        }
+                      },
+                      "Property": "Conso PTO l"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Conso FMS.Conso PTO l)",
+              "nativeQueryRef": "Somme de Conso PTO l",
+              "displayName": "Carburant Consommé PTO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Conso FMS"
+                        }
+                      },
+                      "Property": "CO2 kg"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Conso FMS.CO2 kg)",
+              "nativeQueryRef": "Somme de CO2 kg"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0ed865bcd242828cd59b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cd9a1ff53ed2445e2897",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conso FMS"
+              }
+            },
+            "Property": "N° tracteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "abd324abc0dab26bc5c3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conso FMS"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "51053adcb3e9e77706e8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Conso moyenne conduite L/100 km"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9afdb83a26d732183e0b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Conso moyenne L/100 km"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a631fd3b0aaaee330ed3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Conso FMS"
+                  }
+                },
+                "Property": "Distance km"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d984959bff7feab0de4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Conso FMS"
+                  }
+                },
+                "Property": "Conso totale l"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "124a4a068ec5ae466b51",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Conso FMS"
+                  }
+                },
+                "Property": "Conso PTO l"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e050afc34b5262b669c2",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Conso FMS"
+                  }
+                },
+                "Property": "CO2 kg"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

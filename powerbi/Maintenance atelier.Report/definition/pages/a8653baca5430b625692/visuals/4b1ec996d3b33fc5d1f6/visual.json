@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "4b1ec996d3b33fc5d1f6",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 300,
+    "width": 420,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Coût maintenance / 100 km MO",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#0C5563",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Main-d'œuvre directe de l'atelier interne.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Calcul : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "DIVIDE([Coût main d'oeuvre], [Km atelier]) * 100",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "'Atelier' ← ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "dbt fct_atelier_ligne ← ERP AS/400 (pointages, heures mécaniciens), référentiel versionné (seed dbt), TMS (voyages, atelier, visites)",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "'Voyage' ← ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "dbt fct_voyage ← Listes SharePoint, TMS (voyages, atelier, visites)",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mis à jour à chaque import de lot (dbt build incrémental puis actualisation du modèle).",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

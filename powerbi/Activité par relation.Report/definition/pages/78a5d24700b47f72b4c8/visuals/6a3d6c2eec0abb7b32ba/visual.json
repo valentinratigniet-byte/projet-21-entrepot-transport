@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "6a3d6c2eec0abb7b32ba",
+  "position": {
+    "x": 1088.6,
+    "y": 350.9,
+    "z": 1004,
+    "height": 92.2,
+    "width": 175.4,
+    "tabOrder": 1004
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Arrivée pays"
+                }
+              },
+              "queryRef": "Relation.Arrivée pays",
+              "nativeQueryRef": "Arrivée pays",
+              "active": true,
+              "displayName": "Pays d'arrivé"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Relation.Arrivée pays",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a42f9999b8cc6d53a69d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Arrivée pays"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

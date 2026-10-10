@@ -1,0 +1,60 @@
+table 'Contrôle qualité'
+	lineageTag: 5503cd15-3539-5882-ac2f-8287d8c72457
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: c7406bdc-7046-5007-8703-75a034581a49
+		summarizeBy: sum
+		sourceColumn: Ordre
+
+	column Domaine
+		dataType: string
+		lineageTag: b1e269f6-d50e-575f-96d6-c4df48c5308b
+		summarizeBy: none
+		sourceColumn: Domaine
+
+	column Source
+		dataType: string
+		lineageTag: a826962e-5363-51af-8008-d7ba67b48b59
+		summarizeBy: none
+		sourceColumn: Source
+
+	column Contrôle
+		dataType: string
+		lineageTag: 8eb71cf7-3940-5331-9680-6e6e24574c5f
+		summarizeBy: none
+		sourceColumn: Contrôle
+
+	column Règle
+		dataType: string
+		lineageTag: 232e5c7a-6522-5f7a-833f-21c8c904c6b6
+		summarizeBy: none
+		sourceColumn: Règle
+
+	column 'Lignes brutes'
+		dataType: int64
+		lineageTag: 5517f465-faee-5266-a523-b699b036da0a
+		summarizeBy: sum
+		sourceColumn: Lignes brutes
+
+	column 'Lignes concernées'
+		dataType: int64
+		lineageTag: 8768716e-5076-5c04-a0f9-5ac5850a2027
+		summarizeBy: sum
+		sourceColumn: Lignes concernées
+
+	column Traitement
+		dataType: string
+		lineageTag: bc7dcfba-423f-5312-9bf7-4c312b4f000e
+		summarizeBy: none
+		sourceColumn: Traitement
+
+	partition 'Contrôle qualité' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Contrôle qualité.parquet"))
+				in
+				    Source
+

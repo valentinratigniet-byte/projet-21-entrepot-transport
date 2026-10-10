@@ -1,0 +1,298 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "v01a00b31cf3e9f",
+  "position": {
+    "x": 16,
+    "y": 176,
+    "z": 1001,
+    "height": 506,
+    "width": 1248,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Historique conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Type contrat"
+                }
+              },
+              "queryRef": "Historique conducteur.Type contrat",
+              "nativeQueryRef": "Type contrat"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Base mensuelle"
+                }
+              },
+              "queryRef": "Historique conducteur.Base mensuelle",
+              "nativeQueryRef": "Base mensuelle"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Code effectif"
+                }
+              },
+              "queryRef": "Historique conducteur.Code effectif",
+              "nativeQueryRef": "Code effectif"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Valide du"
+                }
+              },
+              "queryRef": "Historique conducteur.Valide du",
+              "nativeQueryRef": "Valide du"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Valide au"
+                }
+              },
+              "queryRef": "Historique conducteur.Valide au",
+              "nativeQueryRef": "Valide au"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Version courante"
+                }
+              },
+              "queryRef": "Historique conducteur.Version courante",
+              "nativeQueryRef": "Version courante"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Historique conducteur"
+                    }
+                  },
+                  "Property": "Lot observé"
+                }
+              },
+              "queryRef": "Historique conducteur.Lot observé",
+              "nativeQueryRef": "Lot observé"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6fdb3fcd0d70a8bf2b3e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e7c07c8a73545982878e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Type contrat"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7f0965dd3a74f010c0ae",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Base mensuelle"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6da1b019786b6a0d092b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Code effectif"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "40fa03ab85651fb10407",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Valide du"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6de81b47c329cb9be88c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Valide au"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bb73c84543ca5965747c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Version courante"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "91aa9be2c3cf54089ea4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Historique conducteur"
+              }
+            },
+            "Property": "Lot observé"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+table 'Sélecteur atelier total'
+	lineageTag: 9dad9f68-b79f-53bc-bdea-f9f8b2c4abba
+
+	column Indicateur
+		dataType: string
+		lineageTag: d1179a84-8b55-5cb8-bd7a-3dc77b739b3f
+		summarizeBy: none
+		sourceColumn: [Indicateur]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: 17dfc014-f393-534f-992c-ce60cf8c2e20
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Sélecteur atelier total' = calculated
+		mode: import
+		source = DATATABLE("Indicateur", STRING, "Ordre", INTEGER, {{"Coût maintenance", 1}, {"Préventif", 2}, {"Panne", 3}, {"Sinistre", 4}})
+

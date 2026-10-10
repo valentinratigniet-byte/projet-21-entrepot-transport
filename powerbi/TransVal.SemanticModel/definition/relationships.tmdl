@@ -1,0 +1,244 @@
+relationship ccf06735-4c28-513d-b73a-dc247b40207e
+	fromColumn: Voyage.'Date livraison'
+	toColumn: Date.Date
+
+relationship 61da5bbe-513b-51df-87ce-26e445e6d3f6
+	isActive: false
+	fromColumn: Voyage.'Date chargement'
+	toColumn: Date.Date
+
+relationship e28fce0f-b067-5b17-9fab-af6b37793a48
+	fromColumn: Voyage.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship b1ee4fa6-9d06-5c57-9650-5d11a3553f53
+	fromColumn: Voyage.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship e268d45f-ac4d-538b-9721-7faa53dd0ef8
+	isActive: false
+	fromColumn: Voyage.Remorque
+	toColumn: Matériel.'Code matériel'
+
+relationship 4175a281-e6ab-5362-a970-c8583c600c30
+	fromColumn: Voyage.'Code client'
+	toColumn: Client.'Code client'
+
+relationship d3624370-548e-56f7-9d62-95a5530563d9
+	fromColumn: Voyage.'Code relation'
+	toColumn: Relation.'Code relation'
+
+relationship c914585c-2233-5d42-97a5-8bef170bdf78
+	fromColumn: Voyage.'Code activité'
+	toColumn: Activité.'Code activité'
+
+relationship 84b84a19-c487-5d0b-bc69-972a28bc982f
+	fromColumn: 'Événement facturé'.'N° voyage'
+	toColumn: Voyage.'N° voyage'
+
+relationship 44e080fe-b0ce-5297-8d78-f78bfd6f9e06
+	fromColumn: 'Justification attente'.'N° voyage'
+	toColumn: Voyage.'N° voyage'
+
+relationship d65b7a34-ec79-56b5-9787-48640f2139bf
+	fromColumn: 'Justification lavage'.CMR
+	toColumn: Voyage.CMR
+
+relationship 3a353f8b-4c07-50cb-b4e9-da2809c56020
+	fromColumn: Pointage.'Date pointage'
+	toColumn: Date.Date
+
+relationship 3505366c-39bc-5a59-b212-95943d0aa8a9
+	fromColumn: Pointage.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship e18793da-0623-57a3-b890-4721ab15e53e
+	fromColumn: Pointage.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship 27fe629f-ece9-505c-b5ea-28bfbd0bea1a
+	fromColumn: Chrono.Date
+	toColumn: Date.Date
+
+relationship 4fe37b37-ad97-5b08-898c-281d922ec966
+	fromColumn: Chrono.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship a7a32273-b6a7-55b8-b1f0-bfe31acd30ff
+	fromColumn: 'Compteur paie'.Mois
+	toColumn: Date.Date
+
+relationship 543e3092-168d-5eea-8d93-d355cf430b42
+	fromColumn: 'Compteur paie'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship a2c06f58-29b4-51ca-b78c-bc2f6916d364
+	fromColumn: 'Activité chauffeur'.'Date activité'
+	toColumn: Date.Date
+
+relationship 6bbc425e-afac-5431-abdd-22604f0c385f
+	fromColumn: 'Activité chauffeur'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship efe2c08f-efd9-554a-a309-e13d01af9665
+	fromColumn: Affectation.Date
+	toColumn: Date.Date
+
+relationship 54cb597e-696e-548f-b541-67e3d9d301bf
+	fromColumn: Affectation.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship d18c54ba-f93d-5c7f-9d63-60a5cc7313e6
+	fromColumn: Affectation.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship ed71806a-85fd-540c-ab9e-16a71cc02171
+	fromColumn: Affectation.'Code activité'
+	toColumn: Activité.'Code activité'
+
+relationship 16cbdcfc-b392-54f9-bd08-ffaa0818e305
+	fromColumn: Atelier.'Date OT'
+	toColumn: Date.Date
+
+relationship 036c9c0e-c1a2-58b4-9328-2b770fdc664b
+	fromColumn: Atelier.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship 5244f05e-7cae-51c0-a4ed-a91043183d69
+	fromColumn: 'Visite technique'.'Date visite'
+	toColumn: Date.Date
+
+relationship e95026ec-7d85-5006-8680-adcefd12332a
+	fromColumn: 'Visite technique'.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship a5b138eb-8a5f-56ac-94c0-501d18f93a41
+	fromColumn: 'Heures mécanicien'.Mois
+	toColumn: Date.Date
+
+relationship 1e72eed4-2cb3-59e3-b2f3-2f2b26c3c019
+	fromColumn: Carburant.'Date prélèvement'
+	toColumn: Date.Date
+
+relationship d5be9054-0344-5d3d-a716-f7d432db11fe
+	fromColumn: Carburant.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 0a81fb61-ef9d-5a11-a405-128a9ff4eec8
+	fromColumn: Carburant.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship fafee3b6-9a50-51e9-9879-92987819aea9
+	fromColumn: 'Conso FMS'.Date
+	toColumn: Date.Date
+
+relationship 3747f9bc-5043-5b5a-b049-efeaee6481c6
+	fromColumn: 'Conso FMS'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 33b7df7b-78b6-5591-aa1d-5eb8e16245a1
+	fromColumn: 'Conso FMS'.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship d5a34371-4d9d-541d-8b16-b2b8328e8e47
+	fromColumn: Absence.'Date absence'
+	toColumn: Date.Date
+
+relationship e28b9260-4b66-5986-823c-af6b941e76fb
+	fromColumn: Absence.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 2126119f-c196-5dc1-aebf-2281ce4dc5e9
+	fromColumn: Infraction.'Date infraction'
+	toColumn: Date.Date
+
+relationship 185d9732-612b-5eff-b1a6-4e74c1f44470
+	fromColumn: Infraction.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship a1d3875a-879e-5727-b5fe-ac55318da4c4
+	fromColumn: 'Autoroute interdite'.'Date événement'
+	toColumn: Date.Date
+
+relationship 9875cd17-8397-5fac-95ee-448e409aaab5
+	fromColumn: 'Autoroute interdite'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 0ba1066e-e13b-54f6-83dc-5b7af0dbff99
+	fromColumn: 'Autoroute interdite'.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship 67787100-802f-5974-875e-287b60444bce
+	fromColumn: 'Accident travail'.'Date accident'
+	toColumn: Date.Date
+
+relationship fc4f050a-83de-5ef9-b39b-6f6d3cb755f0
+	fromColumn: 'Accident travail'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship b2b417c9-63ad-5321-b4db-005b1d1f1324
+	fromColumn: 'Anomalie matériel'.'Date signalement'
+	toColumn: Date.Date
+
+relationship ad493f41-152d-52f3-b8cb-87d52f9b2aef
+	fromColumn: 'Anomalie matériel'.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship 9957a880-2efb-578c-8f7a-0b4909bf8a8a
+	fromColumn: 'Anomalie QHSE'.'Date anomalie'
+	toColumn: Date.Date
+
+relationship 692da7be-f5b9-517d-9ef0-c43a9e2e3a59
+	fromColumn: 'Anomalie QHSE'.'Code activité'
+	toColumn: Activité.'Code activité'
+
+relationship 843fa507-bc82-5061-9d47-302da7baa002
+	fromColumn: Rapprochement.'Date référence'
+	toColumn: Date.Date
+
+relationship 1e06df0b-196c-5b5f-a8e5-3274ecb3409a
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Écriture comptable'.'N° facture'
+	toColumn: Rapprochement.'N° facture'
+
+relationship 7a96d278-306b-5a31-a847-bb3c8da9ea1c
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Facture atelier'.'N° facture'
+	toColumn: Rapprochement.'N° facture'
+
+relationship dce9b84d-cb21-5b78-bcb7-9a1316b6be6a
+	fromColumn: Objectif.'Code activité'
+	toColumn: Activité.'Code activité'
+
+relationship 692890c4-c11f-5640-b9bc-001a4b2d28a5
+	fromColumn: 'Rentabilité tracteur'.Mois
+	toColumn: Date.Date
+
+relationship 70a30cb6-313e-5c47-95f4-b19d7dd07b08
+	fromColumn: 'Rentabilité tracteur'.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship 9da80df4-a8ee-5995-ab4b-14c5d47cd34b
+	fromColumn: 'Rentabilité conducteur'.Mois
+	toColumn: Date.Date
+
+relationship 91009c5c-a6cd-50b1-8018-a48c48b8531d
+	fromColumn: 'Rentabilité conducteur'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 2f392c06-4494-5e43-b094-1133b232c19c
+	fromColumn: 'Historique conducteur'.Matricule
+	toColumn: Conducteur.Matricule
+
+relationship 8cf92382-7346-5c72-b8b4-0fee75837d09
+	fromColumn: Immobilisation.Date
+	toColumn: Date.Date
+
+relationship 08d67727-1c2c-533e-b76b-ebf7d600406c
+	fromColumn: Immobilisation.'Code tracteur'
+	toColumn: Matériel.'Code matériel'
+
+relationship f63baabe-fd62-5646-9900-f599b0f66b87
+	fromColumn: Immobilisation.'Code activité'
+	toColumn: Activité.'Code activité'
+

@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "eea8545176fa5672ab0a",
+  "position": {
+    "x": 763.7,
+    "y": 264.1,
+    "z": 1002,
+    "height": 429.8,
+    "width": 500.3,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Carburant"
+                    }
+                  },
+                  "Property": "Fournisseur"
+                }
+              },
+              "queryRef": "Carburant.Fournisseur",
+              "nativeQueryRef": "Fournisseur",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Date"
+                        }
+                      },
+                      "Hierarchy": "Hiérarchie de dates"
+                    }
+                  },
+                  "Level": "Mois"
+                }
+              },
+              "queryRef": "Date.Hiérarchie de dates.Mois",
+              "nativeQueryRef": "Mois",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Quantité litres"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Carburant.Quantité litres)",
+              "nativeQueryRef": "Somme de Quantité litres",
+              "displayName": "QTE Litre"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Prix litre"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(Carburant.Prix litre)",
+              "nativeQueryRef": "Moyenne de Prix litre",
+              "displayName": "Prix Moyen du Litre €"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Carburant"
+                      }
+                    },
+                    "Property": "Quantité litres"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter13cf76c3681cf24083f8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Carburant"
+              }
+            },
+            "Property": "Matricule"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "b6d06115d3b3d1e9582a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Date"
+                  }
+                },
+                "Hierarchy": "Hiérarchie de dates"
+              }
+            },
+            "Level": "Mois"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b93e7759d089f6c3b5c5",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Carburant"
+                  }
+                },
+                "Property": "Quantité litres"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "12f79bfbf6b7fbed3c22",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Carburant"
+                  }
+                },
+                "Property": "Prix litre"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4e390dd02617de3d2fae",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Carburant"
+              }
+            },
+            "Property": "Fournisseur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c5b32eac18b3b44b4117",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

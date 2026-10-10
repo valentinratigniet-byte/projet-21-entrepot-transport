@@ -1,0 +1,29 @@
+table 'Événement facturé'
+	lineageTag: 4ac19783-ff7a-5954-907f-5b22730ebd0a
+
+	column 'N° voyage'
+		dataType: int64
+		lineageTag: d39a2741-f5a5-5559-9b55-fbf86f73ea01
+		summarizeBy: none
+		sourceColumn: N° voyage
+
+	column 'Type événement'
+		dataType: string
+		lineageTag: 2f109281-bf7f-5759-9541-9e79004eade1
+		summarizeBy: none
+		sourceColumn: Type événement
+
+	column 'Montant facturé'
+		dataType: double
+		lineageTag: 95716efe-d06f-501b-9eb9-cb55cea6a6c2
+		summarizeBy: sum
+		sourceColumn: Montant facturé
+
+	partition 'Événement facturé' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Événement facturé.parquet"))
+				in
+				    Source
+

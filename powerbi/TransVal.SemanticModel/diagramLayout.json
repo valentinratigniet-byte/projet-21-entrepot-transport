@@ -1,0 +1,828 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 3348.3989285856742,
+            "y": 1125.6336144926006
+          },
+          "nodeIndex": "Mesures",
+          "nodeLineageTag": "8d195c73-380d-5b2e-a841-7eb5ddd2c030",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1294.898958854197,
+            "y": 476.46210424950573
+          },
+          "nodeIndex": "Absence",
+          "nodeLineageTag": "ab0f5f20-b793-5d1d-b324-2b9e48a404b8",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1499.3015273097267,
+            "y": 0
+          },
+          "nodeIndex": "Accident travail",
+          "nodeLineageTag": "9f56a1c8-ba64-5040-827d-145f93432f14",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2951.5890701156632,
+            "y": 1138.474842647538
+          },
+          "nodeIndex": "Activité",
+          "nodeLineageTag": "2a93414b-58a0-5211-8015-c6b52494ec3a",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 531.93433748222947,
+            "y": 1019.6265319126796
+          },
+          "nodeIndex": "Activité chauffeur",
+          "nodeLineageTag": "9ed65ea1-ad45-5b76-b823-d8d535450936",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1820.0053190616411,
+            "y": 1746.9230893484364
+          },
+          "nodeIndex": "Affectation",
+          "nodeLineageTag": "0996f167-87a5-5d52-907c-9ac2181c319e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2235.6811526906572,
+            "y": 1891.6134557276343
+          },
+          "nodeIndex": "Anomalie QHSE",
+          "nodeLineageTag": "01303996-d0a2-5448-aabc-2f410c125fb6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 796.84719734019632,
+            "y": 1778.8051247356952
+          },
+          "nodeIndex": "Atelier",
+          "nodeLineageTag": "0e99e2b3-8d9f-5e3e-976a-8c9ddb6e7a3f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1055.2555359767184,
+            "y": 345.68419912251761
+          },
+          "nodeIndex": "Autoroute interdite",
+          "nodeLineageTag": "daf92bdb-5bdb-59aa-b3ab-db7413314ee6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8110.1172302258165,
+            "y": 1199.6336144926006
+          },
+          "nodeIndex": "Choix période",
+          "nodeLineageTag": "5a7d89f8-ff7b-5aa6-9859-e49cd1954a8e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 828.75545665490813,
+            "y": 2251.5326161205412
+          },
+          "nodeIndex": "Chrono",
+          "nodeLineageTag": "a869e5cc-79a8-5db6-a334-c7f6cc8388c3",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2548.6844234315513,
+            "y": 616.26003145217669
+          },
+          "nodeIndex": "Client",
+          "nodeLineageTag": "f0a17729-4228-54e1-b5e3-ef47c6112e4b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 942.39644173173542,
+            "y": 1270.9768769341238
+          },
+          "nodeIndex": "Compteur paie",
+          "nodeLineageTag": "6a8a83e4-a8f7-5bfb-a028-2a4ea7673a27",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1720.2027573671453,
+            "y": 845.65616701491945
+          },
+          "nodeIndex": "Conducteur",
+          "nodeLineageTag": "f6d0a0a2-c336-58d2-bcd6-e982e1197157",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1376.7208503612976,
+            "y": 822.14630337202357
+          },
+          "nodeIndex": "Conso FMS",
+          "nodeLineageTag": "be6efeb5-bb4f-5a98-8b12-1981a58bb944",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4142.0186455256971,
+            "y": 1139.6336144926006
+          },
+          "nodeIndex": "Contrôle qualité",
+          "nodeLineageTag": "2810c21f-755f-5a66-8913-c0e0a30e41ce",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1207.3093015897023,
+            "y": 1775.0705118710355
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "e20f1989-cec4-5591-a532-1acc1cbb0564",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 1893.7677050030386
+          },
+          "nodeIndex": "Écriture comptable",
+          "nodeLineageTag": "2e4f636c-5c13-54a7-ac9e-96d6ba77f646",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2951.5890701156632,
+            "y": 924.29513065688161
+          },
+          "nodeIndex": "Événement facturé",
+          "nodeLineageTag": "6bb5a88f-2b52-5632-a992-fc9fd0c96926",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 410.46210424950596,
+            "y": 1621.4076737648652
+          },
+          "nodeIndex": "Facture atelier",
+          "nodeLineageTag": "cebf868d-3b95-588c-8b73-d54957d007b6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9300.5468056358513,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Filtre période",
+          "nodeLineageTag": "12e62276-1829-5dbc-964b-19a4d633d51d",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1309.7406531176393,
+            "y": 1298.6084076215295
+          },
+          "nodeIndex": "Heures mécanicien",
+          "nodeLineageTag": "b6c0614d-a33b-53ec-b8ff-692cb7f9b534",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 637.55873919870089,
+            "y": 422.25979893109479
+          },
+          "nodeIndex": "Historique conducteur",
+          "nodeLineageTag": "5298fda8-88b7-587d-9588-d89bf72a0473",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4935.63836246572,
+            "y": 1151.6336144926006
+          },
+          "nodeIndex": "Import",
+          "nodeLineageTag": "bc7dcfba-423f-5312-9bf7-4c312b4f000e",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3745.2087870556861,
+            "y": 1127.6336144926006
+          },
+          "nodeIndex": "Indicateurs",
+          "nodeLineageTag": "2d15be34-009d-5c0b-9943-e26aebcafc97",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6522.8777963457687,
+            "y": 1175.6336144926006
+          },
+          "nodeIndex": "Indicateurs heures conducteur",
+          "nodeLineageTag": "614facd9-de64-501f-9dce-217f85eca522",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6919.6876548157807,
+            "y": 1175.6336144926006
+          },
+          "nodeIndex": "Indicateurs relation",
+          "nodeLineageTag": "72d9cc1b-1421-5bcd-bd25-5b9522f5f78b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1048.0208434482067,
+            "y": 828.92420849901168
+          },
+          "nodeIndex": "Infraction",
+          "nodeLineageTag": "df95e580-b052-5222-ad82-8987d7f9bb90",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 143.08116968918694,
+            "y": 691.16442766317368
+          },
+          "nodeIndex": "Justification attente",
+          "nodeLineageTag": "d39a2741-f5a5-5559-9b55-fbf86f73ea01",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2372.3068623347103,
+            "y": 1576.0079026283042
+          },
+          "nodeIndex": "Justification lavage",
+          "nodeLineageTag": "01d0bd33-092c-5a2f-b621-f3447db2b572",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1825.2190484411512,
+            "y": 2147.3851935979424
+          },
+          "nodeIndex": "Matériel",
+          "nodeLineageTag": "33f88f61-6094-55c0-b23d-260b36178659",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2646.1432569401632,
+            "y": 1767.2972308932458
+          },
+          "nodeIndex": "Objectif",
+          "nodeLineageTag": "ba3f17e8-9ba8-54fd-a839-3a460c0f2a2d",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5729.2580794057449,
+            "y": 1175.6336144926006
+          },
+          "nodeIndex": "Objectif exploitant",
+          "nodeLineageTag": "92842a21-f3f9-5eca-8d12-3f732ab84438",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10094.166522575873,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Paramètres",
+          "nodeLineageTag": "708d1d25-9f0f-56f8-83d2-e8abace3c4aa",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1720.2027573671451,
+            "y": 1270.4609850989305
+          },
+          "nodeIndex": "Pointage",
+          "nodeLineageTag": "3b0486d1-7f6c-51b2-93ae-4f43fadd28e9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 536.43632125254567,
+            "y": 2255.2672289852012
+          },
+          "nodeIndex": "Rapprochement",
+          "nodeLineageTag": "07dbf54c-5b90-58b8-8697-a41ab1313aef",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2138.2223191820453,
+            "y": 891.19776881458051
+          },
+          "nodeIndex": "Relation",
+          "nodeLineageTag": "16f0cae8-e55b-51bc-9c41-27239a5a06a6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2130.6648616166513,
+            "y": 1215.8204553251023
+          },
+          "nodeIndex": "Rentabilité conducteur",
+          "nodeLineageTag": "95d62c36-6078-57f2-a202-a79dbd838785",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1584.6574376247895,
+            "y": 1995.0779297288068
+          },
+          "nodeIndex": "Rentabilité tracteur",
+          "nodeLineageTag": "452515a9-192e-51d7-b856-62d921a49dff",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10490.976381045884,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur activité",
+          "nodeLineageTag": "637a95f9-1860-5afe-8a58-59d00b7b0ec3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10887.786239515895,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur anomalies",
+          "nodeLineageTag": "bdc86a4a-1cd4-5f42-a2b5-9d605afabaaa",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11284.596097985906,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier MO",
+          "nodeLineageTag": "f24d708a-bed1-5850-8c42-8212af8516f3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11681.405956455917,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier pièces",
+          "nodeLineageTag": "647b575d-b361-52f6-9b7c-7ba3470f42f3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12078.215814925928,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier productivité",
+          "nodeLineageTag": "1a180f51-7712-51f8-b901-86e991cf8d21",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12475.02567339594,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier qualité",
+          "nodeLineageTag": "891b8379-cc5f-570b-92bb-8756f50069d7",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12871.835531865951,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier sous-traitance",
+          "nodeLineageTag": "2365ce4d-5093-55ff-ba6a-895dc7d04760",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8506.9270886958275,
+            "y": 1199.6336144926006
+          },
+          "nodeIndex": "Sélecteur atelier total",
+          "nodeLineageTag": "b6613585-93c6-55ef-a0b3-6b6bb36b2e1a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13665.455248805973,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Sélecteur coût",
+          "nodeLineageTag": "fa143f74-58bb-523f-8138-f13b406854ac",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2130.6648616166513,
+            "y": 1527.309565138213
+          },
+          "nodeIndex": "Visite technique",
+          "nodeLineageTag": "96f700ec-293c-5f40-8acb-3554ffd863f7",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2541.1269658661572,
+            "y": 1089.8966778335921
+          },
+          "nodeIndex": "Voyage",
+          "nodeLineageTag": "da5bc0f1-1d85-5a7d-8a2d-d7cdc4e0c53e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14062.265107275984,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Vue heures",
+          "nodeLineageTag": "474fcf11-2e1f-53c1-a5f7-11eab8669d80",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14346.265107275984,
+            "y": 0
+          },
+          "nodeIndex": "Anomalie matériel",
+          "nodeLineageTag": "6069e776-4ba8-5904-ba14-a2d6c3c7645f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14747.639086630561,
+            "y": 0
+          },
+          "nodeIndex": "Carburant",
+          "nodeLineageTag": "f1c41758-4d77-522d-a490-35b57ed63c65",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15550.387045339718,
+            "y": 62
+          },
+          "nodeIndex": "Immobilisation",
+          "nodeLineageTag": "409de05f-79ff-57fb-9694-9365fdbd5d4b",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8903.73694716584,
+            "y": 1199.6336144926006
+          },
+          "nodeIndex": "Pic ou moyenne tracteurs",
+          "nodeLineageTag": "ad305afc-2705-5252-aecf-a49fd537ca39",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9697.3566641058624,
+            "y": 1211.6336144926006
+          },
+          "nodeIndex": "Résultat dbt",
+          "nodeLineageTag": "3fd02b43-8556-5602-87da-1626cd9c6d7b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7316.4975132857926,
+            "y": 1199.6336144926006
+          },
+          "nodeIndex": "Pic ou moyenne absences",
+          "nodeLineageTag": "fcdc2f92-5406-5d1e-8d3b-b8d7f32af540",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6126.0679378757568,
+            "y": 1175.6336144926006
+          },
+          "nodeIndex": "Sélecteur indicateur QHSE",
+          "nodeLineageTag": "60653b83-bbbe-55e1-8965-7f8548357405",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16592.738077021266,
+            "y": 24
+          },
+          "nodeIndex": "Axe QHSE",
+          "nodeLineageTag": "115b473c-c9d9-5f4c-ac53-02964dde9c30",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15834.387045339718,
+            "y": 0
+          },
+          "nodeIndex": "Coût standard",
+          "nodeLineageTag": "4e48c433-bccd-5af7-b200-1666a9acb584",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16971.913592862042,
+            "y": 36
+          },
+          "nodeIndex": "Habilitation",
+          "nodeLineageTag": "523a01c0-d00b-598c-a484-89669b5faf33",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16213.562561180492,
+            "y": 0
+          },
+          "nodeIndex": "Indicateurs client",
+          "nodeLineageTag": "160170f2-4d1c-5d16-880d-8e7b4ab899b5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

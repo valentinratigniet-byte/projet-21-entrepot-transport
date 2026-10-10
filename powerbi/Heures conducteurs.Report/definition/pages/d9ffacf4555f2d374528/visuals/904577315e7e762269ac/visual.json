@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "904577315e7e762269ac",
+  "position": {
+    "x": 16,
+    "y": 202,
+    "z": 1000,
+    "height": 44.2,
+    "width": 420.1,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textSearchSlicerF85E2E78BE4A4D7D9F99ED75B5D71C85",
+    "query": {
+      "queryState": {
+        "fields": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "inputFormatting": [
+        {
+          "properties": {
+            "placeholderString": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Conducteur'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Conducteur.Conducteur",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

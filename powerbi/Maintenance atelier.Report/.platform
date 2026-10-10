@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Maintenance atelier"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8107b516-f06c-4f63-9522-662bb2c97845"
+  }
+}

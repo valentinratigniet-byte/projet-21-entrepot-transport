@@ -1,0 +1,67 @@
+table Indicateurs
+	lineageTag: 5ed492b7-8244-526c-9d92-5de19425357f
+
+	column Domaine
+		dataType: string
+		lineageTag: edf7254c-3a7e-52be-98c1-ab115a934f33
+		summarizeBy: none
+		sourceColumn: Domaine
+
+	column KPI
+		dataType: string
+		lineageTag: 708d1d25-9f0f-56f8-83d2-e8abace3c4aa
+		summarizeBy: none
+		sourceColumn: KPI
+
+	column Période
+		dataType: string
+		lineageTag: 4f19886f-226b-571e-84d2-8eaab5c10694
+		summarizeBy: none
+		sourceColumn: Période
+
+	column Valeur
+		dataType: double
+		lineageTag: 59ea46c4-96c9-5512-b8d6-ffc06183b522
+		summarizeBy: sum
+		sourceColumn: Valeur
+
+	column Numérateur
+		dataType: double
+		lineageTag: 452515a9-192e-51d7-b856-62d921a49dff
+		summarizeBy: sum
+		sourceColumn: Numérateur
+
+	column Dénominateur
+		dataType: double
+		lineageTag: 34437192-298c-55fa-aaa1-f33f746b3844
+		summarizeBy: sum
+		sourceColumn: Dénominateur
+
+	column 'Type période'
+		dataType: string
+		lineageTag: 450d4aee-136b-5c55-9e2f-7fc7986c36ea
+		summarizeBy: none
+		sourceColumn: Type période
+
+	column 'Date début'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 463670e4-4abc-5816-8f29-c4e48d2ddc5d
+		summarizeBy: none
+		sourceColumn: Date début
+
+	column 'Date fin'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 1373d1e4-f7a5-5ea2-a995-742f56d7c184
+		summarizeBy: none
+		sourceColumn: Date fin
+
+	partition Indicateurs = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Indicateurs.parquet"))
+				in
+				    Source
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Référentiel conducteurs"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fceb27d6-c0ee-40a7-90e0-236ddafd4d02"
+  }
+}

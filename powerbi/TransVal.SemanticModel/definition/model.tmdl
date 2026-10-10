@@ -1,0 +1,81 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table Date
+ref table Activité
+ref table Conducteur
+ref table Matériel
+ref table Client
+ref table Relation
+ref table Voyage
+ref table 'Événement facturé'
+ref table 'Justification attente'
+ref table 'Justification lavage'
+ref table Pointage
+ref table Chrono
+ref table 'Compteur paie'
+ref table 'Activité chauffeur'
+ref table Affectation
+ref table Atelier
+ref table 'Visite technique'
+ref table 'Heures mécanicien'
+ref table Carburant
+ref table 'Conso FMS'
+ref table Absence
+ref table Infraction
+ref table 'Autoroute interdite'
+ref table 'Accident travail'
+ref table 'Anomalie matériel'
+ref table 'Anomalie QHSE'
+ref table 'Écriture comptable'
+ref table 'Facture atelier'
+ref table Rapprochement
+ref table Objectif
+ref table 'Objectif exploitant'
+ref table 'Coût standard'
+ref table Indicateurs
+ref table Paramètres
+ref table 'Sélecteur activité'
+ref table 'Sélecteur coût'
+ref table 'Sélecteur anomalies'
+ref table 'Sélecteur atelier qualité'
+ref table 'Sélecteur atelier productivité'
+ref table 'Vue heures'
+ref table 'Filtre période'
+ref table 'Sélecteur atelier pièces'
+ref table 'Sélecteur atelier MO'
+ref table 'Sélecteur atelier sous-traitance'
+ref table 'Sélecteur atelier total'
+ref table 'Choix période'
+ref table 'Pic ou moyenne tracteurs'
+ref table 'Pic ou moyenne absences'
+ref table 'Sélecteur indicateur QHSE'
+ref table 'Axe QHSE'
+ref table Mesures
+ref table 'Indicateurs client'
+ref table 'Indicateurs relation'
+ref table 'Indicateurs heures conducteur'
+ref table 'Rentabilité tracteur'
+ref table 'Rentabilité conducteur'
+ref table 'Historique conducteur'
+ref table 'Contrôle qualité'
+ref table Import
+ref table 'Résultat dbt'
+ref table Habilitation
+ref table Immobilisation
+
+ref role Exploitant
+ref role Direction
+
+ref cultureInfo fr-FR
+

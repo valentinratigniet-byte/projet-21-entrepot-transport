@@ -1,0 +1,103 @@
+table Conducteur
+	lineageTag: f6d0a0a2-c336-58d2-bcd6-e982e1197157
+
+	column Matricule
+		dataType: int64
+		lineageTag: 5a6613fe-e781-5c8c-8a36-788e51eed435
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Matricule oracle'
+		dataType: string
+		lineageTag: ddde2872-5278-53de-a1d2-86fa4ab0ecba
+		summarizeBy: none
+		sourceColumn: Matricule oracle
+
+	column Nom
+		dataType: string
+		lineageTag: 55969b3e-7690-5f3c-92e3-652bbb92f8d7
+		summarizeBy: none
+		sourceColumn: Nom
+
+	column Prénom
+		dataType: string
+		lineageTag: 71659ae3-3a28-509b-931a-4cd116851fb0
+		summarizeBy: none
+		sourceColumn: Prénom
+
+	column Conducteur
+		dataType: string
+		lineageTag: 8c097f85-4da1-517f-8db3-a5f12f69cbe6
+		summarizeBy: none
+		sourceColumn: Conducteur
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 19c73424-0ce8-5d59-8e5a-35ff9bee58f7
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column Activité
+		dataType: string
+		lineageTag: 44e4c908-d6ed-5653-acf8-6c270fe2441d
+		summarizeBy: none
+		sourceColumn: Activité
+
+	column 'Type activité'
+		dataType: string
+		lineageTag: 4c2666e0-b538-5bdd-b287-6a95d06d2eb8
+		summarizeBy: none
+		sourceColumn: Type activité
+
+	column Département
+		dataType: string
+		lineageTag: 5d47b785-3687-582a-b7cd-c7c3aad69213
+		summarizeBy: none
+		sourceColumn: Département
+
+	column 'Code effectif'
+		dataType: string
+		lineageTag: 02922c67-8c50-5d2d-a763-9d9d731129d3
+		summarizeBy: none
+		sourceColumn: Code effectif
+
+	column 'Date entrée'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 5637a073-8294-5969-a06c-2f961e37cf40
+		summarizeBy: none
+		sourceColumn: Date entrée
+
+	column 'Date sortie'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 81ce42a3-96bd-5fc7-9678-ccd35f6a4ffa
+		summarizeBy: none
+		sourceColumn: Date sortie
+
+	column 'Est actif'
+		dataType: boolean
+		lineageTag: 9d2f81d8-d4b2-57ac-b9fe-8b38f1f722d4
+		summarizeBy: none
+		sourceColumn: Est actif
+
+	column 'Type contrat'
+		dataType: string
+		lineageTag: 64086304-eefd-5824-b02b-86c7257bb584
+		summarizeBy: none
+		sourceColumn: Type contrat
+
+	column 'Base mensuelle'
+		dataType: double
+		lineageTag: acf7f25f-4ab3-5e3f-ae21-8de1fe2c3474
+		summarizeBy: sum
+		sourceColumn: Base mensuelle
+
+	partition Conducteur = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Conducteur.parquet"))
+				in
+				    Source
+

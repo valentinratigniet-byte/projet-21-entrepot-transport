@@ -1,0 +1,350 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "726937d5dc38ff4bb05b",
+  "position": {
+    "x": 16.466607480862326,
+    "y": 374.61532018961793,
+    "z": 1002,
+    "height": 315.60997671652791,
+    "width": 1247.3455166753213,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Matricule"
+                }
+              },
+              "queryRef": "Conducteur.Matricule",
+              "nativeQueryRef": "Matricule"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur",
+              "displayName": "Salarie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Voyage"
+                    }
+                  },
+                  "Property": "Date chargement"
+                }
+              },
+              "queryRef": "Voyage.Date chargement",
+              "nativeQueryRef": "Date chargement",
+              "displayName": "Chargement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Départ nom"
+                }
+              },
+              "queryRef": "Relation.Départ nom",
+              "nativeQueryRef": "Départ nom",
+              "displayName": "Point chargement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Départ ville"
+                }
+              },
+              "queryRef": "Relation.Départ ville",
+              "nativeQueryRef": "Départ ville",
+              "displayName": "Ville chargement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Voyage"
+                    }
+                  },
+                  "Property": "Ville rupture"
+                }
+              },
+              "queryRef": "Voyage.Ville rupture",
+              "nativeQueryRef": "Ville rupture"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Voyage"
+                    }
+                  },
+                  "Property": "Date livraison"
+                }
+              },
+              "queryRef": "Voyage.Date livraison",
+              "nativeQueryRef": "Date livraison",
+              "displayName": "livraison"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Arrivée nom"
+                }
+              },
+              "queryRef": "Relation.Arrivée nom",
+              "nativeQueryRef": "Arrivée nom",
+              "displayName": "Point livraison"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Arrivée ville"
+                }
+              },
+              "queryRef": "Relation.Arrivée ville",
+              "nativeQueryRef": "Arrivée ville",
+              "displayName": "Ville livraison"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Date chargement"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4b79d306db251d89843c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Matricule"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d4214a9cc3cdaf0ba1a0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8379bc2373ef84d50eca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Voyage"
+              }
+            },
+            "Property": "Date chargement"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5576fe04a6bd1c3d6743",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Départ nom"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "93a5d47e314d3058399b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Départ ville"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e4932bee39532d21c374",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Voyage"
+              }
+            },
+            "Property": "Ville rupture"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "15bdf3ca4c22f4dbd577",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Voyage"
+              }
+            },
+            "Property": "Date livraison"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "30166d3946157eb82984",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Arrivée nom"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dcd4a0cc58dd30a9919e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Arrivée ville"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

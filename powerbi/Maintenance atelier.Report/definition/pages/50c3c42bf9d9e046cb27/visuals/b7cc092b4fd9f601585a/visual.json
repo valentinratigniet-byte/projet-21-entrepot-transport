@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "b7cc092b4fd9f601585a",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 300,
+    "width": 420,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Coût heure prod direct",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#0C5563",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Coût chargé des mécaniciens / heures directement imputées aux véhicules.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Calcul : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "DIVIDE(SUM('Heures mécanicien'[Coût produit]), SUM('Heures mécanicien'[Heures produites]))",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "'Heures mécanicien' ← ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "dbt fct_heures_mecanicien ← ERP AS/400 (pointages, heures mécaniciens)",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mis à jour à chaque import de lot (dbt build incrémental puis actualisation du modèle).",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

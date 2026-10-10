@@ -1,0 +1,8 @@
+famille,compte_dans_sous_traitance
+PREVENTIF,true
+PANNE,true
+SINISTRE,true
+LAVAGE,false
+LAVAGE INTERNE,false
+VISITE TECHNIQUE,false
+VISITE OBLIGATOIRE,false

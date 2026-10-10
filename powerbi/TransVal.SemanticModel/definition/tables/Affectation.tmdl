@@ -1,0 +1,49 @@
+table Affectation
+	lineageTag: fffb9dc8-7b8d-5972-a141-077335abff1f
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 987296ff-e81c-537d-bb9b-49ac6e488ebc
+		summarizeBy: none
+		sourceColumn: Date
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 0c55606b-c6fe-5b69-ae9f-f866a8db1a60
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Matricule
+		dataType: int64
+		lineageTag: 3220ae4e-5a76-5074-9234-dd3a7cedc8f2
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 0e99e2b3-8d9f-5e3e-976a-8c9ddb6e7a3f
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'Est maintenance'
+		dataType: boolean
+		lineageTag: e5516ab6-9e98-5f5c-8703-7136cf1a4b85
+		summarizeBy: none
+		sourceColumn: Est maintenance
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 409de05f-79ff-57fb-9694-9365fdbd5d4b
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition Affectation = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Affectation.parquet"))
+				in
+				    Source
+

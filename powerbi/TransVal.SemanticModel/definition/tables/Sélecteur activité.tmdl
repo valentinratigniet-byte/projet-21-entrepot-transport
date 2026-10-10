@@ -1,0 +1,21 @@
+table 'Sélecteur activité'
+	lineageTag: 84c52101-6476-5d41-ba27-89b8bfc21fe1
+
+	column Indicateur
+		dataType: string
+		lineageTag: 891b8379-cc5f-570b-92bb-8756f50069d7
+		summarizeBy: none
+		sourceColumn: [Indicateur]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: 3b141e96-c24f-502d-8154-8e6df5edae5c
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Sélecteur activité' = calculated
+		mode: import
+		source = DATATABLE("Indicateur", STRING, "Ordre", INTEGER, {{"CA", 1}, {"CA / jour ouvré", 2}, {"MCV %", 3}, {"Appairage", 4}})
+

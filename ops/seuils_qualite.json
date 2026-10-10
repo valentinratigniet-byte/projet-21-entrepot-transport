@@ -1,0 +1,17 @@
+{
+  "_description": "Seuils d'alerte des contrôles qualité (part des lignes concernées, en %). Au-delà : statut ALERTE dans le rapport d'exécution, notifié par n8n. null = information seulement (pas d'alerte).",
+  "fraicheur_max_jours": 1,
+  "controles": {
+    "Doublons de recouvrement": 5.0,
+    "Versions successives (CDC)": 2.0,
+    "Matricule non conforme": null,
+    "Libellé en double orthographe": 10.0,
+    "Date au jour « 00 »": 50.0,
+    "Résultat saisi librement": 20.0,
+    "Oui / Non saisi librement": 70.0,
+    "Dates en deux formats": 50.0,
+    "Facture absente en comptabilité": 5.0,
+    "Écart de montant": 5.0,
+    "Changements de contrat observés": null
+  }
+}

@@ -1,0 +1,88 @@
+table 'Indicateurs client'
+	lineageTag: 160170f2-4d1c-5d16-880d-8e7b4ab899b5
+
+	column 'Indicateurs client'
+		dataType: string
+		lineageTag: 0712785b-a178-5cc9-96e4-bc722d1c8685
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Indicateurs client Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Indicateurs client Champs'
+
+	column 'Indicateurs client Champs'
+		dataType: string
+		isHidden
+		lineageTag: bcf6dad9-7ba5-5e09-af79-6442204f6a3e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Indicateurs client Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Indicateurs client Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 942310f9-4495-5e85-90af-2857e83db282
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	column 'Indicateurs client Thème'
+		dataType: string
+		lineageTag: 614facd9-de64-501f-9dce-217f85eca522
+		summarizeBy: none
+		sourceColumn: [Value4]
+		sortByColumn: 'Indicateurs client Thème ordre'
+
+	column 'Indicateurs client Thème ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 69fd0d12-3224-5cd3-bb11-d4ee2a4b4bac
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+	partition 'Indicateurs client' = calculated
+		mode: import
+		source =
+				{
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "CA", 0),
+				    ("CA facturé évolution", NAMEOF('Mesures'[CA facturé évolution]), 1, "CA", 0),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Voyages", 1),
+				    ("Nb voyages", NAMEOF('Mesures'[Nb voyages]), 2, "Voyages", 1),
+				    ("CA / voyage", NAMEOF('Mesures'[CA / voyage]), 3, "Voyages", 1),
+				    ("CA / voyage évolution", NAMEOF('Mesures'[CA / voyage évolution]), 4, "Voyages", 1),
+				    ("Nb voyages / jour ouvré", NAMEOF('Mesures'[Nb voyages / jour ouvré]), 5, "Voyages", 1),
+				    ("Nb voyages évolution", NAMEOF('Mesures'[Nb voyages évolution]), 6, "Voyages", 1),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "CA / jour ouvré", 2),
+				    ("CA moyen / jour ouvré (k€)", NAMEOF('Mesures'[CA moyen / jour ouvré (k€)]), 7, "CA / jour ouvré", 2),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "CA / km et heure", 3),
+				    ("CA / heure", NAMEOF('Mesures'[CA / heure]), 8, "CA / km et heure", 3),
+				    ("CA / km", NAMEOF('Mesures'[CA / km]), 9, "CA / km et heure", 3),
+				    ("CA / km évolution", NAMEOF('Mesures'[CA / km évolution]), 10, "CA / km et heure", 3),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Km et heures", 4),
+				    ("Heures prod", NAMEOF('Mesures'[Heures prod]), 11, "Km et heures", 4),
+				    ("Km total", NAMEOF('Mesures'[Km total]), 12, "Km et heures", 4),
+				    ("Km total évolution", NAMEOF('Mesures'[Km total évolution]), 13, "Km et heures", 4),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Marge (MCV)", 5),
+				    ("Dernier prix", NAMEOF('Mesures'[Dernier prix]), 14, "Marge (MCV)", 5),
+				    ("MCV €", NAMEOF('Mesures'[MCV €]), 15, "Marge (MCV)", 5),
+				    ("MCV %", NAMEOF('Mesures'[MCV %]), 16, "Marge (MCV)", 5),
+				    ("MCV € évolution", NAMEOF('Mesures'[MCV € évolution]), 17, "Marge (MCV)", 5),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Appairage", 6),
+				    ("Km à vide €", NAMEOF('Mesures'[Km à vide €]), 18, "Appairage", 6),
+				    ("Appairage", NAMEOF('Mesures'[Appairage]), 19, "Appairage", 6),
+				    ("Appairage évolution", NAMEOF('Mesures'[Appairage évolution]), 20, "Appairage", 6),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Autoroute", 7),
+				    ("Autoroute € / 100 km", NAMEOF('Mesures'[Autoroute € / 100 km]), 21, "Autoroute", 7),
+				    ("Autoroute € / 100 km évolution", NAMEOF('Mesures'[Autoroute € / 100 km évolution]), 22, "Autoroute", 7),
+				    ("CA facturé", NAMEOF('Mesures'[CA facturé]), 0, "Qté / voyage", 8),
+				    ("Qté livrée", NAMEOF('Mesures'[Qté livrée]), 23, "Qté / voyage", 8),
+				    ("Qté facturée / voyage", NAMEOF('Mesures'[Qté facturée / voyage]), 24, "Qté / voyage", 8),
+				    ("Qté facturée / voyage évolution", NAMEOF('Mesures'[Qté facturée / voyage évolution]), 25, "Qté / voyage", 8)
+				}
+

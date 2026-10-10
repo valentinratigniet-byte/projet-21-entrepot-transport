@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Heures conducteurs"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "892d2187-f93b-473b-a8e9-90f34754a115"
+  }
+}

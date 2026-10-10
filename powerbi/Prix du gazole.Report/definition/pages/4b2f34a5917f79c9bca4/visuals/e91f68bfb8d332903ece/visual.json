@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "e91f68bfb8d332903ece",
+  "position": {
+    "x": 16,
+    "y": 264.1,
+    "z": 1001,
+    "height": 429.8,
+    "width": 735.7,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "azureMap",
+    "query": {
+      "queryState": {
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Quantité litres"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Carburant.Quantité litres)",
+              "nativeQueryRef": "Somme de Quantité litres"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Carburant"
+                    }
+                  },
+                  "Property": "Longitude"
+                }
+              },
+              "queryRef": "Carburant.Longitude",
+              "nativeQueryRef": "Longitude"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Carburant"
+                    }
+                  },
+                  "Property": "Latitude"
+                }
+              },
+              "queryRef": "Carburant.Latitude",
+              "nativeQueryRef": "Latitude"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

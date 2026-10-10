@@ -1,0 +1,43 @@
+table 'Sélecteur indicateur QHSE'
+	lineageTag: 60653b83-bbbe-55e1-8965-7f8548357405
+
+	column 'Sélecteur indicateur QHSE'
+		dataType: string
+		lineageTag: 0c2499f6-8ea4-522a-ab25-f1e19c036484
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Sélecteur indicateur QHSE Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Sélecteur indicateur QHSE Champs'
+
+	column 'Sélecteur indicateur QHSE Champs'
+		dataType: string
+		isHidden
+		lineageTag: 107fa554-a561-55f3-87c8-877e3ea9ffc8
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Sélecteur indicateur QHSE Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Sélecteur indicateur QHSE Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 233cda2a-ff9f-59af-b6bb-48bd25c0bf70
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	partition 'Sélecteur indicateur QHSE' = calculated
+		mode: import
+		source =
+				{
+				    ("Nb anomalies", NAMEOF('Mesures'[Nb anomalies QHSE]), 0),
+				    ("Nb AT", NAMEOF('Mesures'[Nb AT]), 1),
+				    ("Nb infractions", NAMEOF('Mesures'[Nb infractions]), 2)
+				}
+

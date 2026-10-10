@@ -1,0 +1,341 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "e6702f5a5b89f4f72322",
+  "position": {
+    "x": 16,
+    "y": 266,
+    "z": 1000,
+    "height": 510,
+    "width": 1248,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Carburant"
+                    }
+                  },
+                  "Property": "Fournisseur"
+                }
+              },
+              "queryRef": "Carburant.Fournisseur",
+              "nativeQueryRef": "Fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Carburant"
+                    }
+                  },
+                  "Property": "Pays"
+                }
+              },
+              "queryRef": "Carburant.Pays",
+              "nativeQueryRef": "Pays"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Date"
+                        }
+                      },
+                      "Hierarchy": "Hiérarchie de dates"
+                    }
+                  },
+                  "Level": "Année"
+                }
+              },
+              "queryRef": "Date.Hiérarchie de dates.Année",
+              "nativeQueryRef": "Année"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Quantité litres"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Carburant.Quantité litres)",
+              "nativeQueryRef": "Somme de Quantité litres",
+              "displayName": "Quantité prélevée"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Montant €"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Carburant.Montant €)",
+              "nativeQueryRef": "Somme de Montant €",
+              "displayName": "Somme totale"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Carburant"
+                        }
+                      },
+                      "Property": "Prix litre"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(Carburant.Prix litre)",
+              "nativeQueryRef": "Moyenne de Prix litre",
+              "displayName": "Prix moyen au litre"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Carburant"
+                      }
+                    },
+                    "Property": "Prix litre"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "744.7095135904854D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Carburant.Fournisseur"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9149a75e214efa597663",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Carburant"
+              }
+            },
+            "Property": "Fournisseur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9d6726307700527389ba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Carburant"
+              }
+            },
+            "Property": "Pays"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d2cab3f3d488ace460ac",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Date"
+                  }
+                },
+                "Hierarchy": "Hiérarchie de dates"
+              }
+            },
+            "Level": "Année"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "014761988053109658c3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Carburant"
+                  }
+                },
+                "Property": "Quantité litres"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c9cceea7c0f075c46b49",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Carburant"
+                  }
+                },
+                "Property": "Montant €"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "46cba13c4d7635209d0b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Carburant"
+                  }
+                },
+                "Property": "Prix litre"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

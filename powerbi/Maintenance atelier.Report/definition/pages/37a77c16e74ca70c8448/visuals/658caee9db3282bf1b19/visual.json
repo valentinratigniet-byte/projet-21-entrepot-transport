@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "658caee9db3282bf1b19",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 300,
+    "width": 420,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Taux sous-traitance",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#0C5563",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Hors visites techniques, visites obligatoires et lavages.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Calcul : ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Est externe], 'Atelier'[Compte dans sous traitance]), [Coût atelier])",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "'Atelier' ← ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "dbt fct_atelier_ligne ← ERP AS/400 (pointages, heures mécaniciens), référentiel versionné (seed dbt), TMS (voyages, atelier, visites)",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#1C2733"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mis à jour à chaque import de lot (dbt build incrémental puis actualisation du modèle).",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#5E6B7A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

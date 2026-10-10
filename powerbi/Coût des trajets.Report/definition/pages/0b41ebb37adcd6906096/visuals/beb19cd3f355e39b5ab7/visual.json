@@ -1,0 +1,527 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "beb19cd3f355e39b5ab7",
+  "position": {
+    "x": 16,
+    "y": 344.0,
+    "z": 1002,
+    "height": 338.0,
+    "width": 1248,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Relation"
+                }
+              },
+              "queryRef": "Relation.Relation",
+              "nativeQueryRef": "Relation",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Relation sites"
+                }
+              },
+              "queryRef": "Relation.Relation sites",
+              "nativeQueryRef": "Relation sites",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Voyage"
+                    }
+                  },
+                  "Property": "CMR"
+                }
+              },
+              "queryRef": "Voyage.CMR",
+              "nativeQueryRef": "CMR",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "CMR"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Sum(Voyage.CMR)",
+              "nativeQueryRef": "Nombre de CMR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart CA réparti"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart CA réparti)",
+              "nativeQueryRef": "Somme de Écart CA réparti"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart coût total chargé"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart coût total chargé)",
+              "nativeQueryRef": "Somme de Écart coût total chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart temps conduite chargé"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart temps conduite chargé)",
+              "nativeQueryRef": "Somme de Écart temps conduite chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart km chargé"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart km chargé)",
+              "nativeQueryRef": "Somme de Écart km chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart péage écotaxe chargé"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart péage écotaxe chargé)",
+              "nativeQueryRef": "Somme de Écart péage écotaxe chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart temps chargement"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart temps chargement)",
+              "nativeQueryRef": "Somme de Écart temps chargement"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart temps livraison"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart temps livraison)",
+              "nativeQueryRef": "Somme de Écart temps livraison"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Voyage"
+                      }
+                    },
+                    "Property": "CMR"
+                  }
+                },
+                "Function": 2
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ffc604bfd3e858284e78",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f956d1809b498dbd06a7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Relation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a0dc92f4344e178d34fb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Relation sites"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7c67ca1174559f36f8c8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Voyage"
+              }
+            },
+            "Property": "CMR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "751d7e04ec8354be074a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "CMR"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d25f5309b805476cbd8b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart CA réparti"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fe080bebe49a27bdab28",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart coût total chargé"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f9a06962ec516212d789",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart temps conduite chargé"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98d228b01d82a9fdbce3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart km chargé"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3cc090365fb3c46268a4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart péage écotaxe chargé"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a112923a5cba344d1ca5",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart temps chargement"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8eef58414baccc04bd14",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart temps livraison"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

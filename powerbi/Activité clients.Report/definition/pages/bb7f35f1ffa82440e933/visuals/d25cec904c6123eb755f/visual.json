@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d25cec904c6123eb755f",
+  "position": {
+    "x": 114.46235526302225,
+    "y": 288.27556140316716,
+    "z": 3000,
+    "height": 40.8,
+    "width": 485.8,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "L'évolution du nombre de voyage par jour est calculée sur le mois précédent m-1",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "10pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,108 @@
+table 'Écriture comptable'
+	lineageTag: 9f7c57ee-8aa2-5cfb-9144-5392dce927c0
+
+	column 'Écriture ID'
+		dataType: int64
+		lineageTag: 32670017-428f-53c3-8cde-43ead4c56100
+		summarizeBy: none
+		sourceColumn: Écriture ID
+
+	column 'Date pièce'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: e53c5352-e072-55e3-b9ac-6c088058a482
+		summarizeBy: none
+		sourceColumn: Date pièce
+
+	column 'N° pièce'
+		dataType: string
+		lineageTag: 743dd8b8-0cbe-51bd-80b2-ba336b397287
+		summarizeBy: none
+		sourceColumn: N° pièce
+
+	column 'N° facture'
+		dataType: int64
+		lineageTag: 521990bf-ce23-5de3-9914-1281c3392a3a
+		summarizeBy: none
+		sourceColumn: N° facture
+
+	column Compte
+		dataType: string
+		lineageTag: 07c75afc-b154-58ba-92cc-0f1979039433
+		summarizeBy: none
+		sourceColumn: Compte
+
+	column 'Montant HT'
+		dataType: double
+		lineageTag: 0bc3ed22-6141-572d-a2c7-ba16820eb3cc
+		summarizeBy: sum
+		sourceColumn: Montant HT
+
+	column Libellé
+		dataType: string
+		lineageTag: a9d62bbd-e191-59ba-a7ae-c7bf725535d2
+		summarizeBy: none
+		sourceColumn: Libellé
+
+	column Journal
+		dataType: string
+		lineageTag: 130afe20-f268-54ec-a11c-287aec8ba89f
+		summarizeBy: none
+		sourceColumn: Journal
+
+	column 'Compte tiers'
+		dataType: string
+		lineageTag: cebf868d-3b95-588c-8b73-d54957d007b6
+		summarizeBy: none
+		sourceColumn: Compte tiers
+
+	column 'Intitulé tiers'
+		dataType: string
+		lineageTag: d4b23df2-bf37-5277-8069-ddaae500444c
+		summarizeBy: none
+		sourceColumn: Intitulé tiers
+
+	column 'Code analytique'
+		dataType: string
+		lineageTag: ec2fdd45-6c4c-5293-a36a-97a15322c01b
+		summarizeBy: none
+		sourceColumn: Code analytique
+
+	column 'Libellé analytique'
+		dataType: string
+		lineageTag: 911c653d-b292-5dfc-a35b-99d5717aa633
+		summarizeBy: none
+		sourceColumn: Libellé analytique
+
+	column 'Code frais'
+		dataType: string
+		lineageTag: 1eae69e7-e74e-5ae4-b7cc-9e9d0ee78cf7
+		summarizeBy: none
+		sourceColumn: Code frais
+
+	column 'Libellé frais'
+		dataType: string
+		lineageTag: ceca18f8-4b41-529a-bdbd-1c5c8107f057
+		summarizeBy: none
+		sourceColumn: Libellé frais
+
+	column Société
+		dataType: string
+		lineageTag: 941b686f-b9dd-536f-a4ae-2aa4f9d36600
+		summarizeBy: none
+		sourceColumn: Société
+
+	column 'Est clôturé'
+		dataType: boolean
+		lineageTag: 1d505885-77a6-5e70-86bc-192f5f8274d8
+		summarizeBy: none
+		sourceColumn: Est clôturé
+
+	partition 'Écriture comptable' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Écriture comptable.parquet"))
+				in
+				    Source
+

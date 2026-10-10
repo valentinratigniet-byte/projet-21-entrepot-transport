@@ -1,0 +1,54 @@
+table 'Résultat dbt'
+	lineageTag: 3fd02b43-8556-5602-87da-1626cd9c6d7b
+
+	column 'Unique ID'
+		dataType: string
+		isHidden
+		lineageTag: 2e81f4d6-a59c-581c-8919-e98c2e297e77
+		summarizeBy: none
+		sourceColumn: Unique ID
+
+	column 'Type nœud'
+		dataType: string
+		lineageTag: beb1a0d1-5899-5f1d-8762-493be209fd86
+		summarizeBy: none
+		sourceColumn: Type nœud
+
+	column Nom
+		dataType: string
+		lineageTag: 637a95f9-1860-5afe-8a58-59d00b7b0ec3
+		summarizeBy: none
+		sourceColumn: Nom
+
+	column Statut
+		dataType: string
+		lineageTag: dc33baa5-8ca5-510a-b5a7-1b1f101ab70f
+		summarizeBy: none
+		sourceColumn: Statut
+
+	column Échecs
+		dataType: int64
+		lineageTag: 783f2b97-bcbf-5361-8797-06a1e394d5d5
+		summarizeBy: sum
+		sourceColumn: Échecs
+
+	column 'Durée s'
+		dataType: double
+		lineageTag: fa143f74-58bb-523f-8138-f13b406854ac
+		summarizeBy: sum
+		sourceColumn: Durée s
+
+	column 'Exécuté le'
+		dataType: string
+		lineageTag: 87ffffee-a0f7-53b1-b3f4-7300f8949a18
+		summarizeBy: none
+		sourceColumn: Exécuté le
+
+	partition 'Résultat dbt' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Résultat dbt.parquet"))
+				in
+				    Source
+

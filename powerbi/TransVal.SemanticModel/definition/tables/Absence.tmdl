@@ -1,0 +1,36 @@
+table Absence
+	lineageTag: 1b2258c7-f9b0-551f-80ac-c6451b3c6581
+
+	column Matricule
+		dataType: int64
+		lineageTag: 2b56b881-a528-55ed-b9d4-883e4e58ff64
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Date absence'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: c39813f9-2b0b-5195-b959-56815f740ef3
+		summarizeBy: none
+		sourceColumn: Date absence
+
+	column Motif
+		dataType: string
+		lineageTag: 1103122d-ebaf-5ff0-bec1-1a8c951571ef
+		summarizeBy: none
+		sourceColumn: Motif
+
+	column 'Libellé motif'
+		dataType: string
+		lineageTag: 5dbef09c-07e6-5d32-b097-a9b0ec84d966
+		summarizeBy: none
+		sourceColumn: Libellé motif
+
+	partition Absence = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Absence.parquet"))
+				in
+				    Source
+

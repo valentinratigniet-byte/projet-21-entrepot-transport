@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Projection des heures"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1776d4ae-1472-4ed1-9245-cb1c0621ade8"
+  }
+}

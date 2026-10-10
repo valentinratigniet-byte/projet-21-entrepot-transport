@@ -1,0 +1,97 @@
+table Carburant
+	lineageTag: 3bb808db-e122-5b03-94c0-9eb3a8f7ecad
+
+	column 'Date prélèvement'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: e7d02ffc-7cfa-545f-8d2d-3f3c196e4c66
+		summarizeBy: none
+		sourceColumn: Date prélèvement
+
+	column 'Pompe ID'
+		dataType: int64
+		lineageTag: 8aa3d7d3-1b2c-53ae-8542-9c2fa651cc8f
+		summarizeBy: none
+		sourceColumn: Pompe ID
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 12922fbc-82e3-5b19-9ebe-b5d183066db5
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Matricule
+		dataType: int64
+		lineageTag: e5347081-dfb4-544d-9dac-9028c5be20d9
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Quantité litres'
+		dataType: double
+		lineageTag: 302ad8dc-383d-53cf-9d9c-6bea1926ac1d
+		summarizeBy: sum
+		sourceColumn: Quantité litres
+
+	column 'Montant €'
+		dataType: double
+		lineageTag: 9ab1e8a6-fbd0-5f0d-8a00-c026b432181c
+		summarizeBy: sum
+		sourceColumn: Montant €
+
+	column Fournisseur
+		dataType: string
+		lineageTag: be6efeb5-bb4f-5a98-8b12-1981a58bb944
+		summarizeBy: none
+		sourceColumn: Fournisseur
+
+	column Pays
+		dataType: string
+		lineageTag: f894f41a-7865-5f57-a506-d5090de7c724
+		summarizeBy: none
+		sourceColumn: Pays
+
+	column Ville
+		dataType: string
+		lineageTag: 3fe6daf6-cd0c-5267-83fa-b9523bcf5ee4
+		summarizeBy: none
+		sourceColumn: Ville
+
+	column Latitude
+		dataType: double
+		lineageTag: 9cc08030-5b27-5ed3-a9c6-dcb89ca45360
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+	column Longitude
+		dataType: double
+		lineageTag: 01fd25b2-eeca-5070-9055-b006d3169d54
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+	column 'Prix litre'
+		dataType: double
+		lineageTag: fab95ad3-ae06-598e-a91c-068752a46025
+		summarizeBy: sum
+		sourceColumn: Prix litre
+
+	column 'Est prélèvement réel'
+		dataType: boolean
+		lineageTag: 27799630-b70a-565a-87ce-9fabb6068229
+		summarizeBy: none
+		sourceColumn: Est prélèvement réel
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 22b362b7-a9de-5b26-9080-20a8dbe7b7a5
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition Carburant = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Carburant.parquet"))
+				in
+				    Source
+

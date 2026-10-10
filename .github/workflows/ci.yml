@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: "Pipeline complet + parité Power BI de départ / entrepôt"
+        run: python run_all.py
+      - name: "Modèle Power BI (TMDL) + contrôles des 23 rapports"
+        run: |
+          python powerbi/build_model.py
+          python powerbi/verifier_rapports.py
+      - name: "Exposures dbt à jour (lignage jusqu'aux rapports)"
+        run: |
+          python powerbi/exposures_dbt.py
+          git diff --exit-code dbt/models/marts/_exposures.yml
+      - name: "Rapport d'exécution (tests, parité, fraîcheur, seuils qualité)"
+        run: python ops/rapport_execution.py

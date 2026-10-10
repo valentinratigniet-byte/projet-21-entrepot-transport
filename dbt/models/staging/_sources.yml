@@ -1,0 +1,32 @@
+version: 2
+sources:
+  - name: erp
+    loaded_at_field: _loaded_at
+    freshness: {warn_after: {count: 1, period: day}, error_after: {count: 3, period: day}}
+    description: ERP legacy type AS/400 — exports CSV cp1252, dates AAAAMMJJ, durées en secondes, décimales à virgule.
+    schema: raw_erp
+    tables: [{name: pointage}, {name: chrono}, {name: affectation}, {name: compteur_paie}, {name: prelevement}, {name: param},
+             {name: activite_chauffeur}, {name: heuresmec}, {name: gmao}]
+  - name: tms
+    loaded_at_field: _loaded_at
+    freshness: {warn_after: {count: 1, period: day}, error_after: {count: 3, period: day}}
+    description: TMS type SQL Server — voyages (CDC sur updated_at), référentiels, atelier, visites techniques.
+    schema: raw_tms
+    tables: [{name: voyage}, {name: client}, {name: relation}, {name: evenement_facture}, {name: atelier_ot}, {name: visite_technique},
+             {name: ville}, {name: client_indexation}, {name: entite}, {name: atelier_ligne}]
+  - name: compta
+    description: Comptabilité type Sage — grand livre append-only.
+    schema: raw_compta
+    tables: [{name: ecriture}]
+  - name: telematique
+    description: Télématique / RH type Oracle — JSON Lines, dates JJ/MM/AAAA, matricule 'C0412'.
+    schema: raw_telematique
+    tables: [{name: conducteurs}, {name: absences}, {name: conso_fms}, {name: infractions}, {name: autoroutes_interdites}]
+  - name: meta
+    schema: raw_meta
+    tables: [{name: import_log}]
+  - name: sharepoint
+    description: Listes SharePoint saisies à la main — snapshot complet à chaque import.
+    schema: raw_sharepoint
+    tables: [{name: justif_attentes}, {name: justif_lavages}, {name: justif_autoroutes}, {name: accidents_travail},
+             {name: anomalies_materiel}, {name: anomalies_qhse}, {name: objectifs}, {name: couts_standards}]

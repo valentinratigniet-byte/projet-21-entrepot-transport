@@ -1,0 +1,166 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "v038235a4ba32d5",
+  "position": {
+    "x": 16,
+    "y": 164,
+    "z": 1000,
+    "height": 518,
+    "width": 1248,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Contrôle qualité"
+                    }
+                  },
+                  "Property": "Domaine"
+                }
+              },
+              "queryRef": "Contrôle qualité.Domaine",
+              "nativeQueryRef": "Domaine"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Contrôle qualité"
+                    }
+                  },
+                  "Property": "Source"
+                }
+              },
+              "queryRef": "Contrôle qualité.Source",
+              "nativeQueryRef": "Source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Contrôle qualité"
+                    }
+                  },
+                  "Property": "Contrôle"
+                }
+              },
+              "queryRef": "Contrôle qualité.Contrôle",
+              "nativeQueryRef": "Contrôle"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Contrôle qualité"
+                        }
+                      },
+                      "Property": "Lignes brutes"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Contrôle qualité.Lignes brutes)",
+              "nativeQueryRef": "Lignes brutes",
+              "displayName": "Lignes brutes"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Contrôle qualité"
+                        }
+                      },
+                      "Property": "Lignes concernées"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Contrôle qualité.Lignes concernées)",
+              "nativeQueryRef": "Lignes concernées",
+              "displayName": "Lignes concernées"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Contrôle qualité"
+                    }
+                  },
+                  "Property": "Traitement"
+                }
+              },
+              "queryRef": "Contrôle qualité.Traitement",
+              "nativeQueryRef": "Traitement"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

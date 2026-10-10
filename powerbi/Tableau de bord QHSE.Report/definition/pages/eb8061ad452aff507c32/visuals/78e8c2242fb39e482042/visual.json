@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "78e8c2242fb39e482042",
+  "position": {
+    "x": 1094.2730395420049,
+    "y": 137.36951138330448,
+    "z": 8000,
+    "height": 79.611875915324191,
+    "width": 170.15087205432033,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Anomalie QHSE"
+                    }
+                  },
+                  "Property": "Type anomalie"
+                }
+              },
+              "queryRef": "Anomalie QHSE.Type anomalie",
+              "nativeQueryRef": "Type anomalie",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dac021e00a80f4a2916c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Anomalie QHSE"
+              }
+            },
+            "Property": "Type anomalie"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

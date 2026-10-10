@@ -1,0 +1,37 @@
+table Immobilisation
+	lineageTag: 58b1e5bf-c4bf-5fba-9043-3facfbd08176
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 2db05f1a-98d2-59c6-b0ef-28af136610cb
+		summarizeBy: none
+		sourceColumn: Date
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: cc70912c-78bc-51b7-a88d-1d02307706bf
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 45658fa4-94eb-5059-b37f-f2063e07f126
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 488bc65f-e9dc-5709-8370-d38e89ac4ab2
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition Immobilisation = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Immobilisation.parquet"))
+				in
+				    Source
+

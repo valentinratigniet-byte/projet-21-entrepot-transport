@@ -1,0 +1,607 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "0d1ccbd669d4068a4c03",
+  "position": {
+    "x": 16,
+    "y": 138,
+    "z": 1000,
+    "height": 312.7,
+    "width": 1248,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Société"
+                }
+              },
+              "queryRef": "Écriture comptable.Société",
+              "nativeQueryRef": "Société"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Compte tiers"
+                }
+              },
+              "queryRef": "Écriture comptable.Compte tiers",
+              "nativeQueryRef": "Compte tiers",
+              "displayName": "Code fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Intitulé tiers"
+                }
+              },
+              "queryRef": "Écriture comptable.Intitulé tiers",
+              "nativeQueryRef": "Intitulé tiers",
+              "displayName": "Nom fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "N° pièce"
+                }
+              },
+              "queryRef": "Écriture comptable.N° pièce",
+              "nativeQueryRef": "N° pièce",
+              "displayName": "Numero facture fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Date pièce"
+                }
+              },
+              "queryRef": "Écriture comptable.Date pièce",
+              "nativeQueryRef": "Date pièce",
+              "displayName": "Date de facture"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Écriture comptable"
+                        }
+                      },
+                      "Property": "Montant HT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Écriture comptable.Montant HT)",
+              "nativeQueryRef": "Somme de Montant HT",
+              "displayName": "HT Comptable"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "HT atelier"
+                }
+              },
+              "queryRef": "Mesures.HT atelier",
+              "nativeQueryRef": "HT atelier",
+              "displayName": "HT atelier"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Écart rapprochement"
+                }
+              },
+              "queryRef": "Mesures.Écart rapprochement",
+              "nativeQueryRef": "Écart rapprochement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Journal"
+                }
+              },
+              "queryRef": "Écriture comptable.Journal",
+              "nativeQueryRef": "Journal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Est clôturé"
+                }
+              },
+              "queryRef": "Écriture comptable.Est clôturé",
+              "nativeQueryRef": "Est clôturé"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Écriture comptable"
+                  }
+                },
+                "Property": "N° pièce"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.49240727025415D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Écriture comptable.Date pièce"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "119.53192046865988D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Écriture comptable.N° pièce"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.91489361702128D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Écriture comptable.Intitulé tiers"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Écriture comptable.Société"
+          }
+        },
+        {
+          "properties": {
+            "icon": {
+              "kind": "Icon",
+              "layout": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'IconOnly'"
+                  }
+                }
+              },
+              "verticalAlignment": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Middle'"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Conditional": {
+                    "Cases": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Écriture comptable"
+                                      }
+                                    },
+                                    "Property": "Est clôturé"
+                                  }
+                                },
+                                "Function": 0
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1D"
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolHigh'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Écriture comptable"
+                                      }
+                                    },
+                                    "Property": "Est clôturé"
+                                  }
+                                },
+                                "Function": 0
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0D"
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'CircleSymbolLow'"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(Écriture comptable.Est clôturé)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "375e682956d18b55b8b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Statut rapprochement"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Mesures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "Statut rapprochement"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "'OK'"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "80177f2ad87b1c9275b1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Intitulé tiers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8fef58283b53e810b911",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Compte tiers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f3352f23d7e37a30a8ba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Date pièce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "205094dbfc01424275b3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "N° pièce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "589c130d37b7f2601220",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Journal"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "882212abc89be5a3e986",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Société"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7618f4a2ea752c738ed3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Écart rapprochement"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fc60b2ec87277d05a964",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Écriture comptable"
+                  }
+                },
+                "Property": "Montant HT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "95b00e51bd8bf9f35de0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "HT atelier"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7906db084788451a4731",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Est clôturé"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

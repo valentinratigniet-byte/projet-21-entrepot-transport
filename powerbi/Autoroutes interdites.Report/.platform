@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Autoroutes interdites"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1b736cfb-eb32-41b7-952f-473a8eb17d5f"
+  }
+}

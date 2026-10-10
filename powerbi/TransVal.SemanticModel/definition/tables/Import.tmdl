@@ -1,0 +1,48 @@
+table Import
+	lineageTag: 1649aa7d-9411-56dd-a762-635af05d19c5
+
+	column Lot
+		dataType: int64
+		lineageTag: 7c20839a-5113-5328-aad6-77caee981241
+		summarizeBy: sum
+		sourceColumn: Lot
+
+	column 'Date lot'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: dac2bf81-718d-5eea-9a24-863403a2cd64
+		summarizeBy: none
+		sourceColumn: Date lot
+
+	column 'Schéma RAW'
+		dataType: string
+		lineageTag: 35ce7a4f-5bd0-5131-acdb-c2b30be19a6e
+		summarizeBy: none
+		sourceColumn: Schéma RAW
+
+	column 'Table source'
+		dataType: string
+		lineageTag: 37fda883-9cac-5ef9-9b5c-d4e8997a0533
+		summarizeBy: none
+		sourceColumn: Table source
+
+	column Lignes
+		dataType: int64
+		lineageTag: 24ecf24a-18a4-50c7-a6d3-ac57377c5f88
+		summarizeBy: sum
+		sourceColumn: Lignes
+
+	column Source
+		dataType: string
+		lineageTag: 8d59b731-e3e0-5e3e-b798-dd6d3db96d0a
+		summarizeBy: none
+		sourceColumn: Source
+
+	partition Import = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Import.parquet"))
+				in
+				    Source
+

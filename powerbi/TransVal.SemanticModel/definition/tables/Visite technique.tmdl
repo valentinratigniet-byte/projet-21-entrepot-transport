@@ -1,0 +1,55 @@
+table 'Visite technique'
+	lineageTag: 246564c5-b3bb-5f23-bf0e-959894ba6652
+
+	column 'OT ID'
+		dataType: int64
+		lineageTag: 391248b0-9427-5bbb-a9bb-93277eb9cfd4
+		summarizeBy: none
+		sourceColumn: OT ID
+
+	column 'Date visite'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 21d44072-ec35-5854-ab51-5bee78dfbd75
+		summarizeBy: none
+		sourceColumn: Date visite
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 4fb2614b-b5e6-5a75-abdc-868e9f97d17c
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column 'Type visite'
+		dataType: string
+		lineageTag: 9a9f2500-cefa-58c2-b7d4-b30a47174e3f
+		summarizeBy: none
+		sourceColumn: Type visite
+
+	column 'Résultat brut'
+		dataType: string
+		lineageTag: ca5c0448-e43a-55b0-a07a-f3fc967123cb
+		summarizeBy: none
+		sourceColumn: Résultat brut
+
+	column 'Est valide'
+		dataType: boolean
+		lineageTag: bbf97059-92cf-5fbb-9474-11cba2626f7a
+		summarizeBy: none
+		sourceColumn: Est valide
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: b6c0614d-a33b-53ec-b8ff-692cb7f9b534
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition 'Visite technique' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Visite technique.parquet"))
+				in
+				    Source
+

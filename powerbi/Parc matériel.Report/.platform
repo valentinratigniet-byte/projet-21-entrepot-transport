@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Parc matériel"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "38290670-afbe-4052-a591-45818a05f49d"
+  }
+}

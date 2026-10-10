@@ -1,0 +1,72 @@
+table 'Facture atelier'
+	lineageTag: d914982c-c169-57b6-8ab4-5fc646007738
+
+	column 'OT ID'
+		dataType: int64
+		lineageTag: 6bf28df6-855f-5595-b6b3-fcf79d548611
+		summarizeBy: none
+		sourceColumn: OT ID
+
+	column 'N° facture'
+		dataType: int64
+		lineageTag: caed87e0-5640-5b76-b8e8-1805950a75ea
+		summarizeBy: none
+		sourceColumn: N° facture
+
+	column 'Date document'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 07dbf54c-5b90-58b8-8697-a41ab1313aef
+		summarizeBy: none
+		sourceColumn: Date document
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: f611d67c-36d6-5466-a434-8f1e3fe9cb0f
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Fournisseur
+		dataType: string
+		lineageTag: 53f704f5-afa7-5b08-85c3-075926fee3d2
+		summarizeBy: none
+		sourceColumn: Fournisseur
+
+	column Famille
+		dataType: string
+		lineageTag: 48a5869a-e33d-5d93-b070-ad0116a30b1b
+		summarizeBy: none
+		sourceColumn: Famille
+
+	column 'Montant HT'
+		dataType: double
+		lineageTag: 36154dc6-72cc-55cb-b018-6b808cb324cb
+		summarizeBy: sum
+		sourceColumn: Montant HT
+
+	column Provenance
+		dataType: string
+		lineageTag: 47ebdecd-030a-57b1-95c1-9b253ab752b0
+		summarizeBy: none
+		sourceColumn: Provenance
+
+	column Société
+		dataType: string
+		lineageTag: 9b804bc3-57fa-5814-9e8f-070d25fe0a7c
+		summarizeBy: none
+		sourceColumn: Société
+
+	column 'Compte tiers'
+		dataType: string
+		lineageTag: 7d7d1251-b766-5ed8-b9ed-cac13ba0f47a
+		summarizeBy: none
+		sourceColumn: Compte tiers
+
+	partition 'Facture atelier' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Facture atelier.parquet"))
+				in
+				    Source
+

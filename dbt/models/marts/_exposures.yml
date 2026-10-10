@@ -1,0 +1,333 @@
+# Généré par powerbi/exposures_dbt.py : un rapport Power BI = une exposure (lignage source -> rapport).
+version: 2
+
+exposures:
+  - name: rapport_activite_clients
+    label: "Activité clients"
+    type: dashboard
+    maturity: high
+    description: "CA, voyages, marge et appairage par client (rapport Power BI `Activité clients.pbip`)."
+    owner: {name: "Direction commerciale", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_client')
+      - ref('dim_date')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_activite_par_relation
+    label: "Activité par relation"
+    type: dashboard
+    maturity: high
+    description: "Indicateurs par relation (origine -> destination) (rapport Power BI `Activité par relation.pbip`)."
+    owner: {name: "Direction commerciale", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_client')
+      - ref('dim_date')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_cout_des_trajets
+    label: "Coût des trajets"
+    type: dashboard
+    maturity: high
+    description: "Coût standard des trajets par relation et par conducteur (rapport Power BI `Coût des trajets.pbip`)."
+    owner: {name: "Contrôle de gestion", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+      - ref('ref_cout_standard')
+  - name: rapport_prix_et_indexation_clients
+    label: "Prix et indexation clients"
+    type: dashboard
+    maturity: high
+    description: "Prix pratiqués et indexation gazole (rapport Power BI `Prix et indexation clients.pbip`)."
+    owner: {name: "Direction commerciale", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_client')
+      - ref('dim_date')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_productivite_hebdomadaire
+    label: "Productivité hebdomadaire"
+    type: dashboard
+    maturity: high
+    description: "CA et tracteurs par jour, comparaison N / N-1 (rapport Power BI `Productivité hebdomadaire.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_date')
+      - ref('fct_affectation_jour')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_tableau_de_bord_exploitant
+    label: "Tableau de bord exploitant"
+    type: dashboard
+    maturity: high
+    description: "Pilotage quotidien de l'activité et des coûts (rapport Power BI `Tableau de bord exploitant.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('dim_materiel')
+      - ref('fct_absence_jour')
+      - ref('fct_activite_chauffeur')
+      - ref('fct_affectation_jour')
+      - ref('fct_atelier_ligne')
+      - ref('fct_autoroute_interdite')
+      - ref('fct_chrono_jour')
+      - ref('fct_compteur_mois')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_objectif')
+      - ref('fct_objectif_exploitant')
+      - ref('fct_pointage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_heures_conducteurs
+    label: "Heures conducteurs"
+    type: dashboard
+    maturity: high
+    description: "Heures payées, compensées, à justifier, frais (rapport Power BI `Heures conducteurs.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_activite_chauffeur')
+      - ref('fct_compteur_mois')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_pointage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_projection_des_heures
+    label: "Projection des heures"
+    type: dashboard
+    maturity: high
+    description: "Projection des heures du mois (rapport Power BI `Projection des heures.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_chrono_jour')
+      - ref('parametres')
+  - name: rapport_missions_conducteurs
+    label: "Missions conducteurs"
+    type: dashboard
+    maturity: high
+    description: "Missions du jour par conducteur (rapport Power BI `Missions conducteurs.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_absences_conducteurs
+    label: "Absences conducteurs"
+    type: dashboard
+    maturity: high
+    description: "Absences par motif et par activité (rapport Power BI `Absences conducteurs.pbip`)."
+    owner: {name: "Ressources humaines", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_absence_jour')
+      - ref('parametres')
+  - name: rapport_maintenance_atelier
+    label: "Maintenance atelier"
+    type: dashboard
+    maturity: high
+    description: "Coûts de maintenance, productivité et qualité de l'atelier (rapport Power BI `Maintenance atelier.pbip`)."
+    owner: {name: "Atelier", email: data@transval.example}
+    depends_on:
+      - ref('dim_date')
+      - ref('dim_materiel')
+      - ref('fct_atelier_ligne')
+      - ref('fct_evenement_facture')
+      - ref('fct_heures_mecanicien')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_objectif')
+      - ref('fct_visite_technique')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_parc_materiel
+    label: "Parc matériel"
+    type: dashboard
+    maturity: high
+    description: "Parc tracteurs et semi-remorques, utilisation (rapport Power BI `Parc matériel.pbip`)."
+    owner: {name: "Atelier", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_date')
+      - ref('dim_materiel')
+      - ref('fct_affectation_jour')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_anomalies_materiel
+    label: "Anomalies matériel"
+    type: dashboard
+    maturity: high
+    description: "Anomalies signalées et leur traitement (rapport Power BI `Anomalies matériel.pbip`)."
+    owner: {name: "Atelier", email: data@transval.example}
+    depends_on:
+      - ref('dim_date')
+      - ref('fct_anomalie_materiel')
+      - ref('fct_anomalie_qhse')
+      - ref('parametres')
+  - name: rapport_consommation_carburant
+    label: "Consommation carburant"
+    type: dashboard
+    maturity: high
+    description: "Consommation par conducteur, véhicule, activité (rapport Power BI `Consommation carburant.pbip`)."
+    owner: {name: "Exploitation", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('dim_materiel')
+      - ref('fct_conso_fms')
+      - ref('parametres')
+  - name: rapport_prix_du_gazole
+    label: "Prix du gazole"
+    type: dashboard
+    maturity: high
+    description: "Prix du gazole par fournisseur et par mois (rapport Power BI `Prix du gazole.pbip`)."
+    owner: {name: "Achats", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_prelevement_carburant')
+      - ref('parametres')
+  - name: rapport_tableau_de_bord_qhse
+    label: "Tableau de bord QHSE"
+    type: dashboard
+    maturity: high
+    description: "Anomalies, accidents du travail, infractions (rapport Power BI `Tableau de bord QHSE.pbip`)."
+    owner: {name: "QHSE", email: data@transval.example}
+    depends_on:
+      - ref('dim_date')
+      - ref('fct_accident_travail')
+      - ref('fct_anomalie_qhse')
+      - ref('fct_infraction')
+      - ref('parametres')
+  - name: rapport_infractions_rse
+    label: "Infractions RSE"
+    type: dashboard
+    maturity: high
+    description: "Infractions à la réglementation sociale européenne (rapport Power BI `Infractions RSE.pbip`)."
+    owner: {name: "QHSE", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_infraction')
+      - ref('parametres')
+  - name: rapport_autoroutes_interdites
+    label: "Autoroutes interdites"
+    type: dashboard
+    maturity: high
+    description: "Passages sur des autoroutes interdites aux poids lourds (rapport Power BI `Autoroutes interdites.pbip`)."
+    owner: {name: "QHSE", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('fct_autoroute_interdite')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_prestations_a_facturer
+    label: "Prestations à facturer"
+    type: dashboard
+    maturity: high
+    description: "Attentes, lavages, samedis, doubles dépotages à facturer (rapport Power BI `Prestations à facturer.pbip`)."
+    owner: {name: "Contrôle de gestion", email: data@transval.example}
+    depends_on:
+      - ref('dim_activite')
+      - ref('dim_client')
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('dim_relation')
+      - ref('fct_evenement_facture')
+      - ref('fct_justification_attente')
+      - ref('fct_justification_lavage')
+      - ref('fct_voyage')
+      - ref('parametres')
+  - name: rapport_rapprochement_atelier_et_comptabilite
+    label: "Rapprochement atelier et comptabilité"
+    type: dashboard
+    maturity: high
+    description: "Factures atelier rapprochées des écritures comptables (rapport Power BI `Rapprochement atelier et comptabilité.pbip`)."
+    owner: {name: "Contrôle de gestion", email: data@transval.example}
+    depends_on:
+      - ref('dim_date')
+      - ref('fct_ecriture_comptable')
+      - ref('fct_facture_atelier')
+      - ref('fct_rapprochement_atelier_compta')
+      - ref('parametres')
+  - name: rapport_qualite_des_donnees
+    label: "Qualité des données"
+    type: dashboard
+    maturity: high
+    description: "Contrôles à l'import, journal des lots, tests dbt (rapport Power BI `Qualité des données.pbip`)."
+    owner: {name: "Équipe data", email: data@transval.example}
+    depends_on:
+      - ref('fct_import')
+      - ref('mart_qualite_donnees')
+      - ref('parametres')
+  - name: rapport_rentabilite
+    label: "Rentabilité"
+    type: dashboard
+    maturity: high
+    description: "Marge directe par tracteur, contribution par conducteur (coûts réels) (rapport Power BI `Rentabilité.pbip`)."
+    owner: {name: "Contrôle de gestion", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_date')
+      - ref('dim_materiel')
+      - ref('fct_rentabilite_conducteur_mois')
+      - ref('fct_rentabilite_tracteur_mois')
+      - ref('parametres')
+  - name: rapport_referentiel_conducteurs
+    label: "Référentiel conducteurs"
+    type: dashboard
+    maturity: high
+    description: "Contrats et historique des contrats (rapport Power BI `Référentiel conducteurs.pbip`)."
+    owner: {name: "Ressources humaines", email: data@transval.example}
+    depends_on:
+      - ref('dim_conducteur')
+      - ref('dim_conducteur_historique')
+      - ref('parametres')

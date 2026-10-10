@@ -1,0 +1,43 @@
+table 'Axe QHSE'
+	lineageTag: 115b473c-c9d9-5f4c-ac53-02964dde9c30
+
+	column 'Axe QHSE'
+		dataType: string
+		lineageTag: 87abb65e-e5b9-5c21-ad76-1d04636cd361
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Axe QHSE Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Axe QHSE Champs'
+
+	column 'Axe QHSE Champs'
+		dataType: string
+		isHidden
+		lineageTag: 72d9cc1b-1421-5bcd-bd25-5b9522f5f78b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Axe QHSE Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Axe QHSE Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: ec0c91e1-7460-57d6-bd0d-55e793ed43c6
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	partition 'Axe QHSE' = calculated
+		mode: import
+		source =
+				{
+				    ("Type d'anomalies", NAMEOF('Anomalie QHSE'[Type anomalie]), 0),
+				    ("Type accident", NAMEOF('Accident travail'[Type accident]), 1),
+				    ("Infraction RSE", NAMEOF('Infraction'[Type infraction]), 2)
+				}
+

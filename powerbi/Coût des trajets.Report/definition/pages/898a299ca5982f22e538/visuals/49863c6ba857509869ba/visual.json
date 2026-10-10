@@ -1,0 +1,543 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "49863c6ba857509869ba",
+  "position": {
+    "x": 16,
+    "y": 331.7114859545386,
+    "z": 1002,
+    "height": 350.2885140454614,
+    "width": 1248,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Relation"
+                }
+              },
+              "queryRef": "Relation.Relation",
+              "nativeQueryRef": "Relation",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Relation"
+                    }
+                  },
+                  "Property": "Relation sites"
+                }
+              },
+              "queryRef": "Relation.Relation sites",
+              "nativeQueryRef": "Relation sites",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Conducteur"
+                    }
+                  },
+                  "Property": "Conducteur"
+                }
+              },
+              "queryRef": "Conducteur.Conducteur",
+              "nativeQueryRef": "Conducteur",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Voyage"
+                    }
+                  },
+                  "Property": "CMR"
+                }
+              },
+              "queryRef": "Voyage.CMR",
+              "nativeQueryRef": "CMR",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "CMR"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Sum(Voyage.CMR)",
+              "nativeQueryRef": "Nombre de CMR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "CA réparti"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.CA réparti)",
+              "nativeQueryRef": "Médiane de CA réparti"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Coût total chargé"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Coût total chargé)",
+              "nativeQueryRef": "Médiane de Coût total chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Écart coût total chargé"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Écart coût total chargé)",
+              "nativeQueryRef": "Médiane de Écart coût total chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Temps conduite chargé h"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Temps conduite chargé h)",
+              "nativeQueryRef": "Médiane de Temps conduite chargé h"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Km chargé"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Km chargé)",
+              "nativeQueryRef": "Médiane de Km chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Péage écotaxe chargé"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Péage écotaxe chargé)",
+              "nativeQueryRef": "Médiane de Péage écotaxe chargé"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Temps chargement h"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Temps chargement h)",
+              "nativeQueryRef": "Médiane de Temps chargement h"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Voyage"
+                        }
+                      },
+                      "Property": "Temps livraison h"
+                    }
+                  },
+                  "Function": 6
+                }
+              },
+              "queryRef": "Sum(Voyage.Temps livraison h)",
+              "nativeQueryRef": "Médiane de Temps livraison h"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "24d0977208fd9e08c86a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Relation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e8581200830f6fcb253d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Conducteur"
+              }
+            },
+            "Property": "Conducteur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b7975e7ecaa08592cd59",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Relation"
+              }
+            },
+            "Property": "Relation sites"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "576f1e6f8cea19164d68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Voyage"
+              }
+            },
+            "Property": "CMR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ab93d4d05ada76eb9169",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "CMR"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1ac3b0a8fed978043906",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "CA réparti"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "652915faa6b506509bb1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Coût total chargé"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a2af90fbc7d501e23948",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Écart coût total chargé"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "08d45a862c13cc1205af",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Péage écotaxe chargé"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "edfaafacea111ff0c89d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Temps chargement h"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e2b7dc2bf7ae51633df9",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Temps livraison h"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f16fcd2a6dc6af2717f3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Temps conduite chargé h"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d80ce2b1edae86e9a729",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Voyage"
+                  }
+                },
+                "Property": "Km chargé"
+              }
+            },
+            "Function": 6
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

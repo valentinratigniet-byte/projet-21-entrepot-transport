@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "61b635c564fb085ddb0a",
+  "position": {
+    "x": 15.610171748102781,
+    "y": 202.93223272533615,
+    "z": 11000,
+    "height": 65.562721342031679,
+    "width": 268.49495406736781,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accident travail"
+                    }
+                  },
+                  "Property": "Type accident"
+                }
+              },
+              "queryRef": "Accident travail.Type accident",
+              "nativeQueryRef": "Type accident",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "50106e6d54b450c9141f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accident travail"
+              }
+            },
+            "Property": "Type accident"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

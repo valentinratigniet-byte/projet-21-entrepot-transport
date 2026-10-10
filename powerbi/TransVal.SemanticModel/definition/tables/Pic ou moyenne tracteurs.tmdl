@@ -1,0 +1,42 @@
+table 'Pic ou moyenne tracteurs'
+	lineageTag: ad305afc-2705-5252-aecf-a49fd537ca39
+
+	column 'Pic ou moyenne tracteurs'
+		dataType: string
+		lineageTag: 6c3d9b8f-778f-5ee2-be71-c9ea6581ee14
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Pic ou moyenne tracteurs Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Pic ou moyenne tracteurs Champs'
+
+	column 'Pic ou moyenne tracteurs Champs'
+		dataType: string
+		isHidden
+		lineageTag: 42b8b982-49cf-5b2e-a556-986bb3c50734
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Pic ou moyenne tracteurs Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Pic ou moyenne tracteurs Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: c1cf7f8f-8704-5036-bfbe-0fbc36bf7927
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	partition 'Pic ou moyenne tracteurs' = calculated
+		mode: import
+		source =
+				{
+				    ("Moyenne", NAMEOF('Mesures'[Nb tracteurs / jour ouvré]), 0),
+				    ("Pic", NAMEOF('Mesures'[Pic tracteurs]), 1)
+				}
+

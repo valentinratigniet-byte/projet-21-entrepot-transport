@@ -1,0 +1,467 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "38c6ebb0ab5106ec271b",
+  "position": {
+    "x": 16,
+    "y": 272.4,
+    "z": 1002,
+    "height": 460.6,
+    "width": 1248,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Code client"
+                }
+              },
+              "queryRef": "Client.Code client",
+              "nativeQueryRef": "Code client",
+              "displayName": "Cd client"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Client"
+                }
+              },
+              "queryRef": "Client.Client",
+              "nativeQueryRef": "Client",
+              "displayName": "Client"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "CA facturé"
+                }
+              },
+              "queryRef": "Mesures.CA facturé",
+              "nativeQueryRef": "CA facturé",
+              "displayName": "CA facturé"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Appliqué"
+                }
+              },
+              "queryRef": "Client.Appliqué",
+              "nativeQueryRef": "Appliqué",
+              "displayName": "Indexé"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Type indexation"
+                }
+              },
+              "queryRef": "Client.Type indexation",
+              "nativeQueryRef": "Type indexation",
+              "displayName": "Type d'index."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Date application"
+                }
+              },
+              "queryRef": "Client.Date application",
+              "nativeQueryRef": "Date application",
+              "displayName": "Depuis le"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Indice référence"
+                }
+              },
+              "queryRef": "Client.Indice référence",
+              "nativeQueryRef": "Indice référence",
+              "displayName": "Indice réf."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Date référence"
+                }
+              },
+              "queryRef": "Client.Date référence",
+              "nativeQueryRef": "Date référence",
+              "displayName": "Date réf. de l'indice"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Part gasoil"
+                }
+              },
+              "queryRef": "Client.Part gasoil",
+              "nativeQueryRef": "Part gasoil",
+              "displayName": "Part gasoil"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "À la baisse"
+                }
+              },
+              "queryRef": "Client.À la baisse",
+              "nativeQueryRef": "À la baisse",
+              "displayName": "À la baisse"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Base %"
+                }
+              },
+              "queryRef": "Client.Base %",
+              "nativeQueryRef": "Base %",
+              "displayName": "Base"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Sur facture"
+                }
+              },
+              "queryRef": "Client.Sur facture",
+              "nativeQueryRef": "Sur facture",
+              "displayName": "Sur Facture"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Client"
+                    }
+                  },
+                  "Property": "Commentaire indexation"
+                }
+              },
+              "queryRef": "Client.Commentaire indexation",
+              "nativeQueryRef": "Commentaire indexation"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Mesures"
+                  }
+                },
+                "Property": "CA facturé"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9de47d6959935e121d57",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Code client"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "26349ecf030b4778548a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Client"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b75f35530f0ebc4a4f79",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "CA facturé"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ebd350746a4567663446",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Appliqué"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d7fd4e500b9434b2203a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Type indexation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2d68e9b802b06ac0d2aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Date application"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4d3b8755afaa5e7f1878",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Indice référence"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b4ab0874d8b85dcf9176",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Date référence"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e97d28d6234957730666",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Part gasoil"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "776719c76a5f9f0ff3cf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "À la baisse"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e501a7cd601054894e8f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Base %"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1535191dec8b3381703d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Sur facture"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f83028a5fbcd17e9baf9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Client"
+              }
+            },
+            "Property": "Commentaire indexation"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

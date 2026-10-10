@@ -1,0 +1,73 @@
+table 'Historique conducteur'
+	lineageTag: 078f2868-192f-55ae-8a58-dc86bec31d9a
+
+	column Matricule
+		dataType: int64
+		lineageTag: dee99932-94a7-546b-b8ac-6a1760a7c431
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column Conducteur
+		dataType: string
+		lineageTag: b52f6651-2342-579e-a1c9-b7ff1685436b
+		summarizeBy: none
+		sourceColumn: Conducteur
+
+	column 'Type contrat'
+		dataType: string
+		lineageTag: 2810c21f-755f-5a66-8913-c0e0a30e41ce
+		summarizeBy: none
+		sourceColumn: Type contrat
+
+	column 'Base mensuelle'
+		dataType: double
+		lineageTag: c4f6b023-a781-5164-b095-a7adbe6708e7
+		summarizeBy: sum
+		sourceColumn: Base mensuelle
+
+	column 'Code effectif'
+		dataType: string
+		lineageTag: 3e8fef5b-fb63-5bcc-ad81-ebb86a59d67d
+		summarizeBy: none
+		sourceColumn: Code effectif
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: c265a716-cc78-5526-817b-c17280c8ccfe
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'Valide du'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: c947401f-11b0-5c65-8cea-ec16f9bf7d52
+		summarizeBy: none
+		sourceColumn: Valide du
+
+	column 'Valide au'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 216c14fb-6332-5bb6-814a-58747e7a8110
+		summarizeBy: none
+		sourceColumn: Valide au
+
+	column 'Version courante'
+		dataType: boolean
+		lineageTag: 1f643e3c-a8e4-5ca1-aff3-5bc77eba4a6b
+		summarizeBy: none
+		sourceColumn: Version courante
+
+	column 'Lot observé'
+		dataType: int64
+		lineageTag: 7fb6c8cd-1abe-5ca5-a63d-888bacf7e2db
+		summarizeBy: sum
+		sourceColumn: Lot observé
+
+	partition 'Historique conducteur' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Historique conducteur.parquet"))
+				in
+				    Source
+

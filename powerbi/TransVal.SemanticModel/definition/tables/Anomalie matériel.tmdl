@@ -1,0 +1,80 @@
+table 'Anomalie matériel'
+	lineageTag: 43f7e977-ba9a-5541-a889-0f3fed4d4461
+
+	column 'Anomalie ID'
+		dataType: int64
+		lineageTag: 30012710-1a81-5d8e-b02e-e10ffd9e0f85
+		summarizeBy: none
+		sourceColumn: Anomalie ID
+
+	column 'Date signalement'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 3de2c44a-38e6-54c9-b89e-cfd3901cade8
+		summarizeBy: none
+		sourceColumn: Date signalement
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 5dcfb5bf-de80-5da2-9d5f-2ad9e19c6210
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column 'Type anomalie'
+		dataType: string
+		lineageTag: 01303996-d0a2-5448-aabc-2f410c125fb6
+		summarizeBy: none
+		sourceColumn: Type anomalie
+
+	column Statut
+		dataType: string
+		lineageTag: 3ce4dc77-f466-527c-9369-6e5ddaba1554
+		summarizeBy: none
+		sourceColumn: Statut
+
+	column 'Date traitement'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 64d64a30-1dd4-5f3f-b289-c016bde3a2ac
+		summarizeBy: none
+		sourceColumn: Date traitement
+
+	column Déclarant
+		dataType: string
+		lineageTag: b7802e30-d807-5edc-acf3-3f6f974c0379
+		summarizeBy: none
+		sourceColumn: Déclarant
+
+	column Détail
+		dataType: string
+		lineageTag: 2e4f636c-5c13-54a7-ac9e-96d6ba77f646
+		summarizeBy: none
+		sourceColumn: Détail
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 045678f1-d62c-57ce-a78f-4d4e313856bd
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column URL
+		dataType: string
+		lineageTag: 75278313-2ac6-59ab-8dfd-5bef21b3ac32
+		summarizeBy: none
+		sourceColumn: URL
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 444c9489-c2a4-5d3d-b151-eb4ab2ff5d95
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition 'Anomalie matériel' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Anomalie matériel.parquet"))
+				in
+				    Source
+

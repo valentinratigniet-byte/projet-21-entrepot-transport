@@ -1,0 +1,152 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendrier 2023-2026 avec jours fériés (seed) et jours ouvrés — remplace la table DAX 'Date' et les ~116 tables de dates automatiques.
+    columns:
+      - name: date_jour
+        tests: [unique, not_null]
+
+  - name: dim_conducteur
+    description: Référentiel conducteurs unique (source RH/Oracle). Le matricule est conformé en entier quelle que soit sa forme dans la source.
+    columns:
+      - name: matricule
+        tests: [unique, not_null]
+
+  - name: dim_tracteur
+    description: Parc reconstitué depuis les affectations et l'atelier (aucune source ne le porte comme table).
+    columns:
+      - name: tracteur_num
+        tests: [unique, not_null]
+
+  - name: dim_client
+    columns:
+      - name: client_cd
+        tests: [unique, not_null]
+
+  - name: dim_relation
+    description: Relations (lignes) client départ → arrivée avec tarif.
+    columns:
+      - name: relation_cd
+        tests: [unique, not_null]
+
+  - name: dim_activite
+    columns:
+      - name: activite_cd
+        tests: [unique, not_null]
+
+  - name: fct_voyage
+    description: Un voyage = une ligne, dernière version issue du CDC. Remplace les vues d'activité chargées une fois par rapport dans la situation de départ.
+    columns:
+      - name: voyage_id
+        tests: [unique, not_null]
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+      - name: tracteur_num
+        tests:
+          - relationships: {arguments: {to: ref('dim_tracteur'), field: tracteur_num}}
+      - name: client_cd
+        tests:
+          - relationships: {arguments: {to: ref('dim_client'), field: client_cd}}
+      - name: relation_cd
+        tests:
+          - relationships: {arguments: {to: ref('dim_relation'), field: relation_cd}}
+      - name: statut
+        tests:
+          - accepted_values: {arguments: {values: ['LIVRE', 'ANNULE', 'PLANIFIE']}}
+
+  - name: fct_pointage
+    description: Pointages hors conduite. Les filtres (validité, type de saisie) sont des colonnes booléennes au lieu d'être réécrits dans chaque requête de rapport.
+    columns:
+      - name: pointage_id
+        tests: [unique, not_null]
+      - name: categorie_hchc
+        description: Catégorie issue du seed ref_libelle_pointage (absorbe 'Décrochage'/'Decrochage').
+        tests: [not_null]
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_chrono_jour
+    columns:
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_compteur_mois
+    description: Compteurs de paie mensuels ; matricule '000412' conformé (le DAX de départ coupait les 4 derniers caractères).
+    columns:
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_affectation_jour
+    columns:
+      - name: tracteur_num
+        tests: [not_null]
+
+  - name: fct_intervention_atelier
+    columns:
+      - name: ot_id
+        tests: [unique, not_null]
+
+  - name: fct_visite_technique
+    columns:
+      - name: ot_id
+        tests: [unique, not_null]
+
+  - name: fct_prelevement_carburant
+    columns:
+      - name: fournisseur
+        tests: [not_null]
+
+  - name: fct_absence_jour
+    columns:
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_infraction
+    columns:
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_autoroute_interdite
+    columns:
+      - name: evenement_id
+        tests: [unique, not_null]
+
+  - name: fct_accident_travail
+    columns:
+      - name: matricule
+        tests:
+          - relationships: {arguments: {to: ref('dim_conducteur'), field: matricule}}
+
+  - name: fct_anomalie_materiel
+    columns:
+      - name: date_signalement
+        description: Dates Excel et texte JJ/MM/AAAA unifiés.
+        tests: [not_null]
+
+  - name: fct_justification_attente
+    columns:
+      - name: voyage_id
+        tests:
+          - unique
+          - relationships: {arguments: {to: ref('fct_voyage'), field: voyage_id}}
+
+  - name: fct_rapprochement_atelier_compta
+    description: Rapprochement factures atelier (TMS) / écritures comptables (Sage), une ligne par n° de facture.
+    columns:
+      - name: num_facture
+        tests: [unique, not_null]
+      - name: statut
+        tests:
+          - accepted_values: {arguments: {values: ['Ok', 'Absent Atelier', 'Absent Comptable', 'Ecart montant']}}
+
+  - name: mart_kpi
+    description: >
+      Tous les indicateurs, toutes les périodes (mois, années, total), en format long avec numérateur et dénominateur
+      pour ré-agréger correctement dans Power BI. Remplace les mesures recopiées rapport par rapport de la situation de départ.

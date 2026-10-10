@@ -1,0 +1,25 @@
+# Paramétrage fabric-cicd : lu automatiquement à la racine de repository_directory (powerbi/).
+# Points qui changent entre environnements : le dossier des Parquet exportés par build_model.py et les liens entre rapports.
+# Les rapports pointent le modèle en byPath : fabric-cicd les rebranche tout seul sur le modèle déployé.
+find_replace:
+    - find_value: 'expression DossierDonnees = "([^"]*)"'
+      is_regex: "true"
+      replace_value:
+          # partage lu par la passerelle de données (gateway) : chemins d'exemple, à adapter au SI réel
+          DEV: '\\srv-data-dev\transval\parquet'
+          PROD: '\\srv-data\transval\parquet'
+      item_type: "SemanticModel"
+      file_path: "/TransVal.SemanticModel/definition/expressions.tmdl"
+
+    # Liens d'un rapport vers une page d'un autre rapport (ex. boutons du TBE -> Heures conducteurs) :
+    # l'adresse n'existe qu'une fois publié : les rapports portent des jetons remplacés ici.
+    - find_value: "transval-espace-de-travail"
+      replace_value:
+          DEV: "$workspace.$id"
+          PROD: "$workspace.$id"
+      item_type: "Report"
+    - find_value: "transval-rapport-heures-conducteurs"
+      replace_value:
+          DEV: "$items.Report.Heures conducteurs.$id"
+          PROD: "$items.Report.Heures conducteurs.$id"
+      item_type: "Report"

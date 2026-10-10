@@ -1,0 +1,72 @@
+table 'Activité chauffeur'
+	lineageTag: 5085f5bc-39d6-5747-95d9-f2df313f3a05
+
+	column 'Date activité'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 286bf386-b913-5ab0-b16e-85e0dc6eb69c
+		summarizeBy: none
+		sourceColumn: Date activité
+
+	column Matricule
+		dataType: int64
+		lineageTag: b4538ec6-d989-50bc-bcb0-b5e2dd0b1bc2
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Type prestation'
+		dataType: string
+		lineageTag: 196e4f98-396c-5032-8a47-86e532da4c4d
+		summarizeBy: none
+		sourceColumn: Type prestation
+
+	column 'Nature compte'
+		dataType: string
+		lineageTag: c5bc7024-6d9b-50c4-97ca-52976119e0cd
+		summarizeBy: none
+		sourceColumn: Nature compte
+
+	column Libellé
+		dataType: string
+		lineageTag: 8190532e-de4c-53de-bc07-06671a013a4d
+		summarizeBy: none
+		sourceColumn: Libellé
+
+	column Heures
+		dataType: double
+		lineageTag: 802b96a1-37b4-54dc-8f3a-7840723c19a9
+		summarizeBy: sum
+		sourceColumn: Heures
+
+	column Coût
+		dataType: double
+		lineageTag: 2219d957-763a-5196-827f-0ce8d3d16e24
+		summarizeBy: sum
+		sourceColumn: Coût
+
+	column 'Est en attente vérification'
+		dataType: boolean
+		lineageTag: 0996f167-87a5-5d52-907c-9ac2181c319e
+		summarizeBy: none
+		sourceColumn: Est en attente vérification
+
+	column 'Est exclu'
+		dataType: boolean
+		lineageTag: ea43e661-813a-5731-b3f9-f884ba0cff4e
+		summarizeBy: none
+		sourceColumn: Est exclu
+
+	column Catégorie
+		dataType: string
+		lineageTag: fc02fa46-b317-5364-93fd-541b7aed91bb
+		summarizeBy: none
+		sourceColumn: Catégorie
+
+	partition 'Activité chauffeur' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Activité chauffeur.parquet"))
+				in
+				    Source
+

@@ -1,0 +1,872 @@
+cultureInfo fr-FR
+
+	linguisticMetadata =
+			{
+			  "Version": "1.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "conducteur.conducteur": {
+			      "Binding": {
+			        "ConceptualEntity": "Conducteur",
+			        "ConceptualProperty": "Conducteur"
+			      },
+			      "State": "Generated"
+			    },
+			    "infraction.date_infraction": {
+			      "Binding": {
+			        "ConceptualEntity": "Infraction",
+			        "ConceptualProperty": "Date infraction"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.code_matériel": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Code matériel"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_global": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif global"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_vl": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif VL"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_ch": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif CH"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_pu": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif PU"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_al": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif AL"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.objectif_ct": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Objectif CT"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_activité": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur activité"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_même_semaine_n1": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA même semaine N-1"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_semaine_en_cours": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA semaine en cours"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_facturé": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA facturé"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_moyen___jour_ouvré": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA moyen / jour ouvré"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles_vl": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles VL"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles_pu": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles PU"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles_al": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles AL"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles_ch": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles CH"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles_ct": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles CT"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.tracteurs_disponibles": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Tracteurs disponibles"
+			      },
+			      "State": "Generated"
+			    },
+			    "conducteur.matricule": {
+			      "Binding": {
+			        "ConceptualEntity": "Conducteur",
+			        "ConceptualProperty": "Matricule"
+			      },
+			      "State": "Generated"
+			    },
+			    "conducteur.activité": {
+			      "Binding": {
+			        "ConceptualEntity": "Conducteur",
+			        "ConceptualProperty": "Activité"
+			      },
+			      "State": "Generated"
+			    },
+			    "absence.date_absence": {
+			      "Binding": {
+			        "ConceptualEntity": "Absence",
+			        "ConceptualProperty": "Date absence"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_facturé_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA facturé évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_voyages_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb voyages évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_moyen___jour_ouvré_k": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA moyen / jour ouvré (k€)"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_voyages___jour_ouvré_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb voyages / jour ouvré évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_voyages_semaine_en_cours": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb voyages semaine en cours"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_voyages_semaine_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb voyages semaine évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_semaine_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA semaine évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca___heure": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA / heure"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca___km_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA / km évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.km_total_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Km total évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.appairage": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Appairage"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.appairage_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Appairage évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.autoroute____100_km": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Autoroute € / 100 km"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.autoroute____100_km_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Autoroute € / 100 km évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.qté_livrée": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Qté livrée"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.qté_facturée___voyage": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Qté facturée / voyage"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.qté_facturée___voyage_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Qté facturée / voyage évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.km_chargé_moyen": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Km chargé moyen"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.temps_chargement_moyen": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Temps chargement moyen"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.temps_livraison_moyen": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Temps livraison moyen"
+			      },
+			      "State": "Generated"
+			    },
+			    "date.mois_année": {
+			      "Binding": {
+			        "ConceptualEntity": "Date",
+			        "ConceptualProperty": "Mois année"
+			      },
+			      "State": "Generated"
+			    },
+			    "date.année_semaine": {
+			      "Binding": {
+			        "ConceptualEntity": "Date",
+			        "ConceptualProperty": "Année semaine"
+			      },
+			      "State": "Generated"
+			    },
+			    "date.année": {
+			      "Binding": {
+			        "ConceptualEntity": "Date",
+			        "ConceptualProperty": "Année"
+			      },
+			      "State": "Generated"
+			    },
+			    "accident_travail.type_accident": {
+			      "Binding": {
+			        "ConceptualEntity": "Accident travail",
+			        "ConceptualProperty": "Type accident"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_at": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb AT"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.heures_payées___mois": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Heures payées / mois"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.coût_heure_hors_carte___hp": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Coût heure hors carte / HP"
+			      },
+			      "State": "Generated"
+			    },
+			    "objectif_exploitant.objectif_global": {
+			      "Binding": {
+			        "ConceptualEntity": "Objectif exploitant",
+			        "ConceptualProperty": "Objectif global"
+			      },
+			      "State": "Generated"
+			    },
+			    "écriture_comptable.intitulé_tiers": {
+			      "Binding": {
+			        "ConceptualEntity": "Écriture comptable",
+			        "ConceptualProperty": "Intitulé tiers"
+			      },
+			      "State": "Generated"
+			    },
+			    "écriture_comptable.compte_tiers": {
+			      "Binding": {
+			        "ConceptualEntity": "Écriture comptable",
+			        "ConceptualProperty": "Compte tiers"
+			      },
+			      "State": "Generated"
+			    },
+			    "écriture_comptable.n_pièce": {
+			      "Binding": {
+			        "ConceptualEntity": "Écriture comptable",
+			        "ConceptualProperty": "N° pièce"
+			      },
+			      "State": "Generated"
+			    },
+			    "écriture_comptable.société": {
+			      "Binding": {
+			        "ConceptualEntity": "Écriture comptable",
+			        "ConceptualProperty": "Société"
+			      },
+			      "State": "Generated"
+			    },
+			    "écriture_comptable.date_pièce": {
+			      "Binding": {
+			        "ConceptualEntity": "Écriture comptable",
+			        "ConceptualProperty": "Date pièce"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ht_atelier": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "HT atelier"
+			      },
+			      "State": "Generated"
+			    },
+			    "facture_atelier.fournisseur": {
+			      "Binding": {
+			        "ConceptualEntity": "Facture atelier",
+			        "ConceptualProperty": "Fournisseur"
+			      },
+			      "State": "Generated"
+			    },
+			    "facture_atelier.compte_tiers": {
+			      "Binding": {
+			        "ConceptualEntity": "Facture atelier",
+			        "ConceptualProperty": "Compte tiers"
+			      },
+			      "State": "Generated"
+			    },
+			    "facture_atelier.n_facture": {
+			      "Binding": {
+			        "ConceptualEntity": "Facture atelier",
+			        "ConceptualProperty": "N° facture"
+			      },
+			      "State": "Generated"
+			    },
+			    "facture_atelier.société": {
+			      "Binding": {
+			        "ConceptualEntity": "Facture atelier",
+			        "ConceptualProperty": "Société"
+			      },
+			      "State": "Generated"
+			    },
+			    "facture_atelier.date_document": {
+			      "Binding": {
+			        "ConceptualEntity": "Facture atelier",
+			        "ConceptualProperty": "Date document"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.absents_uniques": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Absents uniques"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.jours_dabsence___jour_ouvré": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Jours d'absence / jour ouvré"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.départ_pays": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Départ pays"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.arrivée_pays": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Arrivée pays"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.départ_département": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Départ département"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.arrivée_département": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Arrivée département"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.ca_réparti_évolution": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "CA réparti évolution"
+			      },
+			      "State": "Generated"
+			    },
+			    "autoroute_interdite.heure": {
+			      "Binding": {
+			        "ConceptualEntity": "Autoroute interdite",
+			        "ConceptualProperty": "Heure"
+			      },
+			      "State": "Generated"
+			    },
+			    "autoroute_interdite.n_tracteur": {
+			      "Binding": {
+			        "ConceptualEntity": "Autoroute interdite",
+			        "ConceptualProperty": "N° tracteur"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.péages_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Péages €"
+			      },
+			      "State": "Generated"
+			    },
+			    "coût_standard.coût_chauffeur_heure": {
+			      "Binding": {
+			        "ConceptualEntity": "Coût standard",
+			        "ConceptualProperty": "Coût chauffeur heure"
+			      },
+			      "State": "Generated"
+			    },
+			    "coût_standard.coût_gazole_adblue_km": {
+			      "Binding": {
+			        "ConceptualEntity": "Coût standard",
+			        "ConceptualProperty": "Coût gazole adblue km"
+			      },
+			      "State": "Generated"
+			    },
+			    "coût_standard.coût_maintenance_parc_km": {
+			      "Binding": {
+			        "ConceptualEntity": "Coût standard",
+			        "ConceptualProperty": "Coût maintenance parc km"
+			      },
+			      "State": "Generated"
+			    },
+			    "coût_standard.coût_pneus_km": {
+			      "Binding": {
+			        "ConceptualEntity": "Coût standard",
+			        "ConceptualProperty": "Coût pneus km"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_atelier_total": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur atelier total"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.coût_pièces": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Coût pièces"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_atelier_pièces": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur atelier pièces"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_atelier_soustraitance": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur atelier sous-traitance"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_atelier_mo": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur atelier MO"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.indicateur_atelier_qualité": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Indicateur atelier qualité"
+			      },
+			      "State": "Generated"
+			    },
+			    "atelier.n_tracteur": {
+			      "Binding": {
+			        "ConceptualEntity": "Atelier",
+			        "ConceptualProperty": "N° tracteur"
+			      },
+			      "State": "Generated"
+			    },
+			    "voyage.date_chargement": {
+			      "Binding": {
+			        "ConceptualEntity": "Voyage",
+			        "ConceptualProperty": "Date chargement"
+			      },
+			      "State": "Generated"
+			    },
+			    "voyage.date_livraison": {
+			      "Binding": {
+			        "ConceptualEntity": "Voyage",
+			        "ConceptualProperty": "Date livraison"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.départ_nom": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Départ nom"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.départ_ville": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Départ ville"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.arrivée_nom": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Arrivée nom"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.arrivée_ville": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Arrivée ville"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.équipement": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Équipement"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.modèle": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Modèle"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.immatriculation": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Immatriculation"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.date_entrée": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Date entrée"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.compteur_km": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Compteur km"
+			      },
+			      "State": "Generated"
+			    },
+			    "matériel.date_compteur": {
+			      "Binding": {
+			        "ConceptualEntity": "Matériel",
+			        "ConceptualProperty": "Date compteur"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.heures_dutilisation___jour_ouvré_par_matériel": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Heures d'utilisation / jour ouvré par matériel"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_tracteurs___jour_ouvré": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb tracteurs / jour ouvré"
+			      },
+			      "State": "Generated"
+			    },
+			    "voyage.n_tracteur": {
+			      "Binding": {
+			        "ConceptualEntity": "Voyage",
+			        "ConceptualProperty": "N° tracteur"
+			      },
+			      "State": "Generated"
+			    },
+			    "voyage.cmr": {
+			      "Binding": {
+			        "ConceptualEntity": "Voyage",
+			        "ConceptualProperty": "CMR"
+			      },
+			      "State": "Generated"
+			    },
+			    "voyage.nb_dépotages": {
+			      "Binding": {
+			        "ConceptualEntity": "Voyage",
+			        "ConceptualProperty": "Nb dépotages"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.relation": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Relation"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.attente_à_facturer_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Attente à facturer €"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.lavages_facturés_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Lavages facturés €"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.lavage_à_facturer_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Lavage à facturer €"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.nb_attentes": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Nb attentes"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.double_dépotage_facturé_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Double dépotage facturé €"
+			      },
+			      "State": "Generated"
+			    },
+			    "mesures.samedis_facturés_": {
+			      "Binding": {
+			        "ConceptualEntity": "Mesures",
+			        "ConceptualProperty": "Samedis facturés €"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.client": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Client"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.appliqué": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Appliqué"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.code_client": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Code client"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.type_indexation": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Type indexation"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.date_application": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Date application"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.indice_référence": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Indice référence"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.date_référence": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Date référence"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.part_gasoil": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Part gasoil"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.à_la_baisse": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "À la baisse"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.base_": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Base %"
+			      },
+			      "State": "Generated"
+			    },
+			    "client.sur_facture": {
+			      "Binding": {
+			        "ConceptualEntity": "Client",
+			        "ConceptualProperty": "Sur facture"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.code_relation": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Code relation"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.date_création": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Date création"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.est_location": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Est location"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.prix_tarif": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Prix tarif"
+			      },
+			      "State": "Generated"
+			    },
+			    "relation.âge_prix_mois": {
+			      "Binding": {
+			        "ConceptualEntity": "Relation",
+			        "ConceptualProperty": "Âge prix mois"
+			      },
+			      "State": "Generated"
+			    }
+			  }
+			}
+		contentType: json
+

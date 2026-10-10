@@ -1,0 +1,21 @@
+table 'Sélecteur coût'
+	lineageTag: ce40497e-a3e3-57c2-aab8-ca665c82be3d
+
+	column Indicateur
+		dataType: string
+		lineageTag: 1a180f51-7712-51f8-b901-86e991cf8d21
+		summarizeBy: none
+		sourceColumn: [Indicateur]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: 7897f503-c531-5949-866f-222c86fb73c2
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Sélecteur coût' = calculated
+		mode: import
+		source = DATATABLE("Indicateur", STRING, "Ordre", INTEGER, {{"Salaire brut / HP", 1}, {"Frais & primes / HP", 2}, {"Passages autoroute interdite / voyage", 3}, {"HCHC / voyage", 4}})
+

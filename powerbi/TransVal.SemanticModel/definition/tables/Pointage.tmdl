@@ -1,0 +1,109 @@
+table Pointage
+	lineageTag: eea9d2e6-9ebd-51f0-a1b3-856d0fd6ff4a
+
+	column 'Pointage ID'
+		dataType: int64
+		lineageTag: 32cbfa5f-638a-5988-aa3a-2a1f586840c2
+		summarizeBy: none
+		sourceColumn: Pointage ID
+
+	column 'Date pointage'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: fff6ec80-038b-59bc-95e5-28eaee1cbaf2
+		summarizeBy: none
+		sourceColumn: Date pointage
+
+	column Matricule
+		dataType: int64
+		lineageTag: 21dbc4d0-79e0-582e-a70b-00c0a46b2a9d
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: b2c9e57b-14bd-50fb-8f94-fd21a41520b9
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column 'Libellé brut'
+		dataType: string
+		lineageTag: 85f12247-c58c-5917-8af3-04af04aa6711
+		summarizeBy: none
+		sourceColumn: Libellé brut
+
+	column Heures
+		dataType: double
+		lineageTag: a704a997-9b50-5ca5-919a-0eb3a3095d15
+		summarizeBy: sum
+		sourceColumn: Heures
+
+	column 'Type saisie'
+		dataType: string
+		lineageTag: 373a5b62-a802-5d5b-9f79-1c2f1cfe168e
+		summarizeBy: none
+		sourceColumn: Type saisie
+
+	column 'Statut validation'
+		dataType: string
+		lineageTag: 04abc7d2-7b76-5937-ab30-0d15c6ea44f8
+		summarizeBy: none
+		sourceColumn: Statut validation
+
+	column 'Est exclu'
+		dataType: boolean
+		lineageTag: 536d3763-0e2f-5d7a-aa26-fa4894d73090
+		summarizeBy: none
+		sourceColumn: Est exclu
+
+	column 'Est forfait'
+		dataType: boolean
+		lineageTag: 02223840-63ad-5e28-8187-472466ff76c2
+		summarizeBy: none
+		sourceColumn: Est forfait
+
+	column 'Heures forfait'
+		dataType: double
+		lineageTag: 2b9cd388-82e0-5be9-8600-38af96fa69cb
+		summarizeBy: sum
+		sourceColumn: Heures forfait
+
+	column 'Catégorie HCHC'
+		dataType: string
+		lineageTag: 84e04007-350e-5af0-bf6f-e8fcdf07b6f9
+		summarizeBy: none
+		sourceColumn: Catégorie HCHC
+
+	column 'Est valide'
+		dataType: boolean
+		lineageTag: a869e5cc-79a8-5db6-a334-c7f6cc8388c3
+		summarizeBy: none
+		sourceColumn: Est valide
+
+	column 'Est saisie exploitation'
+		dataType: boolean
+		lineageTag: 5c9706c6-4083-5d91-8940-9f485be68b27
+		summarizeBy: none
+		sourceColumn: Est saisie exploitation
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 419c12e1-9c89-5a7e-affe-a266a47fa484
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	column 'Lot import'
+		dataType: int64
+		lineageTag: 55774cda-d13a-5020-97a4-8d45fa327930
+		summarizeBy: sum
+		sourceColumn: Lot import
+
+	partition Pointage = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Pointage.parquet"))
+				in
+				    Source
+

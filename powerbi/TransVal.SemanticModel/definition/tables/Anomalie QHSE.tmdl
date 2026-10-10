@@ -1,0 +1,30 @@
+table 'Anomalie QHSE'
+	lineageTag: f82223ac-4898-5be7-94d2-50797d0341ea
+
+	column 'Date anomalie'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: e07a1029-09af-5156-b086-74646380213b
+		summarizeBy: none
+		sourceColumn: Date anomalie
+
+	column 'Type anomalie'
+		dataType: string
+		lineageTag: 1d55e7bb-6925-5aa4-96e7-88fc378c5c5f
+		summarizeBy: none
+		sourceColumn: Type anomalie
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 25a299ce-262e-5e94-aead-e0fc0ef95979
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	partition 'Anomalie QHSE' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Anomalie QHSE.parquet"))
+				in
+				    Source
+

@@ -1,0 +1,35 @@
+table Activité
+	lineageTag: 2a93414b-58a0-5211-8015-c6b52494ec3a
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 6d11bef2-f4cf-524a-91eb-0a77e36e1a34
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column Activité
+		dataType: string
+		lineageTag: ea589c72-756a-5107-b3e8-40d7d30f67a8
+		summarizeBy: none
+		sourceColumn: Activité
+
+	column 'Type activité'
+		dataType: string
+		lineageTag: 3f91ae23-a4b4-5402-a779-b937c21bdb25
+		summarizeBy: none
+		sourceColumn: Type activité
+
+	column 'Activité complète'
+		dataType: string
+		lineageTag: 9230d445-a747-571e-811e-904318a83529
+		summarizeBy: none
+		sourceColumn: Activité complète
+
+	partition Activité = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Activité.parquet"))
+				in
+				    Source
+

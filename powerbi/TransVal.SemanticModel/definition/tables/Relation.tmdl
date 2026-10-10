@@ -1,0 +1,181 @@
+table Relation
+	lineageTag: 16f0cae8-e55b-51bc-9c41-27239a5a06a6
+
+	column 'Code relation'
+		dataType: string
+		lineageTag: 6cc4fbb2-b019-56b5-a651-7b41da887e08
+		summarizeBy: none
+		sourceColumn: Code relation
+
+	column 'Code client'
+		dataType: string
+		lineageTag: 8a33f803-43a8-5d1b-a0c5-7f5b25deefef
+		summarizeBy: none
+		sourceColumn: Code client
+
+	column 'Départ ville'
+		dataType: string
+		lineageTag: eacb251b-eca2-58a5-bd66-2af257ce11cd
+		summarizeBy: none
+		sourceColumn: Départ ville
+
+	column 'Arrivée ville'
+		dataType: string
+		lineageTag: d306a4e6-5a3b-565f-9eff-924b83dcf354
+		summarizeBy: none
+		sourceColumn: Arrivée ville
+
+	column Relation
+		dataType: string
+		lineageTag: 757d0062-3cd0-5399-a00a-13a41c9aa287
+		summarizeBy: none
+		sourceColumn: Relation
+
+	column 'Départ nom'
+		dataType: string
+		lineageTag: 454a92d5-3872-546e-8e15-9c76c998cd1f
+		summarizeBy: none
+		sourceColumn: Départ nom
+
+	column 'Arrivée nom'
+		dataType: string
+		lineageTag: d4a3e5cb-7d72-50fd-9a59-40b1976484c9
+		summarizeBy: none
+		sourceColumn: Arrivée nom
+
+	column 'Distance km'
+		dataType: int64
+		lineageTag: 70fb30ac-ca34-5be2-a215-acf019a56515
+		summarizeBy: sum
+		sourceColumn: Distance km
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: e2990225-6cf2-5248-89ec-b4b7cad40be5
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'Prix tarif'
+		dataType: double
+		lineageTag: 0b04e6aa-d252-551c-abe6-b16d20797a58
+		summarizeBy: sum
+		sourceColumn: Prix tarif
+
+	column 'Prix date'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 06783f08-4f82-50e7-9eda-5e60ec80376d
+		summarizeBy: none
+		sourceColumn: Prix date
+
+	column 'Date création'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 903bb17f-87f7-50d2-a111-752552eee0ae
+		summarizeBy: none
+		sourceColumn: Date création
+
+	column 'Type relation'
+		dataType: string
+		lineageTag: b7857c41-8692-56af-bc76-a7f46d69b007
+		summarizeBy: none
+		sourceColumn: Type relation
+
+	column 'Est location'
+		dataType: boolean
+		lineageTag: 3bc39071-885a-565a-8a20-9c0b6048c80d
+		summarizeBy: none
+		sourceColumn: Est location
+
+	column Marchandise
+		dataType: string
+		lineageTag: 0329a60a-9d49-5ab7-9df2-43b7a97c74da
+		summarizeBy: none
+		sourceColumn: Marchandise
+
+	column 'Relation sites'
+		dataType: string
+		lineageTag: 789a7038-ec3d-5479-b75f-e4e32a270712
+		summarizeBy: none
+		sourceColumn: Relation sites
+
+	column 'Départ code postal'
+		dataType: string
+		lineageTag: 5ca5d251-94cf-5eeb-a872-2ce66513e760
+		summarizeBy: none
+		sourceColumn: Départ code postal
+
+	column 'Départ département'
+		dataType: string
+		lineageTag: a206443d-e078-53e5-9143-a2638a2cf62c
+		summarizeBy: none
+		sourceColumn: Départ département
+
+	column 'Départ pays'
+		dataType: string
+		lineageTag: 42585d41-dc13-54ee-a0c0-bee8deb9cebf
+		summarizeBy: none
+		sourceColumn: Départ pays
+
+	column 'Départ latitude'
+		dataType: double
+		lineageTag: ffc4f846-885e-5b68-bbb8-cba87a5e2b87
+		summarizeBy: sum
+		sourceColumn: Départ latitude
+
+	column 'Départ longitude'
+		dataType: double
+		lineageTag: 1b3119bb-c8bf-5306-ac23-92809e4d365c
+		summarizeBy: sum
+		sourceColumn: Départ longitude
+
+	column 'Arrivée code postal'
+		dataType: string
+		lineageTag: aa137e51-4a1b-5db9-bf0b-c80becab5816
+		summarizeBy: none
+		sourceColumn: Arrivée code postal
+
+	column 'Arrivée département'
+		dataType: string
+		lineageTag: cc6fdfe7-b09d-5412-8ef9-a8489800bbc5
+		summarizeBy: none
+		sourceColumn: Arrivée département
+
+	column 'Arrivée pays'
+		dataType: string
+		lineageTag: 977e5397-b7b4-5691-a5c7-6701d2f7044e
+		summarizeBy: none
+		sourceColumn: Arrivée pays
+
+	column 'Arrivée latitude'
+		dataType: double
+		lineageTag: 184d89dc-dcd5-58e7-a134-d00e04ef3dbd
+		summarizeBy: sum
+		sourceColumn: Arrivée latitude
+
+	column 'Arrivée longitude'
+		dataType: double
+		lineageTag: 47af948b-9f91-52f8-bd75-caaa134a6f6c
+		summarizeBy: sum
+		sourceColumn: Arrivée longitude
+
+	column 'Âge prix mois'
+		dataType: int64
+		lineageTag: c43b9a31-8f48-58e0-b593-72f34d77303d
+		summarizeBy: sum
+		sourceColumn: Âge prix mois
+
+	column Location
+		dataType: string
+		lineageTag: da5bc0f1-1d85-5a7d-8a2d-d7cdc4e0c53e
+		summarizeBy: none
+		sourceColumn: Location
+
+	partition Relation = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Relation.parquet"))
+				in
+				    Source
+

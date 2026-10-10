@@ -1,0 +1,384 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "c6f2e75fd4cf55358cc5",
+  "position": {
+    "x": 646.1,
+    "y": 310.0,
+    "z": 1002,
+    "height": 317.9,
+    "width": 617.9,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Anomalie matériel"
+                    }
+                  },
+                  "Property": "Type anomalie"
+                }
+              },
+              "queryRef": "Anomalie matériel.Type anomalie",
+              "nativeQueryRef": "Type anomalie",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Indicateur anomalies"
+                }
+              },
+              "queryRef": "Mesures.Indicateur anomalies",
+              "nativeQueryRef": "Indicateur anomalies"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Mesures"
+                  }
+                },
+                "Property": "Indicateur anomalies"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Percent of total'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Autre incident'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Conformité & Propreté matériel'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Casse'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Matériel manquant'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Réparation atelier matériel'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Situation dangereuse'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Prise de poste'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Anomalie matériel"
+                          }
+                        },
+                        "Property": "Type anomalie"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Propreté'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "901d8cc802f0e113c4cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Indicateur anomalies"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ab784c52bf165547da9c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Anomalie matériel"
+              }
+            },
+            "Property": "Type anomalie"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

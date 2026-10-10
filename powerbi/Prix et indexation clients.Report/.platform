@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Prix et indexation clients"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7a001eca-62b7-444c-a3ee-1996ee1394b9"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Prix du gazole"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f018b323-05e8-4fb1-9dfb-27878b6977e5"
+  }
+}

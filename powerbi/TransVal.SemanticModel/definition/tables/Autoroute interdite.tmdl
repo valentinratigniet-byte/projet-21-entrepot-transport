@@ -1,0 +1,103 @@
+table 'Autoroute interdite'
+	lineageTag: ac521d42-e8be-513c-ad10-3f5ec6a3587c
+
+	column 'Événement ID'
+		dataType: int64
+		lineageTag: bc63bf9a-5ce6-5fc2-addc-eaa2b11dd949
+		summarizeBy: none
+		sourceColumn: Événement ID
+
+	column 'Date événement'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: a02fe4d4-b87e-527a-9f1e-6f6d580f20c1
+		summarizeBy: none
+		sourceColumn: Date événement
+
+	column Heure
+		dataType: string
+		lineageTag: f58b91aa-442f-54f4-bafe-3dc14a7ecf3e
+		summarizeBy: none
+		sourceColumn: Heure
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: b69b1f96-2c0c-53ed-85a1-8a171205e2dc
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Matricule
+		dataType: int64
+		lineageTag: 70db5667-08f2-52fd-8221-a8bb0ad72501
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column Autoroute
+		dataType: string
+		lineageTag: eff72003-568e-55d3-8212-9ec4d96a566f
+		summarizeBy: none
+		sourceColumn: Autoroute
+
+	column Zone
+		dataType: string
+		lineageTag: a33ed36d-c309-5183-afc1-207592d13650
+		summarizeBy: none
+		sourceColumn: Zone
+
+	column 'Nb passages'
+		dataType: int64
+		lineageTag: c00a7be7-a92e-519e-b005-0ae92338bda6
+		summarizeBy: sum
+		sourceColumn: Nb passages
+
+	column Latitude
+		dataType: double
+		lineageTag: 7e7528b5-30b9-53c0-b82a-60fc33f8c2ca
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+	column Longitude
+		dataType: double
+		lineageTag: 13575e68-b3a8-5550-9493-7f68cba9728a
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+	column 'Est justifié'
+		dataType: boolean
+		lineageTag: 4fcaad48-af4d-5bbf-9b96-be05a3278a5b
+		summarizeBy: none
+		sourceColumn: Est justifié
+
+	column Justification
+		dataType: string
+		lineageTag: 0f187176-633c-5b14-ac39-684e217953b3
+		summarizeBy: none
+		sourceColumn: Justification
+
+	column Commentaire
+		dataType: string
+		lineageTag: a3d815b8-4325-5e3f-a5d9-5b67fcdff38f
+		summarizeBy: none
+		sourceColumn: Commentaire
+
+	column Justifié
+		dataType: string
+		lineageTag: a494be36-e0c1-5dc6-8646-afee421485ac
+		summarizeBy: none
+		sourceColumn: Justifié
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 9f56a1c8-ba64-5040-827d-145f93432f14
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition 'Autoroute interdite' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Autoroute interdite.parquet"))
+				in
+				    Source
+

@@ -1,0 +1,60 @@
+table Chrono
+	lineageTag: 91e9f865-596b-55cd-aae0-ec9a37552637
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 4ccfc66c-e1df-50fc-a767-7d7592ca6ae7
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Matricule
+		dataType: int64
+		lineageTag: 20e0fbf7-7c2a-5cd8-a292-7da09304150d
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Heures conduite'
+		dataType: double
+		lineageTag: fbf0b29b-75e1-5801-b348-9a23bf6be5d0
+		summarizeBy: sum
+		sourceColumn: Heures conduite
+
+	column 'Heures travail'
+		dataType: double
+		lineageTag: 8a75d8e6-7dd4-5bf6-9151-fb670ac4b7be
+		summarizeBy: sum
+		sourceColumn: Heures travail
+
+	column 'Heures dispo'
+		dataType: double
+		lineageTag: 11450b84-701a-5022-b714-04594bdf8862
+		summarizeBy: sum
+		sourceColumn: Heures dispo
+
+	column 'Heures repos payé'
+		dataType: double
+		lineageTag: 6a8a83e4-a8f7-5bfb-a028-2a4ea7673a27
+		summarizeBy: sum
+		sourceColumn: Heures repos payé
+
+	column 'Heures service'
+		dataType: double
+		lineageTag: 6b47142c-9ef3-5744-b2ea-c449e82ba9a7
+		summarizeBy: sum
+		sourceColumn: Heures service
+
+	column 'Heures hors conduite'
+		dataType: double
+		lineageTag: 0018ad2a-9fe8-5731-9e2f-2708be849cfa
+		summarizeBy: sum
+		sourceColumn: Heures hors conduite
+
+	partition Chrono = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Chrono.parquet"))
+				in
+				    Source
+

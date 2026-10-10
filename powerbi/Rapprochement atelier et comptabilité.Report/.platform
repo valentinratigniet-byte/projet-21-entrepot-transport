@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Rapprochement atelier et comptabilité"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "67e94c58-be49-441a-8225-dbd73d4e3188"
+  }
+}

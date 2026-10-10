@@ -1,0 +1,21 @@
+table 'Sélecteur atelier productivité'
+	lineageTag: a59aa051-6551-5f13-b26a-07a02f5c7a95
+
+	column Indicateur
+		dataType: string
+		lineageTag: 647b575d-b361-52f6-9b7c-7ba3470f42f3
+		summarizeBy: none
+		sourceColumn: [Indicateur]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: c84f139b-b16f-5d41-9b0f-e82840ef0a42
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Sélecteur atelier productivité' = calculated
+		mode: import
+		source = DATATABLE("Indicateur", STRING, "Ordre", INTEGER, {{"Taux sous-traitance", 1}, {"Heures prod / heures payées", 2}, {"Coût heure prod direct", 3}})
+

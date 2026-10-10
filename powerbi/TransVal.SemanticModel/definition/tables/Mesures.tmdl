@@ -1,0 +1,1889 @@
+table Mesures
+	lineageTag: 5be00ab7-3b54-543a-987e-8262105054d9
+
+	measure 'Date de référence' = MAX('Paramètres'[Date référence])
+		formatString: dd/mm/yyyy
+		displayFolder: Calendrier
+		lineageTag: b2e1fd51-a1ac-52b7-b853-0400c69b8a4e
+
+	measure 'Actualisé le' = MAX('Paramètres'[Date actualisation])
+		formatString: dd/mm/yyyy hh:nn
+		displayFolder: Calendrier
+		lineageTag: efd4f7af-0fb3-54a7-92fb-f31f010e7ac4
+
+	measure 'Jours ouvrés' = CALCULATE(COUNTROWS('Date'), 'Date'[Est jour ouvré])
+		formatString: 0
+		displayFolder: Calendrier
+		lineageTag: f6b76048-dd18-55de-90ca-402847353a95
+
+	measure 'Semaine en cours' = "S " & FORMAT(WEEKNUM([Date de référence], 21), "00")
+		displayFolder: Calendrier
+		lineageTag: 55c5d277-a798-56e2-8e50-ffed9d50a02b
+
+	measure 'Semaine texte' = "Du " & FORMAT(MIN('Date'[Date]), "dd/MM/yyyy") & " au " & FORMAT(MAX('Date'[Date]), "dd/MM/yyyy")
+		displayFolder: Calendrier
+		lineageTag: 344890f2-a9a5-5549-b58f-ea0ad162ca76
+
+	measure 'Date min' = MIN('Date'[Date])
+		formatString: dd/mm/yyyy
+		displayFolder: Calendrier
+		lineageTag: fdde22b2-4e1c-5f5e-986c-49045ca58380
+
+	measure 'Date max' = MAX('Date'[Date])
+		formatString: dd/mm/yyyy
+		displayFolder: Calendrier
+		lineageTag: 68f28f37-83db-5e62-8d38-d379d7bc06d5
+
+	measure 'Nb voyages' = COUNTROWS('Voyage')
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 370cc01d-7632-53f6-abcc-b8ae70e28ca7
+
+	measure 'Nb voyages N-1' = CALCULATE([Nb voyages], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 594a2413-2ad9-5a92-87de-6e345329c5a3
+
+	measure 'Nb voyages évolution' = IF(NOT ISBLANK([Nb voyages]) && NOT ISBLANK([Nb voyages N-1]), DIVIDE([Nb voyages], [Nb voyages N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: fa0314fe-8dc2-50a3-a165-176e2f3fee20
+
+	measure 'Nb voyages / jour ouvré' = DIVIDE([Nb voyages], [Jours ouvrés])
+		formatString: #,0.0
+		displayFolder: Activité
+		lineageTag: 9eec216e-1a16-54dc-abb9-873d0b7b989c
+
+	measure 'Nb voyages / jour ouvré M-1' = CALCULATE([Nb voyages / jour ouvré], DATEADD('Date'[Date], -1, MONTH))
+		formatString: #,0.0
+		displayFolder: Activité
+		lineageTag: 1e0bd889-39cb-57b3-bf38-c4f715212a49
+
+	measure 'Nb voyages / jour ouvré évolution' = IF(NOT ISBLANK([Nb voyages / jour ouvré]) && NOT ISBLANK([Nb voyages / jour ouvré M-1]), DIVIDE([Nb voyages / jour ouvré], [Nb voyages / jour ouvré M-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: e031a5e0-4505-501f-b784-f2c7ef699079
+
+	measure 'CA facturé' = CALCULATE(SUM('Voyage'[CA facturé]), 'Voyage'[Est réalisé])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 84736b3c-2bb1-50a3-bac1-12ced8f002c8
+
+	measure 'CA facturé N-1' = CALCULATE([CA facturé], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: ed44d643-fe9c-5120-ac07-487ac808da05
+
+	measure 'CA facturé évolution' = IF(NOT ISBLANK([CA facturé]) && NOT ISBLANK([CA facturé N-1]), DIVIDE([CA facturé], [CA facturé N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: f7f96411-a77c-59ab-b163-5c2ebd7f0dfb
+
+	measure 'CA réparti' = CALCULATE(SUM('Voyage'[CA réparti]), 'Voyage'[Est réalisé])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 2fc26e50-1c93-5644-ab4c-c7241055ea4d
+
+	measure 'CA réparti N-1' = CALCULATE([CA réparti], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 4e14e0a5-e8d4-55af-90ef-9000b0bae9a8
+
+	measure 'CA réparti évolution' = IF(NOT ISBLANK([CA réparti]) && NOT ISBLANK([CA réparti N-1]), DIVIDE([CA réparti], [CA réparti N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: f63c2ea3-5191-5843-8fb6-79babf1831b7
+
+	measure 'CA moyen / jour ouvré' = DIVIDE([CA facturé], [Jours ouvrés])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: a8c538ed-44a2-5234-b8ee-7e68c3dd28bb
+
+	measure 'CA moyen / jour ouvré N-1' = CALCULATE([CA moyen / jour ouvré], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 0114821b-a96c-5fb4-812e-4f93d7b22c52
+
+	measure 'CA moyen / jour ouvré évolution' = IF(NOT ISBLANK([CA moyen / jour ouvré]) && NOT ISBLANK([CA moyen / jour ouvré N-1]), DIVIDE([CA moyen / jour ouvré], [CA moyen / jour ouvré N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 6802fa99-f4db-5fba-83ee-35c1fa7e5d6a
+
+	measure 'CA moyen / jour ouvré (k€)' = IF(ISBLANK([CA moyen / jour ouvré]), BLANK(), FORMAT([CA moyen / jour ouvré] / 1000, "#,0.00") & " k€")
+		displayFolder: Activité
+		lineageTag: b57098a4-b111-5127-bff2-b02e2cb4a025
+
+	measure 'CA moyen / jour ouvré réparti' = DIVIDE([CA réparti], [Jours ouvrés])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: a610c698-c7ed-58dc-ad5f-8ff96c694d12
+
+	measure 'CA moyen / jour ouvré réparti N-1' = CALCULATE([CA moyen / jour ouvré réparti], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 4538af21-48bd-5605-a9ba-b9be123cc0b0
+
+	measure 'CA moyen / jour ouvré réparti évolution' = IF(NOT ISBLANK([CA moyen / jour ouvré réparti]) && NOT ISBLANK([CA moyen / jour ouvré réparti N-1]), DIVIDE([CA moyen / jour ouvré réparti], [CA moyen / jour ouvré réparti N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: e32f0e9c-9ff3-5663-acb8-a571612efdee
+
+	measure 'Km total' = SUM('Voyage'[Km total])
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 74979625-5c97-5a72-8b97-11351f8370c0
+
+	measure 'Km total N-1' = CALCULATE([Km total], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: db365588-5e79-5f96-aa99-31a7fa50e314
+
+	measure 'Km total évolution' = IF(NOT ISBLANK([Km total]) && NOT ISBLANK([Km total N-1]), DIVIDE([Km total], [Km total N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 13e1fcf3-c220-558a-b0aa-b246dd624f3b
+
+	measure 'Km chargé moyen' = AVERAGE('Voyage'[Km chargé])
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 8b9b0897-5503-52ee-a797-911a3fbf9f4d
+
+	measure 'Temps chargement moyen' = AVERAGE('Voyage'[Temps chargement h])
+		formatString: #,0.00
+		displayFolder: Activité
+		lineageTag: 9fcaf221-1a92-5ed0-8d12-079f99dfce79
+
+	measure 'Temps livraison moyen' = AVERAGE('Voyage'[Temps livraison h])
+		formatString: #,0.00
+		displayFolder: Activité
+		lineageTag: 6efd7bbe-2ac0-5c8a-bdf3-1d8793cb26a8
+
+	measure 'Heures prod' = SUM('Voyage'[Temps total h])
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 8f1b6c54-850a-57fd-bddd-ede8a1e864fc
+
+	measure 'CA / km' = DIVIDE([CA facturé], [Km total])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 82ef36a8-5d61-5d38-8167-881c41222ba2
+
+	measure 'CA / km N-1' = CALCULATE([CA / km], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: a0d2f034-9fc3-53da-81b2-27cab232927c
+
+	measure 'CA / km évolution' = IF(NOT ISBLANK([CA / km]) && NOT ISBLANK([CA / km N-1]), DIVIDE([CA / km], [CA / km N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 252ba618-302f-5c6e-a9b3-94a64b32c663
+
+	measure 'CA / km réparti' = DIVIDE([CA réparti], [Km total])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 753da8fe-d33f-552b-b568-27ff746ac23b
+
+	measure 'CA / km réparti N-1' = CALCULATE([CA / km réparti], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 55ec520c-deae-5fe0-a1a0-0970fb690e1d
+
+	measure 'CA / km réparti évolution' = IF(NOT ISBLANK([CA / km réparti]) && NOT ISBLANK([CA / km réparti N-1]), DIVIDE([CA / km réparti], [CA / km réparti N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: b7932473-389a-5fab-aa85-e7cd3f3be6fb
+
+	measure 'CA / heure' = DIVIDE([CA facturé], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: ddd44b2c-e552-5935-8fb3-225ca75900ff
+
+	measure 'CA / heure N-1' = CALCULATE([CA / heure], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 2acb97b2-6b51-5f8f-936d-5be9b6247913
+
+	measure 'CA / heure évolution' = IF(NOT ISBLANK([CA / heure]) && NOT ISBLANK([CA / heure N-1]), DIVIDE([CA / heure], [CA / heure N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 1abebbe2-4122-5b18-b44c-d4fe1fc8d976
+
+	measure 'CA / heure réparti' = DIVIDE([CA réparti], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 84ef6838-8e4c-5cfa-9a9a-ef0db76a7ab8
+
+	measure 'CA / heure réparti N-1' = CALCULATE([CA / heure réparti], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: cce8500f-a49e-542c-9435-89e0747d4170
+
+	measure 'CA / heure réparti évolution' = IF(NOT ISBLANK([CA / heure réparti]) && NOT ISBLANK([CA / heure réparti N-1]), DIVIDE([CA / heure réparti], [CA / heure réparti N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: c7ee6e92-45a9-52b2-95da-e55e58342f37
+
+	measure 'CA / voyage' = DIVIDE([CA facturé], [Nb voyages], 0)
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 97e4abfe-7e18-5f10-b7b6-5e66ec9ef999
+
+	measure 'CA / voyage N-1' = CALCULATE([CA / voyage], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 12c472bd-6b29-5b70-974d-1c4467eee094
+
+	measure 'CA / voyage évolution' = IF(NOT ISBLANK([CA / voyage]) && NOT ISBLANK([CA / voyage N-1]), DIVIDE([CA / voyage], [CA / voyage N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: b2ab2f23-0771-5d27-8605-de4b9fb1f942
+
+	measure Appairage = DIVIDE(SUM('Voyage'[Km chargé]), SUM('Voyage'[Km total]))
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: 2e12e958-42a5-5a4f-92a9-9a73961ef167
+
+	measure 'Appairage N-1' = CALCULATE([Appairage], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: 560b4113-7715-52e1-8c7b-9a84d924caac
+
+	measure 'Appairage évolution' = IF(NOT ISBLANK([Appairage]) && NOT ISBLANK([Appairage N-1]), DIVIDE([Appairage], [Appairage N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 11a67737-4cbd-5ed2-b171-b10f2cb78a6f
+
+	measure 'MCV €' = SUM('Voyage'[MCV marge retenue])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 34de49d9-3027-5f25-87f2-abf48072cec1
+
+	measure 'MCV € N-1' = CALCULATE([MCV €], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 2e118697-810b-5db6-aa2f-edbc5fe9eb02
+
+	measure 'MCV € évolution' = IF(NOT ISBLANK([MCV €]) && NOT ISBLANK([MCV € N-1]), DIVIDE([MCV €], [MCV € N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 6d728f81-e7c1-5927-ab22-19ba7e33c82a
+
+	measure 'MCV %' = CALCULATE(DIVIDE(SUM('Voyage'[MCV marge retenue]), SUM('Voyage'[CA réparti])), 'Voyage'[Code relation] <> "SPOT")
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: d1299bb7-3d9e-5886-95a8-3c488c9ed6a4
+
+	measure 'MCV % N-1' = CALCULATE([MCV %], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: c857667d-7594-52d6-a48e-18748d08c2de
+
+	measure 'MCV % évolution' = IF(NOT ISBLANK([MCV %]) && NOT ISBLANK([MCV % N-1]), DIVIDE([MCV %], [MCV % N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 24d6ed22-53d6-5ed5-863f-35b8e19e96ad
+
+	measure 'Autoroute € / 100 km' = DIVIDE(SUM('Voyage'[Autoroute €]), SUM('Voyage'[Km total])) * 100
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 84474ae3-1665-52c1-bc65-7aa0afa80f31
+
+	measure 'Autoroute € / 100 km N-1' = CALCULATE([Autoroute € / 100 km], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 83403553-91c0-518d-ae8f-85368ed4e82d
+
+	measure 'Autoroute € / 100 km évolution' = IF(NOT ISBLANK([Autoroute € / 100 km]) && NOT ISBLANK([Autoroute € / 100 km N-1]), DIVIDE([Autoroute € / 100 km], [Autoroute € / 100 km N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 2bde67ca-8044-5af5-b02a-e72d02255d2c
+
+	measure 'Péages €' = SUM('Voyage'[Autoroute €])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 965b30f0-85a3-5e49-9087-5360e56aa6dc
+
+	measure 'Péages € / km' = DIVIDE([Péages €], [Km total])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 6891d548-5558-59d8-9502-ef442c2a8c83
+
+	measure 'Km à vide €' = SUM('Voyage'[Km vide €])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 15dc4e58-77fb-5f4d-ae55-2fe2cc7c2798
+
+	measure 'Qté livrée' = SUM('Voyage'[Qté livrée])
+		formatString: #,0.0
+		displayFolder: Activité
+		lineageTag: bf2c40b4-9cf7-5914-aa97-224d920995d1
+
+	measure 'Qté livrée moyenne' = AVERAGE('Voyage'[Qté livrée])
+		formatString: #,0.00
+		displayFolder: Activité
+		lineageTag: 59b400a5-30b1-5c65-b99c-d4519fb32438
+
+	measure 'Qté facturée / voyage' = DIVIDE(SUM('Voyage'[Qté facturée]), [Nb voyages])
+		formatString: #,0.00
+		displayFolder: Activité
+		lineageTag: c1b1ebcb-231c-53ff-96ea-cb955c3559d5
+
+	measure 'Qté facturée / voyage N-1' = CALCULATE([Qté facturée / voyage], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.00
+		displayFolder: Activité
+		lineageTag: b68f2a50-b45a-50f2-b015-2abe1d5cfc83
+
+	measure 'Qté facturée / voyage évolution' = IF(NOT ISBLANK([Qté facturée / voyage]) && NOT ISBLANK([Qté facturée / voyage N-1]), DIVIDE([Qté facturée / voyage], [Qté facturée / voyage N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Activité
+		lineageTag: 1dda7733-5b45-5fef-9691-f6067ede38ee
+
+	measure 'Dernier prix' = MAX('Relation'[Prix tarif])
+		formatString: #,0.00 €
+		displayFolder: Activité
+		lineageTag: 5adef457-452a-50c1-87f2-bd9d10bbda0c
+
+	measure 'Coût total chargé' = SUM('Voyage'[Coût total chargé])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 6a0ba6b8-902e-51bb-9a76-4b6e662942d3
+
+	measure 'Nb voyages même semaine N-1' =
+			VAR sem = IF(HASONEVALUE('Date'[Année semaine n°]), VALUES('Date'[Année semaine n°]), CALCULATE(MAX('Date'[Année semaine n°]), 'Date'[Est passé]))
+			RETURN CALCULATE([Nb voyages], REMOVEFILTERS('Date'), 'Date'[Année semaine n°] = sem - 100)
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 1edda9ec-f5a2-5b02-b1c4-cae5cab41f28
+
+	measure 'CA même semaine N-1' =
+			VAR sem = IF(HASONEVALUE('Date'[Année semaine n°]), VALUES('Date'[Année semaine n°]), CALCULATE(MAX('Date'[Année semaine n°]), 'Date'[Est passé]))
+			RETURN CALCULATE([CA facturé], REMOVEFILTERS('Date'), 'Date'[Année semaine n°] = sem - 100)
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 0c42cfaa-30d9-588a-a4ea-438d7c3fb047
+
+	measure 'Nb voyages semaine évolution' = IF(NOT ISBLANK([Nb voyages de la semaine]) && NOT ISBLANK([Nb voyages même semaine N-1]), DIVIDE([Nb voyages de la semaine], [Nb voyages même semaine N-1]) - 1)
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: adca915b-79d3-557c-be46-b19edefe0877
+
+	measure 'CA semaine évolution' = IF(NOT ISBLANK([CA de la semaine]) && NOT ISBLANK([CA même semaine N-1]), DIVIDE([CA de la semaine], [CA même semaine N-1]) - 1)
+		formatString: 0.0%
+		displayFolder: Activité
+		lineageTag: 295241d3-4c52-554b-a4d7-04a83cd5c38e
+
+	measure 'CA / jour ouvré année en cours' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(DIVIDE([CA facturé], [Jours ouvrés]), 'Date'[Année] = YEAR(ref), 'Date'[Est passé])
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: 1e56d1b7-f181-5b8e-9fb4-b295f67de040
+
+	measure 'CA / jour ouvré année précédente' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(DIVIDE([CA facturé], [Jours ouvrés]), 'Date'[Année] = YEAR(ref) - 1)
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: ad3c5e72-cdc2-5263-b180-5ae5bc5995b5
+
+	measure 'Nb missions du jour' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([Nb voyages], REMOVEFILTERS('Date'), 'Date'[Date] = ref)
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: d62d682d-34ca-5ecb-a77c-1315c7e10214
+
+	measure 'Passages autoroute interdite / voyage' = DIVIDE(DISTINCTCOUNT('Autoroute interdite'[Événement ID]), [Nb voyages])
+		formatString: 0.000
+		displayFolder: Activité
+		lineageTag: 14e4ba84-41c1-5984-8114-bd415c237c80
+
+	measure 'Attente à facturer €' = CALCULATE(SUM('Voyage'[Attente à facturer €]), 'Voyage'[Est réalisé])
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 96a95c0b-3b97-51b4-8f79-710e19e85d56
+
+	measure 'Attentes facturées €' = CALCULATE(SUM('Événement facturé'[Montant facturé]), 'Événement facturé'[Type événement] = "ATT")
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: a1ba49c6-3467-5314-b9cc-c9576bd9e387
+
+	measure '% attentes facturées' = DIVIDE([Attentes facturées €], [Attente à facturer €])
+		formatString: 0.0%
+		displayFolder: Contrôle facturation
+		lineageTag: 602b9b69-d626-5233-8f45-ee65a89f6fe7
+
+	measure 'Nb attentes' = CALCULATE([Nb voyages], 'Voyage'[Est attente])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: 277ce4ad-94f2-5ac5-8201-1fdea78bdc76
+
+	measure 'Nb attentes facturées' = CALCULATE([Nb voyages], 'Voyage'[Est attente facturée])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: c754af13-b4d6-5b48-9131-6099a572b32d
+
+	measure 'Nb attentes justifiées' = CALCULATE([Nb voyages], 'Voyage'[Est attente justifiée])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: a485fc50-9138-5e13-a628-af772981b1d8
+
+	measure 'Lavage à facturer €' = SUM('Voyage'[MCV lavage int])
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 404385d6-63e4-5df9-a182-ae0cd06f5d3c
+
+	measure 'Lavages facturés €' = CALCULATE(SUM('Événement facturé'[Montant facturé]), 'Événement facturé'[Type événement] = "LAV")
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 7135daae-2ef7-5978-aad4-50f00c8929d4
+
+	measure '% lavages facturés' = DIVIDE([Lavages facturés €], [Lavage à facturer €])
+		formatString: 0.0%
+		displayFolder: Contrôle facturation
+		lineageTag: 7613ec63-1211-5329-a3ac-1690ea9d6f09
+
+	measure 'Nb lavages facturés' = CALCULATE([Nb voyages], 'Voyage'[Est lavage facturé])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: c65dcfa5-b8cc-5176-85df-16980c163ce8
+
+	measure 'Nb lavages justifiés' = CALCULATE([Nb voyages], 'Voyage'[Est lavage justifié])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: fb6d9cba-ed8b-5411-84ba-37980cb53538
+
+	measure 'Samedi à facturer €' = SUM('Voyage'[Samedi à facturer €])
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 0ff88244-3300-5bf6-8a88-1c68bb37f31c
+
+	measure 'Samedis facturés €' = CALCULATE(SUM('Événement facturé'[Montant facturé]), 'Événement facturé'[Type événement] = "SAM")
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 9d386da2-9cd1-5bd8-9bd5-9a47e11411cf
+
+	measure 'Nb samedis facturés' = CALCULATE([Nb voyages], 'Voyage'[Est samedi facturé])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: 3b517b98-988f-5a4e-a3dd-36d2b3722e85
+
+	measure 'Double dépotage facturé €' = CALCULATE(SUM('Événement facturé'[Montant facturé]), 'Événement facturé'[Type événement] = "DD")
+		formatString: #,0 €
+		displayFolder: Contrôle facturation
+		lineageTag: 610d6773-af10-577d-ba0a-15c8236a6580
+
+	measure 'Nb doubles dépotages' = CALCULATE([Nb voyages], 'Voyage'[Est double dépotage])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: f2a27523-23df-5e5c-855a-ddd11764cd1e
+
+	measure 'Nb doubles dépotages facturés' = CALCULATE([Nb voyages], 'Voyage'[Est DD facturé])
+		formatString: #,0
+		displayFolder: Contrôle facturation
+		lineageTag: 64398cdb-1f9c-5beb-80b8-feca37e04116
+
+	measure 'Nb voyages réalisés' = CALCULATE(COUNTROWS('Voyage'), USERELATIONSHIP('Voyage'[Date chargement], 'Date'[Date]), 'Voyage'[Statut] = "LIVRE")
+		formatString: #,0
+		displayFolder: Heures conducteurs
+		lineageTag: ffadbf83-9fba-5aab-8e92-96d1ac768192
+
+	measure 'Heures à justifier' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "a_justifier")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: bc4f3a0f-7105-5c60-be26-eb47fe8cbe38
+
+	measure 'Heures à justifier / voyage' = DIVIDE([Heures à justifier], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 45f7672c-c758-5fa8-beeb-8307b93f0405
+
+	measure 'Heures chargement' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Libellé brut] IN {"Chargement", "Chargement hors mission"})
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 93ee2678-f94b-5fc8-8626-2ed8c3eef6d9
+
+	measure 'Heures chargement / voyage' = DIVIDE([Heures chargement], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 509833f5-ddc0-5b44-bd05-ae4ebc713ee9
+
+	measure 'Heures déchargement' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Libellé brut] IN {"Déchargement", "Livraison hors mission"})
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 2a1ffb91-16d1-52de-8218-86c4e3e086e5
+
+	measure 'Heures déchargement / voyage' = DIVIDE([Heures déchargement], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 0e68828a-90be-547d-89e5-29c4362103f7
+
+	measure 'Heures chargement + déchargement' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "chargement_dechargement")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 4c354b2e-8d51-5fe6-a9e2-cf2e68b064ef
+
+	measure 'Heures chargement + déchargement / voyage' = DIVIDE([Heures chargement + déchargement], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 5edc55ea-5e31-51bd-9b29-fd9e7d8f627d
+
+	measure 'Heures lavage interne' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "lavage_interne")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: ad3e85ae-e381-55fd-8143-9a716ef22016
+
+	measure 'Heures lavage interne / voyage' = DIVIDE([Heures lavage interne], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 33c63e76-950f-527e-b000-5e53650fb8d0
+
+	measure 'Heures lavage externe' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "lavage_externe")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 39ee5b1d-95b7-5d65-9da4-d394f87b0093
+
+	measure 'Heures lavage externe / voyage' = DIVIDE([Heures lavage externe], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 7bc654af-8b5e-51fb-8d73-09a03a036b6f
+
+	measure 'Heures gasoil' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "gasoil")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 7f3114aa-8ed7-5179-a911-e3fc1e695875
+
+	measure 'Heures gasoil / voyage' = DIVIDE([Heures gasoil], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 0159cd11-d626-53d8-b49f-484878569274
+
+	measure 'Heures décroche / raccroche' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "decroche_raccroche")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: a7dff56b-812b-5eb7-98a7-fe4db4e62456
+
+	measure 'Heures décroche / raccroche / voyage' = DIVIDE([Heures décroche / raccroche], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: f4fdc5d9-7612-5729-a36a-f46c22787c68
+
+	measure 'Heures VT / VO' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Est saisie exploitation], 'Pointage'[Catégorie HCHC] = "vt_vo")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 0fbf5f78-3833-5b91-a854-bcb5a390ce31
+
+	measure 'Heures VT / VO / voyage' = DIVIDE([Heures VT / VO], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 74d87cf0-5a24-5148-9c1c-e2611b667e06
+
+	measure 'Heures carte hors conduite' = CALCULATE(SUM('Pointage'[Heures]) + SUM('Pointage'[Heures forfait]), 'Pointage'[Est valide], 'Pointage'[Catégorie HCHC] <> "a_justifier")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: e165c246-61cb-525d-9c7c-97f22c1a0948
+
+	measure 'Heures carte hors conduite / voyage' = DIVIDE([Heures carte hors conduite], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 822f24d7-a76c-5538-9b57-39334e428bfa
+
+	measure 'HCHC heures' = SUM('Chrono'[Heures hors conduite])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: fd618eb7-4727-5031-945f-7394674dc275
+
+	measure 'HCHC / voyage' = DIVIDE([HCHC heures], [Nb voyages réalisés])
+		formatString: #,0.00
+		displayFolder: Heures conducteurs
+		lineageTag: 86e85bd0-3778-5ac0-b6f6-91870671579e
+
+	measure 'Heures conduite' = SUM('Chrono'[Heures conduite])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 1a7e2cf7-4768-5fed-bd38-6802827ba5b1
+
+	measure 'Heures travail' = SUM('Chrono'[Heures travail])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 28d2592a-ae81-56f4-8772-ca4c0c96b9fe
+
+	measure 'Heures dispo' = SUM('Chrono'[Heures dispo])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: a3afae5b-bbee-5ae9-90a6-9277b872d9c9
+
+	measure 'Heures repos payé' = SUM('Chrono'[Heures repos payé])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: c0f16074-f9ca-53d4-a095-0d8bb09ac64d
+
+	measure 'Heures service' = SUM('Chrono'[Heures service])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 5c7e9b6c-bb40-5f04-b307-7648386f2288
+
+	measure 'Productivité TC / TS' = DIVIDE([Heures conduite], [Heures service])
+		formatString: 0.0%
+		displayFolder: Heures conducteurs
+		lineageTag: a3090ed5-df04-5310-aaed-3c6c8b77a258
+
+	measure 'Salaire brut / heure prod' = DIVIDE(SUM('Compteur paie'[Salaire brut]), [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: d4e7148d-0fce-56df-9a52-5504ee0e12db
+
+	measure 'Heures compensées (base contrat)' =
+			VAR ref = [Date de référence]
+			VAR debut = DATE(YEAR(ref), MONTH(ref), 1)
+			VAR limite = IF(DAY(ref) >= 10, debut, EDATE(debut, -1))  -- mois clos à partir du 10
+			RETURN CALCULATE(SUM('Compteur paie'[Heures compensées]), 'Compteur paie'[Mois] < limite)
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 8bd3e6ba-97cb-539a-bf78-18e891bea88b
+
+	measure 'Heures compensées €' = [Heures compensées (base contrat)] * [Salaire brut / heure prod]
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 909995d2-3417-5cde-a5d5-0c8010132638
+
+	measure 'Heures compensées € / HP' = DIVIDE([Heures compensées €], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: ee0556e2-32a8-5afb-baf7-24bd9e866e73
+
+	measure 'Heures à justifier payées' = CALCULATE(SUM('Pointage'[Heures]), 'Pointage'[Est valide], 'Pointage'[Catégorie HCHC] = "a_justifier")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 6aae77ab-cae3-547a-9480-803f448e87ee
+
+	measure 'Heures à justifier payées €' = [Heures à justifier payées] * [Salaire brut / heure prod]
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 92fdcbf8-a85e-561e-9975-8c46cda22993
+
+	measure 'Heures à justifier payées € / HP' = DIVIDE([Heures à justifier payées €], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: 1339225e-7456-51d0-a4b2-81299b45ac38
+
+	measure '% heures à justifier / heures prod' = DIVIDE([Heures à justifier payées], [Heures prod])
+		formatString: 0.0%
+		displayFolder: Heures conducteurs
+		lineageTag: 67018874-07de-5ca3-b04d-169920f6955d
+
+	measure 'Heures hors carte' = CALCULATE(SUM('Activité chauffeur'[Heures]), 'Activité chauffeur'[Catégorie] = "Hors carte")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 10e15979-ad77-5bf7-80a8-110e16545546
+
+	measure 'Heures hors carte €' = CALCULATE(SUM('Activité chauffeur'[Coût]), 'Activité chauffeur'[Catégorie] = "Hors carte")
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 85fa578c-4821-598f-86fb-79c0a332d787
+
+	measure 'Coût heure hors carte / HP' = DIVIDE([Heures hors carte €], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: b6f49dfe-b551-56fa-a28d-e8b1396381a0
+
+	measure '% heures hors carte / heures prod' = DIVIDE([Heures hors carte], [Heures prod])
+		formatString: 0.0%
+		displayFolder: Heures conducteurs
+		lineageTag: a5dba1e5-8492-57b0-95c3-70b77755f3d1
+
+	measure 'Frais conv €' = CALCULATE(SUM('Activité chauffeur'[Coût]), 'Activité chauffeur'[Libellé] = "Frais conv")
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: adcf965d-769a-5816-8a59-0fbee6b2b9b7
+
+	measure 'Frais non-conv €' = CALCULATE(SUM('Activité chauffeur'[Coût]), 'Activité chauffeur'[Libellé] = "Frais non-conv")
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 37100b54-c8dd-5d11-a859-3da6cfe1d93e
+
+	measure 'Frais conv / HP' = DIVIDE([Frais conv €], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: b0ab0c2b-72b8-5e3a-8dea-32685d37013b
+
+	measure 'Frais non-conv / HP' = DIVIDE([Frais non-conv €], [Heures prod])
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: 0bc1d934-faa0-5387-a8e6-f92f422d3cc4
+
+	measure 'Frais & primes / HP' = [Frais conv / HP] + [Frais non-conv / HP]
+		formatString: #,0.00 €
+		displayFolder: Heures conducteurs
+		lineageTag: 65e457a7-40b4-570e-a581-620ec38c6e08
+
+	measure 'Heures formation' = CALCULATE(SUM('Activité chauffeur'[Heures]), 'Activité chauffeur'[Catégorie] = "Formation")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 030e2abe-1b43-54dc-9715-a8496ce4a0e4
+
+	measure 'Coût formation €' = CALCULATE(SUM('Activité chauffeur'[Coût]), 'Activité chauffeur'[Catégorie] = "Formation")
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 2769c2a8-abd2-553b-a821-d32831d751a9
+
+	measure 'Heures trajets' = CALCULATE(SUM('Activité chauffeur'[Heures]), 'Activité chauffeur'[Catégorie] = "Trajet")
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: c260c03d-7956-59e6-8fea-536d9ec71cc5
+
+	measure 'Coût trajets €' = CALCULATE(SUM('Activité chauffeur'[Coût]), 'Activité chauffeur'[Catégorie] = "Trajet")
+		formatString: #,0 €
+		displayFolder: Heures conducteurs
+		lineageTag: 7410b9df-1797-57d6-b7df-bceb62ff50cd
+
+	measure 'Lignes en attente de vérification' = CALCULATE(COUNTROWS('Activité chauffeur'), 'Activité chauffeur'[Est en attente vérification])
+		formatString: #,0
+		displayFolder: Heures conducteurs
+		lineageTag: 7ba42153-3179-5e81-9000-0f5c43ed0e67
+
+	measure 'Heures payées' = SUM('Compteur paie'[Heures payées])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 7a92828d-27e4-5540-a9f0-4f1090cecfbf
+
+	measure 'Heures réalisées (paie)' = SUM('Compteur paie'[Heures réalisées])
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 3011c449-9d14-54d3-b643-6fde84542a1f
+
+	measure 'Heures payées / mois' = AVERAGEX(VALUES('Conducteur'[Matricule]), DIVIDE(CALCULATE(SUM('Compteur paie'[Heures payées])), CALCULATE(DISTINCTCOUNT('Compteur paie'[Mois]))))
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 31692d2d-7486-5921-a3b1-35081db42add
+
+	measure 'Écart moyen heures payées' =
+			VAR moyenne = CALCULATE([Heures payées / mois], ALLSELECTED('Conducteur'))
+			RETURN AVERAGEX(FILTER(VALUES('Conducteur'[Matricule]), NOT ISBLANK([Heures payées / mois])), ABS([Heures payées / mois] - moyenne))
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: b48f4e2f-01f7-5243-80d1-b84781364fe4
+
+	measure 'Heures réalisées moyennes / conducteur' = CALCULATE(DIVIDE([Heures réalisées (paie)], DISTINCTCOUNT('Compteur paie'[Matricule])), ALLSELECTED('Conducteur'))
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 9e96819d-da95-547f-8347-829fe3ef840f
+
+	measure 'Écart moyen heures réalisées' = AVERAGEX(FILTER(VALUES('Conducteur'[Matricule]), NOT ISBLANK(CALCULATE([Heures réalisées (paie)]))), ABS(CALCULATE([Heures réalisées (paie)]) - [Heures réalisées moyennes / conducteur]))
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: d56d3889-4361-58b9-a0df-242021d01a1e
+
+	measure 'Heures réalisées mois en cours' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(SUM('Chrono'[Heures service]), REMOVEFILTERS('Date'), 'Date'[Date] >= DATE(YEAR(ref), MONTH(ref), 1), 'Date'[Date] <= ref - 1)
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: b9ddf5d4-a972-5b94-980a-58ff664db259
+
+	measure 'Moyenne heures / jour' =
+			VAR ref = [Date de référence]
+			RETURN DIVIDE([Heures réalisées mois en cours], CALCULATE(DISTINCTCOUNT('Chrono'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] >= DATE(YEAR(ref), MONTH(ref), 1), 'Date'[Date] <= ref - 1))
+		formatString: #,0.0
+		displayFolder: Heures conducteurs
+		lineageTag: 1d11f7f8-49dc-58bd-a761-494af1da2f64
+
+	measure 'Jours restants' =
+			VAR ref = [Date de référence]
+			RETURN NETWORKDAYS(ref, EOMONTH(ref, 0))
+		formatString: 0
+		displayFolder: Heures conducteurs
+		lineageTag: 02670951-35f1-5aa5-9f27-424af5779c5d
+
+	measure 'Jours ouvrés restants' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(COUNTROWS('Date'), REMOVEFILTERS('Date'), 'Date'[Date] >= ref, 'Date'[Date] <= EOMONTH(ref, 0), 'Date'[Est jour ouvré])
+		formatString: 0
+		displayFolder: Heures conducteurs
+		lineageTag: 70c25b08-b07f-54f0-90cf-3562b9546cbd
+
+	measure 'Projection fin de mois' = [Heures réalisées mois en cours] + [Moyenne heures / jour] * [Jours restants]
+		formatString: #,0
+		displayFolder: Heures conducteurs
+		lineageTag: 3c5c3dae-5d57-5e38-9586-af9b33a30e17
+
+	measure 'Projection fin de mois hors fériés' = [Heures réalisées mois en cours] + [Moyenne heures / jour] * [Jours ouvrés restants]
+		formatString: #,0
+		displayFolder: Heures conducteurs
+		lineageTag: 6d63abe5-e4d0-543a-9442-d0a4db5dcb44
+
+	measure 'Reste à faire' = [Projection fin de mois] - [Heures réalisées mois en cours]
+		formatString: #,0
+		displayFolder: Heures conducteurs
+		lineageTag: 47fe07d6-2b41-5491-a014-efa2e3c57f69
+
+	measure 'Nb jours-tracteur' = CALCULATE(COUNTROWS('Affectation'), NOT 'Affectation'[Est maintenance])
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: a84eb1cd-4ff1-5d20-ad19-219c2831685f
+
+	measure 'Nb tracteurs / jour ouvré' = DIVIDE([Nb jours-tracteur], [Jours ouvrés])
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: f971370c-e49d-57dd-926b-9b95a021ef02
+
+	measure 'Nb tracteurs / jour ouvré N-1' = CALCULATE([Nb tracteurs / jour ouvré], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: bc02dae7-18b2-502c-bfed-88827c003dc3
+
+	measure 'Nb tracteurs / jour ouvré évolution' = IF(NOT ISBLANK([Nb tracteurs / jour ouvré]) && NOT ISBLANK([Nb tracteurs / jour ouvré N-1]), DIVIDE([Nb tracteurs / jour ouvré], [Nb tracteurs / jour ouvré N-1]) - 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Parc
+		lineageTag: 4aced388-07a7-57fc-bab8-4de9d83e1a5b
+
+	measure 'Nb tracteurs / jour ouvré année en cours' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([Nb tracteurs / jour ouvré], 'Date'[Année] = YEAR(ref), 'Date'[Est passé])
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 75cfffee-d00c-529d-b931-e72b68edd500
+
+	measure 'Nb tracteurs / jour ouvré année précédente' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([Nb tracteurs / jour ouvré], 'Date'[Année] = YEAR(ref) - 1)
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 4f3a95f6-816b-5142-9a66-4a527dc1c6f9
+
+	measure 'Matériels hors exploitation' = CALCULATE(COUNTROWS('Matériel'), 'Matériel'[Statut] <> "En service") + 0
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: a6196acc-c791-5568-ba1c-945783a8f5fe
+
+	measure 'Jours tracteur en maintenance' = COUNTROWS('Immobilisation') + 0
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 1f8b522f-6fec-5081-8e1a-28b840dcd7dd
+
+	measure 'Pic tracteurs' = MAXX(VALUES('Date'[Date]), CALCULATE([Nb jours-tracteur]))
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 2c391ff1-6718-5eee-9c62-f320dd5487ee
+
+	measure 'Étiquette tracteurs' = FORMAT([Nb tracteurs / jour ouvré], "0.0") & " (" & FORMAT([Pic tracteurs], "0") & ")"
+		displayFolder: Parc
+		lineageTag: 8b9475a9-76ca-54bd-a6d9-e312d009a138
+
+	measure 'Parc tracteurs' = CALCULATE(COUNTROWS('Matériel'), 'Matériel'[Est tracteur])
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: e18d2940-5820-56f6-aa44-ca312ab193e2
+
+	measure 'Parc semi-remorques' = CALCULATE(COUNTROWS('Matériel'), NOT 'Matériel'[Est tracteur])
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 5c0cfe87-1d2b-5129-90ce-9af2666f46b3
+
+	measure 'Nb matériels' = COUNTROWS('Matériel')
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 56eeaf27-8f13-580d-ace5-a3333a7c0a4b
+
+	measure 'Tracteurs disponibles' = [Parc tracteurs] - [Nb tracteurs / jour ouvré]
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: d4a94f2b-be43-5333-9d09-9419932c4f2a
+
+	measure 'Tracteurs disponibles VL' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "VL") - CALCULATE([Nb tracteurs / jour ouvré], 'Affectation'[Code activité] = "VL")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: e6879192-7b9e-5df5-a2f7-343e6ae26241
+
+	measure 'Parc tracteurs VL' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "VL")
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: be9bbfe0-5ef1-579e-9b0e-bec883d2a329
+
+	measure 'Tracteurs disponibles PU' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "PU") - CALCULATE([Nb tracteurs / jour ouvré], 'Affectation'[Code activité] = "PU")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 2b76f83b-17af-5866-a1eb-581dc6aa6a85
+
+	measure 'Parc tracteurs PU' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "PU")
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 5321e180-46bb-5200-8d3e-a043b9eb50dc
+
+	measure 'Tracteurs disponibles AL' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "AL") - CALCULATE([Nb tracteurs / jour ouvré], 'Affectation'[Code activité] = "AL")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 5958a377-7536-57d3-b917-8d19819fcbbc
+
+	measure 'Parc tracteurs AL' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "AL")
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 17ea3e92-b8d5-5c1d-9e9b-285b3e3bab50
+
+	measure 'Tracteurs disponibles CH' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "CH") - CALCULATE([Nb tracteurs / jour ouvré], 'Affectation'[Code activité] = "CH")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 4a802bb6-64ec-51f2-8e37-b9cc4314cc51
+
+	measure 'Parc tracteurs CH' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "CH")
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: a812e755-ebd1-59be-90e9-e44e3c9ffb34
+
+	measure 'Tracteurs disponibles CT' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "CT") - CALCULATE([Nb tracteurs / jour ouvré], 'Affectation'[Code activité] = "CT")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 67a2b248-de6f-54a0-9986-2ed01509eb6f
+
+	measure 'Parc tracteurs CT' = CALCULATE([Parc tracteurs], 'Matériel'[Code activité] = "CT")
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 3e5bd5df-f876-58c9-9434-7e1276db3d61
+
+	measure 'Charge TAD' = CALCULATE([Nb tracteurs / jour ouvré], 'Activité'[Type activité] = "TAD")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 046424a8-b9e7-55af-92cf-e50905d26dfd
+
+	measure 'Charge LOG' = CALCULATE([Nb tracteurs / jour ouvré], 'Activité'[Type activité] = "LOG")
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: c3378f6e-f083-5037-aef9-66fae6154ec8
+
+	measure 'Part de l''activité' = DIVIDE([Nb tracteurs / jour ouvré], CALCULATE([Nb tracteurs / jour ouvré], REMOVEFILTERS('Activité')))
+		formatString: 0.0%
+		displayFolder: Parc
+		lineageTag: 6b352585-913e-50c6-aa18-f50d44ddd0f9
+
+	measure 'Nb conducteurs actifs' = CALCULATE(DISTINCTCOUNT('Affectation'[Matricule]), NOT 'Affectation'[Est maintenance])
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 9209c289-1524-5ec5-aac5-844923b701a6
+
+	measure 'Nb chauffeurs' = CALCULATE(COUNTROWS('Conducteur'), 'Conducteur'[Est actif])
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 9fb24f1a-8fea-50a7-ab66-dc62917a9cec
+
+	measure 'Nb absents du jour' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), REMOVEFILTERS('Date'), 'Date'[Date] = ref) + 0
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: c6a061a1-de4e-5bf5-a0a0-d92f06948de4
+
+	measure 'Nb chauffeurs disponibles' = [Nb chauffeurs] - [Nb absents du jour] - [Nb missions du jour]
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: b07b2d48-db32-5859-b373-059ed8187d2a
+
+	measure 'Km par tracteur' = DIVIDE([Km total], DISTINCTCOUNT('Voyage'[Code tracteur]))
+		formatString: #,0
+		displayFolder: Parc
+		lineageTag: 5511d7af-8b08-5bca-a07c-d4b676c337eb
+
+	measure 'Heures par tracteur' = DIVIDE([Heures prod], DISTINCTCOUNT('Voyage'[Code tracteur]))
+		formatString: #,0.0
+		displayFolder: Parc
+		lineageTag: 17bfc638-0177-5f15-a17a-81a08fdcf5a1
+
+	measure 'Heures d''utilisation / jour ouvré par matériel' = DIVIDE([Heures par tracteur], [Jours ouvrés])
+		formatString: #,0.00
+		displayFolder: Parc
+		lineageTag: 8ba0d07b-0b22-5680-9c7f-614b61ac4ef1
+
+	measure 'Km atelier' = CALCULATE(SUM('Voyage'[Km total]), 'Voyage'[Statut] = "LIVRE")
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: 47e253e7-280a-5da6-b009-4b11d427f71e
+
+	measure 'Coût atelier' = SUM('Atelier'[Montant])
+		formatString: #,0 €
+		displayFolder: Atelier
+		lineageTag: 1db60b5c-03f8-53f5-a8cd-e6ef597c7ee5
+
+	measure 'Coût pièces' = CALCULATE([Coût atelier], 'Atelier'[Type ligne] = "Pièce")
+		formatString: #,0 €
+		displayFolder: Atelier
+		lineageTag: c93ee99b-36b6-59d5-b29d-9a72cb7b2ced
+
+	measure 'Coût main d''oeuvre' = CALCULATE([Coût atelier], 'Atelier'[Type ligne] = "Main d'oeuvre")
+		formatString: #,0 €
+		displayFolder: Atelier
+		lineageTag: 7b738769-7d06-5604-80f1-7db3311b91d8
+
+	measure 'Coût sous-traitance' = CALCULATE([Coût atelier], 'Atelier'[Est externe])
+		formatString: #,0 €
+		displayFolder: Atelier
+		lineageTag: 35264415-136f-523e-8811-a56ded282f9e
+
+	measure 'Heures main d''oeuvre' = CALCULATE(SUM('Atelier'[Quantité]), 'Atelier'[Type ligne] = "Main d'oeuvre")
+		formatString: #,0.0
+		displayFolder: Atelier
+		lineageTag: 903f6f45-60c3-5cfb-b9d4-a5dceb69a0c6
+
+	measure 'Nb OT' = DISTINCTCOUNT('Atelier'[OT ID])
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: a387b28f-9ace-534e-a49a-96c4b95c1ed0
+
+	measure 'Nb mécaniciens' = DISTINCTCOUNTNOBLANK('Atelier'[Matricule mécanicien])
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: a269dded-bb93-536b-a35f-0ab44fbf9cc0
+
+	measure 'Coût maintenance / 100 km pièces' = DIVIDE([Coût pièces], [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 159dd73a-5e31-5f6d-aa7d-adc6683f48b8
+
+	measure 'Coût maintenance / 100 km MO' = DIVIDE([Coût main d'oeuvre], [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 0b2c1670-cf50-5c07-b81c-4eb9d8fd6722
+
+	measure 'Coût maintenance / 100 km sous-traitance' = DIVIDE([Coût sous-traitance], [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 28c2d97c-62e4-5d4b-b841-f858af656551
+
+	measure 'Coût maintenance / 100 km total' = DIVIDE([Coût atelier], [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: f4503693-7d6f-5c8a-bb48-1c9e9fa070ab
+
+	measure 'Préventif / 100 km pièces' = DIVIDE(CALCULATE([Coût pièces], 'Atelier'[Raison] IN {"ENT"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: dda65d28-9c31-5514-a95b-c67398a09782
+
+	measure 'Préventif / 100 km MO' = DIVIDE(CALCULATE([Coût main d'oeuvre], 'Atelier'[Raison] IN {"ENT"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: fdcc9ec9-943c-5de6-9736-8d3f93745396
+
+	measure 'Préventif / 100 km sous-traitance' = DIVIDE(CALCULATE([Coût sous-traitance], 'Atelier'[Raison] IN {"ENT"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: e86fe90f-da12-5021-82ac-b68c273480d6
+
+	measure 'Préventif / 100 km total' = DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Raison] IN {"ENT"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: d4ef2c25-8640-5d19-ad85-3224d77b5d26
+
+	measure 'Panne / 100 km pièces' = DIVIDE(CALCULATE([Coût pièces], 'Atelier'[Raison] IN {"COR", "DEP"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 8b7313f3-7ea3-58ed-ae38-0adbce9b5268
+
+	measure 'Panne / 100 km MO' = DIVIDE(CALCULATE([Coût main d'oeuvre], 'Atelier'[Raison] IN {"COR", "DEP"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 39e08496-24d7-5d56-a701-0063b302ae17
+
+	measure 'Panne / 100 km sous-traitance' = DIVIDE(CALCULATE([Coût sous-traitance], 'Atelier'[Raison] IN {"COR", "DEP"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: aefffa7d-dca0-5ae2-8f24-843d2272d3f7
+
+	measure 'Panne / 100 km total' = DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Raison] IN {"COR", "DEP"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 5552e5ab-ec8c-594f-914c-09618f2c299b
+
+	measure 'Sinistre / 100 km pièces' = DIVIDE(CALCULATE([Coût pièces], 'Atelier'[Raison] IN {"SIN"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 675d1a63-322a-5281-b486-c367b54d6a88
+
+	measure 'Sinistre / 100 km MO' = DIVIDE(CALCULATE([Coût main d'oeuvre], 'Atelier'[Raison] IN {"SIN"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 15438204-3018-5fee-a4a8-0b8b3e878e85
+
+	measure 'Sinistre / 100 km sous-traitance' = DIVIDE(CALCULATE([Coût sous-traitance], 'Atelier'[Raison] IN {"SIN"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: eb5cdbcb-a6dc-5496-afb3-2c23d0543e72
+
+	measure 'Sinistre / 100 km total' = DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Raison] IN {"SIN"}), [Km atelier]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 33fabe18-5b0a-590c-8dd9-3cc39119b67f
+
+	measure 'Taux sous-traitance' = DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Est externe], 'Atelier'[Compte dans sous traitance]), [Coût atelier])
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: a5c3eab2-a5e6-5b2b-adba-76bae32c2b91
+
+	measure 'Taux préventif' = DIVIDE(CALCULATE([Heures main d'oeuvre], 'Atelier'[Raison] = "ENT"), [Heures main d'oeuvre])
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: a1de3f2d-88ac-5d19-8464-35752384c90b
+
+	measure 'Pannes / 10 000 km' = DIVIDE(CALCULATE(DISTINCTCOUNT('Atelier'[OT ID]), 'Atelier'[Raison] IN {"COR", "DEP"}), [Km atelier]) * 10000
+		formatString: #,0.00
+		displayFolder: Atelier
+		lineageTag: 53452f8d-2e27-532d-901d-84ffff2ee60e
+
+	measure 'Nb visites' = COUNTROWS('Visite technique')
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: de1735bf-3c51-5455-ad2f-686deceef6b5
+
+	measure 'Nb VT' = CALCULATE([Nb visites], 'Visite technique'[Type visite] = "VT")
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: d12e0161-f768-528b-88a1-74df819c7efa
+
+	measure 'Nb VO' = CALCULATE([Nb visites], 'Visite technique'[Type visite] = "VO")
+		formatString: #,0
+		displayFolder: Atelier
+		lineageTag: 29b73215-fdae-58a1-8b8b-436fd8d16ff7
+
+	measure 'Taux réussite visites' = DIVIDE(CALCULATE([Nb visites], 'Visite technique'[Est valide]), [Nb visites])
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: 5c4c38d3-7499-503e-851a-56301c08b431
+
+	measure 'Taux réussite VT' = DIVIDE(CALCULATE([Nb VT], 'Visite technique'[Est valide]), [Nb VT])
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: 1ce699d0-8d4f-52b9-a80e-e50134ce9f42
+
+	measure 'Taux réussite VO' = DIVIDE(CALCULATE([Nb VO], 'Visite technique'[Est valide]), [Nb VO])
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: 5a2dbe4d-f8f6-5d9d-814f-4c509eb7c945
+
+	measure 'Coût heure prod direct' = DIVIDE(SUM('Heures mécanicien'[Coût produit]), SUM('Heures mécanicien'[Heures produites]))
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: 7b72569d-e93a-53b6-9ede-8f0a3e807683
+
+	measure 'Heures prod / heures payées' = DIVIDE(SUM('Heures mécanicien'[Heures produites]), SUM('Heures mécanicien'[Heures payées]))
+		formatString: 0.0%
+		displayFolder: Atelier
+		lineageTag: 2799fcaf-d3b7-5e7e-bf59-9ac4bccba127
+
+	measure 'Coût casse responsable / 100 km' = DIVIDE(CALCULATE([Coût atelier], 'Atelier'[Est casse interne]), [Km total]) * 100
+		formatString: #,0.00 €
+		displayFolder: Atelier
+		lineageTag: eef5766c-6f2a-58c8-ad68-0c5bc5efe46b
+
+	measure 'Objectif Appairage' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Appairage", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 81423f52-4b24-5b33-a6d7-e72411bf1d52
+
+	measure 'Objectif MCV %' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "MCV %", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: b9868435-9883-5b06-a460-65fedaf31ed3
+
+	measure 'Objectif HCHC par voyage' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "HCHC par voyage", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: a8dc376b-0c94-5d0a-b13a-6dc199cc2a06
+
+	measure 'Objectif Km à vide €' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Km à vide €", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: bcc2c03d-e14b-565f-b564-e781034d4c90
+
+	measure 'Objectif CA/KM' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "CA/KM", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 698fa4a6-98db-5e5c-9e2a-0178b41fe08c
+
+	measure 'Objectif Heures à justifier / HP' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Heures à justifier / HP", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: d5666e50-9c12-5e41-b0b1-657988660b17
+
+	measure 'Objectif Heures compensées / HP' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Heures compensées / HP", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: ef1fb07b-88d8-52be-862b-b87ebf74ecf6
+
+	measure 'Objectif Frais & primes / HP' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Frais & primes / HP", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: e431eebe-c44b-516a-b1f7-ac1956e86dd0
+
+	measure 'Objectif Coût total heure hors carte' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût total heure hors carte", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: d5bd7b69-0d9f-5a7b-9148-8ef1342b9a79
+
+	measure 'Objectif Salaire brut / HP' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Salaire brut / HP", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 89701d65-16e6-5bc8-b29b-31e47af94c31
+
+	measure 'Objectif Coût maintenance / 100 km' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût maintenance / 100 km", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 9ee82b2e-5d89-56fd-820b-9aed8af66ad5
+
+	measure 'Objectif Coût maintenance / 100 km MOD' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût maintenance / 100 km MOD", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: b7a0532c-4560-5087-97cc-1d0efb531470
+
+	measure 'Objectif Coût maintenance / 100 km pièces' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût maintenance / 100 km pièces", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: c696bc3b-b856-5d0d-a87a-c6bbc94b4102
+
+	measure 'Objectif Coût maintenance / 100 km sous-traitance' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût maintenance / 100 km sous-traitance", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 68f30b81-ecac-5597-a55e-846c8937f499
+
+	measure 'Objectif Coût heure prod direct' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Coût heure prod direct", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 43915cfe-6e13-5134-bf38-15c959ce9d3e
+
+	measure 'Objectif Taux préventif' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Taux préventif", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: f6a73993-e599-5596-9572-b7fa81b4b4a3
+
+	measure 'Objectif Taux réussite VT' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Taux réussite VT", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 4fe888e4-5f38-5830-bca3-8fc0030fb37b
+
+	measure 'Objectif Taux sous-traitance' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Taux sous-traitance", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: a8256c90-ba91-516c-a267-fb0173b92ca4
+
+	measure 'Objectif Pannes / 10000 km' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "Pannes / 10000 km", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 6ffdb6b0-a389-52f9-bbb5-7a6606648482
+
+	measure 'Objectif H qual' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Indicateur] = "H qual", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 46ef0cb0-902a-5bcc-8d5d-0c51032b672b
+
+	measure 'Objectif VL' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Code activité] = "VL", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 9351bef1-bd3a-5eb4-b5bc-0e0ab975b11c
+
+	measure 'Objectif PU' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Code activité] = "PU", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 5b56192f-c6d2-5696-b946-f6b11ae29dab
+
+	measure 'Objectif AL' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Code activité] = "AL", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: caf63602-3571-5d9b-97c9-eff7b3e67526
+
+	measure 'Objectif CH' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Code activité] = "CH", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: c889d039-5e51-58fa-873b-f509bbc99be4
+
+	measure 'Objectif CT' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Code activité] = "CT", 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 5f65817b-0ed8-5b12-8b56-af59bcc9bf17
+
+	measure 'Objectif global' =
+			VAR annee = MIN(YEAR(MAX('Date'[Date])), YEAR([Date de référence]))
+			RETURN CALCULATE(AVERAGE('Objectif'[Objectif]), 'Objectif'[Année] = annee)
+		formatString: #,0.00
+		displayFolder: Objectifs
+		lineageTag: 7e6c1abe-b77d-58a5-883c-dc2b8aa2663d
+
+	measure 'Variation des données' = "Variation des données"
+		displayFolder: Calendrier
+		lineageTag: 3dafc7da-bdde-5352-ada7-02aefb7d39b0
+
+	measure 'HT atelier' = SUM('Rapprochement'[HT atelier]) + 0
+		formatString: #,0.00 €
+		displayFolder: Rapprochement
+		lineageTag: df8af821-3610-5985-99e6-4ec788fcd9cc
+
+	measure 'HT comptable' = SUM('Rapprochement'[HT compta]) + 0
+		formatString: #,0.00 €
+		displayFolder: Rapprochement
+		lineageTag: 28526b5d-3274-5239-babf-6c4cc8a692e5
+
+	measure 'Écart rapprochement' = VAR d = [HT comptable] - [HT atelier] RETURN IF(ABS(d) < 0.01, BLANK(), d)
+		formatString: #,0.00 €
+		displayFolder: Rapprochement
+		lineageTag: d2a778df-8ba4-50db-aed5-5d0e46785b20
+
+	measure 'Nb factures' = COUNTROWS('Rapprochement')
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: e0cfb5d0-b3f6-5776-928d-b93a7de4e740
+
+	measure 'Nb ok' = CALCULATE([Nb factures], 'Rapprochement'[Statut] = "Ok") + 0
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: 91d6ea79-c8cb-5d9b-a5bf-8c84b2a3c1a2
+
+	measure 'Nb absent atelier' = CALCULATE([Nb factures], 'Rapprochement'[Statut] = "Absent Atelier") + 0
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: e862ceb7-19f2-5db7-bbff-7cea1eab3c68
+
+	measure 'Nb absent comptable' = CALCULATE([Nb factures], 'Rapprochement'[Statut] = "Absent Comptable") + 0
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: 33321ad9-1b39-54fc-8bb8-b7fbc9b2a199
+
+	measure 'Nb ecart montant' = CALCULATE([Nb factures], 'Rapprochement'[Statut] = "Ecart montant") + 0
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: f3620e12-83c5-5ce7-965c-369c86a477af
+
+	measure 'Nb anomalies rapprochement' = [Nb factures] - [Nb ok]
+		formatString: #,0
+		displayFolder: Rapprochement
+		lineageTag: 02aef055-4008-5064-8219-73713307c9a2
+
+	measure 'Statut rapprochement' = SELECTEDVALUE('Rapprochement'[Statut])
+		displayFolder: Rapprochement
+		lineageTag: 8a5dcb2c-f55e-520a-ae23-5376ba36ab42
+
+	measure 'Montant écritures' = SUM('Écriture comptable'[Montant HT])
+		formatString: #,0.00 €
+		displayFolder: Rapprochement
+		lineageTag: bbe5e18a-062a-594a-9f39-63758dafe5a0
+
+	measure 'Montant factures atelier' = SUM('Facture atelier'[Montant HT])
+		formatString: #,0.00 €
+		displayFolder: Rapprochement
+		lineageTag: 051bde2e-e06e-5287-8675-4c8bb95c8250
+
+	measure 'Volume litres' = CALCULATE(SUM('Carburant'[Quantité litres]), 'Carburant'[Est prélèvement réel])
+		formatString: #,0
+		displayFolder: Carburant
+		lineageTag: b2cf9662-80f3-51a8-82c7-47d24eb1450d
+
+	measure 'Montant carburant €' = CALCULATE(SUM('Carburant'[Montant €]), 'Carburant'[Est prélèvement réel])
+		formatString: #,0 €
+		displayFolder: Carburant
+		lineageTag: 19a6c255-9833-5451-931c-ab4a592f43f8
+
+	measure 'Prix moyen / litre' = DIVIDE([Montant carburant €], [Volume litres])
+		formatString: #,0.000 €
+		displayFolder: Carburant
+		lineageTag: fff2fecb-ba49-50fc-848d-8918ca73a27b
+
+	measure 'Conso moyenne L/100 km' = AVERAGEX('Conso FMS', 'Conso FMS'[Conso totale l] * 100 / 'Conso FMS'[Distance km])
+		formatString: #,0.0
+		displayFolder: Carburant
+		lineageTag: b5cb7eb8-fee0-52d9-9d5e-b34e2c0459f5
+
+	measure 'Conso moyenne conduite L/100 km' = AVERAGEX('Conso FMS', 'Conso FMS'[Conso conduite l] * 100 / 'Conso FMS'[Distance km])
+		formatString: #,0.0
+		displayFolder: Carburant
+		lineageTag: 84d0758b-3fa9-5b09-9614-d7b415b7f9f4
+
+	measure 'Conso pondérée L/100 km' = DIVIDE(SUM('Conso FMS'[Conso totale l]) * 100, SUM('Conso FMS'[Distance km]))
+		formatString: #,0.0
+		displayFolder: Carburant
+		lineageTag: 86ec2957-2926-5a7f-938e-75d4ccf8dab8
+
+	measure 'CO2 (t)' = SUM('Conso FMS'[CO2 kg]) / 1000
+		formatString: #,0.0
+		displayFolder: Carburant
+		lineageTag: e5e4fc9e-e3fc-5a69-8191-26d134299b75
+
+	measure 'Conso PTO (L)' = SUM('Conso FMS'[Conso PTO l])
+		formatString: #,0
+		displayFolder: Carburant
+		lineageTag: 1e5d40d4-7fb9-555b-a677-7b32f2b3b183
+
+	measure 'Distance FMS' = SUM('Conso FMS'[Distance km])
+		formatString: #,0
+		displayFolder: Carburant
+		lineageTag: 95024c95-1c95-5cdc-b68d-d4be4ad0afb5
+
+	measure 'Nb infractions' = COUNTROWS('Infraction') + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: bd4ce820-b1bb-5bca-b07f-1685f62d1e10
+
+	measure 'Nb infractions classe 5' = CALCULATE(COUNTROWS('Infraction'), 'Infraction'[Classe] = 5) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: bfb49d4f-3d2b-551b-a558-9db178b48351
+
+	measure 'Nb AT' = COUNTROWS('Accident travail') + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: d5f9b7b5-3d47-5622-8788-cb877ab5ddc8
+
+	measure 'Jours perdus' = SUM('Accident travail'[Jours arrêt retenus]) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: 83356f9a-3a29-5cd7-98ea-32f1bc898e9e
+
+	measure 'Nb anomalies QHSE' = COUNTROWS('Anomalie QHSE') + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: bcdc2ab5-c1ea-5839-ba9f-e85ca4509641
+
+	measure 'Nb événements autoroute interdite' = COUNTROWS('Autoroute interdite') + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: efb6bf19-28db-5073-b622-d56046c3092d
+
+	measure 'Passages autoroutes interdites' = SUM('Autoroute interdite'[Nb passages]) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: a71d6019-bf9d-5272-9ea9-efe45595b1b5
+
+	measure 'Événements autoroute non justifiés' = CALCULATE(COUNTROWS('Autoroute interdite'), NOT 'Autoroute interdite'[Est justifié]) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: 2c4f0743-0353-5e36-b943-f3b9a6d37fd5
+
+	measure 'Événements autoroute justifiés' = CALCULATE(COUNTROWS('Autoroute interdite'), 'Autoroute interdite'[Est justifié]) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: c703b1f0-b608-5fa0-997b-43fad54ed378
+
+	measure 'Nb anomalies matériel' = COUNTROWS('Anomalie matériel') + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: cfdee9ce-915c-515a-b74f-9752a58f44aa
+
+	measure 'Anomalies à traiter' = CALCULATE(COUNTROWS('Anomalie matériel'), 'Anomalie matériel'[Statut] = "A traiter") + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: 69dadab7-3e42-5089-b0f2-7347930f9df9
+
+	measure 'Anomalies en cours' = CALCULATE(COUNTROWS('Anomalie matériel'), 'Anomalie matériel'[Statut] = "En cours") + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: f5f19bb0-a35f-575d-87dc-2e73d2bd7ca0
+
+	measure 'Anomalies traitées 7 derniers jours' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE(COUNTROWS('Anomalie matériel'), REMOVEFILTERS('Date'), 'Anomalie matériel'[Statut] = "Traitée",
+			    'Anomalie matériel'[Date traitement] >= ref - 7, 'Anomalie matériel'[Date traitement] <= ref) + 0
+		formatString: #,0
+		displayFolder: QHSE
+		lineageTag: 288e8de7-40f5-598b-9323-2341242e9412
+
+	measure 'Absents uniques' = DISTINCTCOUNT('Absence'[Matricule]) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 98ae651b-c440-5c60-97bc-0e9ecde32a75
+
+	measure 'Jours d''absence' = COUNTROWS('Absence') + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: a249c1c0-5c7f-5862-8468-e99828b520ab
+
+	measure 'Jours d''absence / jour ouvré' = DIVIDE([Jours d'absence], [Jours ouvrés])
+		formatString: #,0.0
+		displayFolder: Absences
+		lineageTag: a621c7bb-2669-526f-a95b-7e8549df7906
+
+	measure 'Jours maladie' = CALCULATE(COUNTROWS('Absence'), 'Absence'[Motif] IN {"AM"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 56b61e58-438c-5a51-90b8-12a804f77835
+
+	measure 'Absents maladie' = CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), 'Absence'[Motif] IN {"AM"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: c7e0254d-1df2-5618-8b15-1ec67b8574df
+
+	measure 'Jours congés' = CALCULATE(COUNTROWS('Absence'), 'Absence'[Motif] IN {"CP"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 8216cb61-2c58-5586-95f5-7f133be73016
+
+	measure 'Absents congés' = CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), 'Absence'[Motif] IN {"CP"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: db7438c8-36b7-5428-938f-2d32fdc2fc08
+
+	measure 'Jours absence (maladie + injustifiée)' = CALCULATE(COUNTROWS('Absence'), 'Absence'[Motif] IN {"AM", "ABS"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: e0a0353a-bdae-579b-8b1c-8b123f136267
+
+	measure 'Absents absence (maladie + injustifiée)' = CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), 'Absence'[Motif] IN {"AM", "ABS"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 694e1649-f143-54eb-8f08-68f5593dded2
+
+	measure 'Jours repos maison' = CALCULATE(COUNTROWS('Absence'), 'Absence'[Motif] IN {"RM"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: c7da85db-949f-57b6-a5bc-4dbcd0769215
+
+	measure 'Absents repos maison' = CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), 'Absence'[Motif] IN {"RM"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 7ae3284c-1a83-55d7-b449-27b42d81f2ea
+
+	measure 'Jours sans solde' = CALCULATE(COUNTROWS('Absence'), 'Absence'[Motif] IN {"SS"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: c6394489-90db-58d8-97c9-c887625ef7d4
+
+	measure 'Absents sans solde' = CALCULATE(DISTINCTCOUNT('Absence'[Matricule]), 'Absence'[Motif] IN {"SS"}) + 0
+		formatString: #,0
+		displayFolder: Absences
+		lineageTag: 63ff2b07-5282-532e-96cf-e4be8b0680b3
+
+	measure 'Indicateur atelier pièces' =
+			SWITCH(SELECTEDVALUE('Sélecteur atelier pièces'[Indicateur], "Coût maintenance"),
+			    "Coût maintenance", [Coût maintenance / 100 km pièces],
+			    "Préventif", [Préventif / 100 km pièces],
+			    "Panne", [Panne / 100 km pièces],
+			    "Sinistre", [Sinistre / 100 km pièces])
+		formatString: #,0.00 €
+		displayFolder: Sélecteurs
+		lineageTag: a7865098-d17f-5867-8a12-0e930ce6ff24
+
+	measure 'Indicateur atelier MO' =
+			SWITCH(SELECTEDVALUE('Sélecteur atelier MO'[Indicateur], "Coût maintenance"),
+			    "Coût maintenance", [Coût maintenance / 100 km MO],
+			    "Préventif", [Préventif / 100 km MO],
+			    "Panne", [Panne / 100 km MO],
+			    "Sinistre", [Sinistre / 100 km MO])
+		formatString: #,0.00 €
+		displayFolder: Sélecteurs
+		lineageTag: 18c4c308-4a43-50c3-986a-991316d27440
+
+	measure 'Indicateur atelier sous-traitance' =
+			SWITCH(SELECTEDVALUE('Sélecteur atelier sous-traitance'[Indicateur], "Coût maintenance"),
+			    "Coût maintenance", [Coût maintenance / 100 km sous-traitance],
+			    "Préventif", [Préventif / 100 km sous-traitance],
+			    "Panne", [Panne / 100 km sous-traitance],
+			    "Sinistre", [Sinistre / 100 km sous-traitance])
+		formatString: #,0.00 €
+		displayFolder: Sélecteurs
+		lineageTag: e15740c3-4675-5252-b9ff-bbcbba307f1f
+
+	measure 'Indicateur atelier total' =
+			SWITCH(SELECTEDVALUE('Sélecteur atelier total'[Indicateur], "Coût maintenance"),
+			    "Coût maintenance", [Coût maintenance / 100 km total],
+			    "Préventif", [Préventif / 100 km total],
+			    "Panne", [Panne / 100 km total],
+			    "Sinistre", [Sinistre / 100 km total])
+		formatString: #,0.00 €
+		displayFolder: Sélecteurs
+		lineageTag: b6f57932-1d31-5ddb-857d-802c80e50dd8
+
+	measure 'Indicateur activité' = SWITCH(SELECTEDVALUE('Sélecteur activité'[Indicateur], "CA"), "CA", [CA facturé], "CA / jour ouvré", [CA moyen / jour ouvré], "MCV %", [MCV %], "Appairage", [Appairage])
+		displayFolder: Sélecteurs
+		lineageTag: 48ed2fad-862e-5bac-adfb-f69771b1d788
+
+	measure 'Indicateur coût' = SWITCH(SELECTEDVALUE('Sélecteur coût'[Indicateur], "Salaire brut / HP"), "Salaire brut / HP", [Salaire brut / heure prod], "Frais & primes / HP", [Frais & primes / HP], "Passages autoroute interdite / voyage", [Passages autoroute interdite / voyage], "HCHC / voyage", [HCHC / voyage])
+		displayFolder: Sélecteurs
+		lineageTag: d8ac6715-38ed-51cc-9f2a-eff2620f36ff
+
+	measure 'Indicateur anomalies' = SWITCH(SELECTEDVALUE('Sélecteur anomalies'[Indicateur]), "Anomalies à traiter", [Anomalies à traiter], "Anomalies en cours", [Anomalies en cours], "Anomalies traitées 7 derniers jours", [Anomalies traitées 7 derniers jours], [Nb anomalies matériel])
+		formatString: #,0
+		displayFolder: Sélecteurs
+		lineageTag: 76ed7f42-41c3-5749-b55c-ee9d1fb416e0
+
+	measure 'Indicateur atelier qualité' = SWITCH(SELECTEDVALUE('Sélecteur atelier qualité'[Indicateur], "Pannes / 10 000 km"), "Taux préventif", [Taux préventif], "Pannes / 10 000 km", [Pannes / 10 000 km], "Taux réussite VO", [Taux réussite VO], "Taux réussite VT", [Taux réussite VT])
+		displayFolder: Sélecteurs
+		lineageTag: a72a80fd-485c-5d25-82ba-0248991f6248
+
+	measure 'Indicateur atelier productivité' = SWITCH(SELECTEDVALUE('Sélecteur atelier productivité'[Indicateur], "Coût heure prod direct"), "Taux sous-traitance", [Taux sous-traitance], "Heures prod / heures payées", [Heures prod / heures payées], "Coût heure prod direct", [Coût heure prod direct])
+		displayFolder: Sélecteurs
+		lineageTag: d7c250db-f690-5211-9b6a-5c35d74b868a
+
+	measure 'Sélection heures hors carte' = SWITCH(SELECTEDVALUE('Vue heures'[Vue], "€/HP"), "€/HP", [Coût heure hors carte / HP], "Heures", [Heures hors carte], "€", [Heures hors carte €])
+		formatString: #,0.00
+		displayFolder: Sélecteurs
+		lineageTag: 3a507e31-d86a-5659-9009-99fd6f17e1f8
+
+	measure 'Sélection heures à justifier' = SWITCH(SELECTEDVALUE('Vue heures'[Vue], "€/HP"), "€/HP", [Heures à justifier payées € / HP], "Heures", [Heures à justifier payées], "€", [Heures à justifier payées €])
+		formatString: #,0.00
+		displayFolder: Sélecteurs
+		lineageTag: 6646cc64-c461-504a-86c4-7b4f2bc019d7
+
+	measure 'Sélection heures compensées' = SWITCH(SELECTEDVALUE('Vue heures'[Vue], "€/HP"), "€/HP", [Heures compensées € / HP], "Heures", [Heures compensées (base contrat)], "€", [Heures compensées €])
+		formatString: #,0.00
+		displayFolder: Sélecteurs
+		lineageTag: f3cad8ef-1086-586c-a6d3-8c8785762af7
+
+	measure 'CA (tracteurs)' = SUM('Rentabilité tracteur'[CA])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 3dd26321-db7e-58ec-9968-d75f80024918
+
+	measure 'Péages réels' = SUM('Rentabilité tracteur'[Péages])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: a4d78756-1e7b-5b3a-b461-318f0c47acd5
+
+	measure 'Carburant réel' = SUM('Rentabilité tracteur'[Carburant])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: e3dc74e7-cc84-5926-97fb-52c9d49729c0
+
+	measure 'Coût atelier réel' = SUM('Rentabilité tracteur'[Atelier])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 3812dfa2-989a-55a3-bfa8-a0d3510b3a47
+
+	measure 'Marge directe' = SUM('Rentabilité tracteur'[Marge directe])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 3d28639d-df8f-5c3a-b3bc-a042de63d05b
+
+	measure 'Marge directe %' = DIVIDE([Marge directe], [CA (tracteurs)])
+		formatString: 0.0%
+		displayFolder: Rentabilité
+		lineageTag: 156e8582-18e6-5423-b24e-ad9e8745c2ae
+
+	measure 'Marge directe / km' = DIVIDE([Marge directe], SUM('Rentabilité tracteur'[Km]))
+		formatString: #,0.00 €
+		displayFolder: Rentabilité
+		lineageTag: d1e3bff9-d154-55d4-8e4c-291eaf42ca9b
+
+	measure 'CA (conducteurs)' = SUM('Rentabilité conducteur'[CA])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 784f0d9a-93d4-5732-8cb5-e467eca9c746
+
+	measure 'Salaire chargé' = SUM('Rentabilité conducteur'[Salaire chargé])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 065f5126-a682-51b0-a989-ffc0872a52d6
+
+	measure 'Frais conducteur' = SUM('Rentabilité conducteur'[Frais])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 14e034ed-1d49-5084-8b6c-e79c60fae44b
+
+	measure 'Carburant conducteur' = SUM('Rentabilité conducteur'[Carburant])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 566ccb63-e125-55e1-a386-0cac8b1dc89a
+
+	measure 'Contribution conducteur' = SUM('Rentabilité conducteur'[Contribution])
+		formatString: #,0 €
+		displayFolder: Rentabilité
+		lineageTag: 567b56a4-9872-5ec5-b05a-3f78e4eb3553
+
+	measure 'Contribution %' = DIVIDE([Contribution conducteur], [CA (conducteurs)])
+		formatString: 0.0%
+		displayFolder: Rentabilité
+		lineageTag: 5499188a-12b2-5f03-8aa7-9d5f0b46393d
+
+	measure 'Contribution / heure payée' = DIVIDE([Contribution conducteur], SUM('Rentabilité conducteur'[Heures payées]))
+		formatString: #,0.00 €
+		displayFolder: Rentabilité
+		lineageTag: 9a169802-4bfc-5d90-a9e5-4bbf71c28922
+
+	measure 'Lignes importées' = SUM('Import'[Lignes])
+		formatString: #,0
+		displayFolder: Qualité des données
+		lineageTag: f52413ad-0721-5bd4-8ea5-cea91e75afc9
+
+	measure 'Lignes corrigées ou écartées' = SUM('Contrôle qualité'[Lignes concernées])
+		formatString: #,0
+		displayFolder: Qualité des données
+		lineageTag: d4708d93-c9cb-51a2-b229-27d5778abbe4
+
+	measure 'Nb tests dbt' = CALCULATE(COUNTROWS('Résultat dbt'), 'Résultat dbt'[Type nœud] = "test")
+		formatString: #,0
+		displayFolder: Qualité des données
+		lineageTag: 5f3d0133-97c3-5fda-a8f4-0f6f7392d9e5
+
+	measure 'Nb tests réussis' = CALCULATE([Nb tests dbt], 'Résultat dbt'[Statut] = "pass")
+		formatString: #,0
+		displayFolder: Qualité des données
+		lineageTag: 0dec7cbe-1bb5-5c00-ac46-f4b3bf3e43cb
+
+	measure 'Taux de tests réussis' = DIVIDE([Nb tests réussis], [Nb tests dbt])
+		formatString: 0.0%
+		displayFolder: Qualité des données
+		lineageTag: 02c85786-e5fa-5229-ac47-cd122fda0e4a
+
+	measure 'Nb changements de contrat' = CALCULATE(COUNTROWS('Historique conducteur'), NOT 'Historique conducteur'[Version courante])
+		formatString: #,0
+		displayFolder: Qualité des données
+		lineageTag: ce39c383-a8c6-5799-a34a-c811ff83597b
+
+	measure 'Nb voyages de la semaine' =
+			VAR sem = IF(HASONEVALUE('Date'[Année semaine n°]), VALUES('Date'[Année semaine n°]), CALCULATE(MAX('Date'[Année semaine n°]), 'Date'[Est passé]))
+			RETURN CALCULATE([Nb voyages], 'Date'[Année semaine n°] = sem)
+		formatString: #,0
+		displayFolder: Activité
+		lineageTag: 91339521-3b4c-533a-9309-a0ef3d2556f3
+
+	measure 'CA de la semaine' =
+			VAR sem = IF(HASONEVALUE('Date'[Année semaine n°]), VALUES('Date'[Année semaine n°]), CALCULATE(MAX('Date'[Année semaine n°]), 'Date'[Est passé]))
+			RETURN CALCULATE([CA facturé], 'Date'[Année semaine n°] = sem)
+		formatString: #,0 €
+		displayFolder: Activité
+		lineageTag: d145d072-71bd-56f0-9675-4c31efd38e7e
+
+	measure 'Jour J+1' =
+			VAR ref = [Date de référence]
+			VAR j1 = CALCULATE(MIN('Date'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] > ref, 'Date'[Est jour ouvré])
+			RETURN j1
+		formatString: dd/mm/yyyy
+		displayFolder: Exploitation J+1
+		lineageTag: b3f4368b-b881-5128-a708-d9e43da4bb5c
+
+	measure 'Libellé J+1' =
+			VAR ref = [Date de référence]
+			VAR j1 = CALCULATE(MIN('Date'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] > ref, 'Date'[Est jour ouvré])
+			RETURN "Préparation du " & FORMAT(j1, "dddd d mmmm yyyy") & "  ·  situation arrêtée au " & FORMAT(ref, "dd/mm/yyyy")
+		displayFolder: Exploitation J+1
+		lineageTag: f04c613e-416a-5f62-a2d5-a682e02f9091
+
+	measure 'Missions planifiées J+1' =
+			VAR ref = [Date de référence]
+			VAR j1 = CALCULATE(MIN('Date'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] > ref, 'Date'[Est jour ouvré])
+			RETURN CALCULATE([Nb voyages], REMOVEFILTERS('Date'), 'Date'[Date] = j1) + 0
+		formatString: #,0
+		displayFolder: Exploitation J+1
+		lineageTag: fb733928-1d21-5f6a-af9b-3a0703e37140
+
+	measure 'CA prévu J+1' =
+			VAR ref = [Date de référence]
+			VAR j1 = CALCULATE(MIN('Date'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] > ref, 'Date'[Est jour ouvré])
+			RETURN CALCULATE(SUM('Voyage'[CA facturé]), REMOVEFILTERS('Date'), 'Date'[Date] = j1) + 0
+		formatString: #,0 €
+		displayFolder: Exploitation J+1
+		lineageTag: b100c6b0-ebb0-5569-8c81-d00e1eee9ccd
+
+	measure 'Tracteurs engagés J+1' =
+			VAR ref = [Date de référence]
+			VAR j1 = CALCULATE(MIN('Date'[Date]), REMOVEFILTERS('Date'), 'Date'[Date] > ref, 'Date'[Est jour ouvré])
+			RETURN CALCULATE(DISTINCTCOUNT('Voyage'[N° tracteur]), REMOVEFILTERS('Date'), 'Date'[Date] = j1) + 0
+		formatString: #,0
+		displayFolder: Exploitation J+1
+		lineageTag: c6eebdbe-ce87-5455-9d31-721e42b09a19
+
+	measure 'Tracteurs en maintenance J' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([Jours tracteur en maintenance], REMOVEFILTERS('Date'), REMOVEFILTERS('Activité'), REMOVEFILTERS('Conducteur'), 'Date'[Date] = ref) + 0
+		formatString: #,0
+		displayFolder: Exploitation J+1
+		lineageTag: fd78a496-1aec-5d09-af5b-4479e2b939ec
+
+	measure 'Tracteurs libres J+1' = MAX(0, [Parc tracteurs] - [Tracteurs en maintenance J] - [Tracteurs engagés J+1])
+		formatString: #,0
+		displayFolder: Exploitation J+1
+		lineageTag: 1d9b9453-83a4-5755-b627-d701db0e269f
+
+	measure 'Taux d''engagement flotte J+1' = DIVIDE([Tracteurs engagés J+1], [Parc tracteurs] - [Tracteurs en maintenance J])
+		formatString: 0.0%
+		displayFolder: Exploitation J+1
+		lineageTag: aaf9fa90-a3a8-5539-a1b5-a5e5b22b9cb3
+
+	measure 'Conducteurs sans mission J+1' = MAX(0, [Nb chauffeurs] - [Nb absents du jour] - [Tracteurs engagés J+1])
+		formatString: #,0
+		displayFolder: Exploitation J+1
+		lineageTag: 3917b26a-99cc-51bc-a44a-a912e137debc
+
+	measure 'CA du jour' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([CA facturé], REMOVEFILTERS('Date'), 'Date'[Date] = ref)
+		formatString: #,0 €
+		displayFolder: Exploitation J+1
+		lineageTag: 0bd63ee0-24cc-5f86-999a-93ed5ce334cd
+
+	measure 'Appairage du jour' =
+			VAR ref = [Date de référence]
+			RETURN CALCULATE([Appairage], REMOVEFILTERS('Date'), 'Date'[Date] = ref)
+		formatString: 0.0%
+		displayFolder: Exploitation J+1
+		lineageTag: 0552a062-5807-5da9-bb2e-054f6d9a3e4c
+
+	measure 'Étiquette indicateur activité' = SWITCH(SELECTEDVALUE('Sélecteur activité'[Indicateur]), "CA", FORMAT([CA facturé] / 1000000, "0.00") & " M€", "CA / jour ouvré", FORMAT([CA moyen / jour ouvré] / 1000, "0.0") & " k€", "MCV %", FORMAT([MCV %], "0.0 %"), "Appairage", FORMAT([Appairage], "0.0 %"))
+		displayFolder: Sélecteurs
+		lineageTag: 08264f17-e3fb-564b-a840-f86bba56b2dd
+
+	measure 'Étiquette indicateur coût' = SWITCH(SELECTEDVALUE('Sélecteur coût'[Indicateur]), "Salaire brut / HP", FORMAT([Salaire brut / heure prod], "0.00") & " €", "Frais & primes / HP", FORMAT([Frais & primes / HP], "0.00") & " €", "Passages autoroute interdite / voyage", FORMAT([Passages autoroute interdite / voyage], "0.000"), "HCHC / voyage", FORMAT([HCHC / voyage], "0.00") & " h")
+		displayFolder: Sélecteurs
+		lineageTag: 2dad1c92-18b2-5f0d-b6e9-ae5748b6f62f
+
+	measure 'Étiquette indicateur anomalies' = SWITCH(SELECTEDVALUE('Sélecteur anomalies'[Indicateur]), "Anomalies à traiter", FORMAT([Anomalies à traiter] + 0, "0"), "Anomalies en cours", FORMAT([Anomalies en cours] + 0, "0"), "Anomalies traitées 7 derniers jours", FORMAT([Anomalies traitées 7 derniers jours] + 0, "0"))
+		displayFolder: Sélecteurs
+		lineageTag: 2aacc342-1b89-568c-ba94-3d774f7b7b52
+
+	measure 'Pictogramme info' = UNICHAR(9432)
+		displayFolder: Calendrier
+		lineageTag: 1e199f04-a79c-540e-a1d0-e73deb00c42e
+
+	column Colonne
+		dataType: string
+		isHidden
+		lineageTag: cf2a825a-6715-5bb4-819c-71df06ea2fb0
+		summarizeBy: none
+		sourceColumn: [Colonne]
+
+	partition Mesures = calculated
+		mode: import
+		source = DATATABLE("Colonne", STRING, {{""}})
+

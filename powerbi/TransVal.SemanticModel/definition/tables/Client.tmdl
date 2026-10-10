@@ -1,0 +1,97 @@
+table Client
+	lineageTag: f0a17729-4228-54e1-b5e3-ef47c6112e4b
+
+	column 'Code client'
+		dataType: string
+		lineageTag: 96ca484f-0485-5513-97c3-c741ccf0e34f
+		summarizeBy: none
+		sourceColumn: Code client
+
+	column Client
+		dataType: string
+		lineageTag: 9363d165-c153-53a8-9354-1ae1ea804b83
+		summarizeBy: none
+		sourceColumn: Client
+
+	column 'Client ville'
+		dataType: string
+		lineageTag: 583a850c-a976-5d26-84f3-aa88affe2d50
+		summarizeBy: none
+		sourceColumn: Client ville
+
+	column 'Client pays'
+		dataType: string
+		lineageTag: 39fbda83-6043-57b0-a58f-3832e3c4dd6d
+		summarizeBy: none
+		sourceColumn: Client pays
+
+	column 'Type indexation'
+		dataType: string
+		lineageTag: 3b052e74-3c02-53d6-b67b-00307929ceae
+		summarizeBy: none
+		sourceColumn: Type indexation
+
+	column 'Base %'
+		dataType: double
+		lineageTag: 1b382425-a816-55e8-a22a-2974d512805d
+		summarizeBy: sum
+		sourceColumn: Base %
+
+	column 'Indice référence'
+		dataType: double
+		lineageTag: 0e4bf5fa-b2ee-52f8-a957-32227783c9ea
+		summarizeBy: sum
+		sourceColumn: Indice référence
+
+	column 'Part gasoil'
+		dataType: double
+		lineageTag: 48fa6408-db94-5840-8ad0-82a0d605b492
+		summarizeBy: sum
+		sourceColumn: Part gasoil
+
+	column 'Date référence'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 8b5e5e31-a553-58a1-8dff-297a160e0bcc
+		summarizeBy: none
+		sourceColumn: Date référence
+
+	column 'Date application'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 3c6fe492-8922-51bc-b40b-0633372e030d
+		summarizeBy: none
+		sourceColumn: Date application
+
+	column 'Sur facture'
+		dataType: string
+		lineageTag: fa39db5d-9c9c-56d0-9772-beaba7632014
+		summarizeBy: none
+		sourceColumn: Sur facture
+
+	column 'À la baisse'
+		dataType: string
+		lineageTag: 7d24718e-5d2e-5e43-8f32-8044c8a383e7
+		summarizeBy: none
+		sourceColumn: À la baisse
+
+	column Appliqué
+		dataType: string
+		lineageTag: 13ba16ad-90cb-56af-a1dd-159ec8493383
+		summarizeBy: none
+		sourceColumn: Appliqué
+
+	column 'Commentaire indexation'
+		dataType: string
+		lineageTag: 24ae5ebe-c64f-5315-aaec-ce0c3bc74b29
+		summarizeBy: none
+		sourceColumn: Commentaire indexation
+
+	partition Client = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Client.parquet"))
+				in
+				    Source
+

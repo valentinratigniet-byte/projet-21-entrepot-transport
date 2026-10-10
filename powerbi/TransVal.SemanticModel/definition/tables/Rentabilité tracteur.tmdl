@@ -1,0 +1,73 @@
+table 'Rentabilité tracteur'
+	lineageTag: 2c372bda-2cae-54c0-9a8e-4bdf9305f110
+
+	column Mois
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: fbd2f0a2-d456-5db3-9be1-9992735196c1
+		summarizeBy: none
+		sourceColumn: Mois
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: 09436f8e-cdaa-56df-81ef-8ce0cfe46281
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column CA
+		dataType: double
+		lineageTag: 95d62c36-6078-57f2-a202-a79dbd838785
+		summarizeBy: sum
+		sourceColumn: CA
+
+	column Péages
+		dataType: double
+		lineageTag: 0c587d57-0c97-531d-9db0-38373c6fe03f
+		summarizeBy: sum
+		sourceColumn: Péages
+
+	column Carburant
+		dataType: double
+		lineageTag: e5bcaa81-a5bd-5eb3-ae36-267969ec6f88
+		summarizeBy: sum
+		sourceColumn: Carburant
+
+	column Atelier
+		dataType: double
+		lineageTag: 11b5c008-90a1-5609-b980-8af296015964
+		summarizeBy: sum
+		sourceColumn: Atelier
+
+	column Km
+		dataType: double
+		lineageTag: 27496629-c238-5eb5-afd1-cbfd9b68172c
+		summarizeBy: sum
+		sourceColumn: Km
+
+	column 'Nb voyages'
+		dataType: int64
+		lineageTag: 52362466-924d-58ef-9ef4-55b8ff850767
+		summarizeBy: sum
+		sourceColumn: Nb voyages
+
+	column 'Marge directe'
+		dataType: double
+		lineageTag: 8b1271ce-73fa-5272-8d7d-b150b5124429
+		summarizeBy: sum
+		sourceColumn: Marge directe
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: d79851db-012f-59cc-96f7-31f6d0891e0f
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition 'Rentabilité tracteur' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Rentabilité tracteur.parquet"))
+				in
+				    Source
+

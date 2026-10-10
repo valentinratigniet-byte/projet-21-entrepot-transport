@@ -1,0 +1,48 @@
+table 'Accident travail'
+	lineageTag: ae5e667e-0547-5767-a4e8-cdbf80f0b291
+
+	column 'Date accident'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 9fdda102-8385-5d8b-b3c6-316f67b0e1f1
+		summarizeBy: none
+		sourceColumn: Date accident
+
+	column Matricule
+		dataType: int64
+		lineageTag: 470109bf-5060-5e70-82c8-0d952ac9a3f6
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Type accident'
+		dataType: string
+		lineageTag: eda3f315-5343-5962-aa8e-b6e81f2a2e90
+		summarizeBy: none
+		sourceColumn: Type accident
+
+	column 'Jours arrêt'
+		dataType: int64
+		lineageTag: a2d6b115-dc0a-5b1f-a6d3-04c45f5eb1f9
+		summarizeBy: sum
+		sourceColumn: Jours arrêt
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 67c7e758-9dc9-5e17-b0df-2790acf38b95
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'Jours arrêt retenus'
+		dataType: int64
+		lineageTag: 6069e776-4ba8-5904-ba14-a2d6c3c7645f
+		summarizeBy: sum
+		sourceColumn: Jours arrêt retenus
+
+	partition 'Accident travail' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Accident travail.parquet"))
+				in
+				    Source
+

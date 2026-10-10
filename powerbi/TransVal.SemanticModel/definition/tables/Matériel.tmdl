@@ -1,0 +1,116 @@
+table Matériel
+	lineageTag: 33f88f61-6094-55c0-b23d-260b36178659
+
+	column 'Code matériel'
+		dataType: string
+		lineageTag: fc839112-2e0e-5ab1-8f95-a80a985273ae
+		summarizeBy: none
+		sourceColumn: Code matériel
+
+	column Immatriculation
+		dataType: string
+		lineageTag: d7a09310-1429-52a1-a542-dad9904882c3
+		summarizeBy: none
+		sourceColumn: Immatriculation
+
+	column 'Type matériel'
+		dataType: string
+		lineageTag: 3e6ff43a-f4b8-5a71-b2b0-75584df6d14c
+		summarizeBy: none
+		sourceColumn: Type matériel
+
+	column Marque
+		dataType: string
+		lineageTag: 5985fdf1-2d4c-5677-a211-68349cb5cdd1
+		summarizeBy: none
+		sourceColumn: Marque
+
+	column Modèle
+		dataType: string
+		lineageTag: 6154c36a-23db-5e35-9ed6-afc39ca981a4
+		summarizeBy: none
+		sourceColumn: Modèle
+
+	column 'Activité type'
+		dataType: string
+		lineageTag: ecef3ab3-d153-591a-99a8-619804f74def
+		summarizeBy: none
+		sourceColumn: Activité type
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: e954f5d3-2eb5-5ca5-a2b8-26d18e3eb7e8
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column Équipement
+		dataType: string
+		lineageTag: 8a783a41-c4ac-559e-a342-6312d54ba63b
+		summarizeBy: none
+		sourceColumn: Équipement
+
+	column 'Date entrée'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 8bdafe2c-cdf3-59ab-8cc9-76cf40e66dd3
+		summarizeBy: none
+		sourceColumn: Date entrée
+
+	column 'Date sortie'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 77b728e2-c3db-571f-9b8b-94d9f41d59de
+		summarizeBy: none
+		sourceColumn: Date sortie
+
+	column Statut
+		dataType: string
+		lineageTag: a8f70487-2032-5f01-8ab8-7fadd73f7081
+		summarizeBy: none
+		sourceColumn: Statut
+
+	column 'Compteur km'
+		dataType: int64
+		lineageTag: cc2c9f88-00af-5afe-9dd7-5496a34a8d67
+		summarizeBy: sum
+		sourceColumn: Compteur km
+
+	column 'Date compteur'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 30f8adc7-650e-5d26-a515-92c684b3a2e6
+		summarizeBy: none
+		sourceColumn: Date compteur
+
+	column 'Est tracteur'
+		dataType: boolean
+		lineageTag: e8ea9f2a-45a9-5940-a141-b7dc28f6afa0
+		summarizeBy: none
+		sourceColumn: Est tracteur
+
+	column Activité
+		dataType: string
+		lineageTag: 3dd14641-4ba4-5618-a09a-a93acc134372
+		summarizeBy: none
+		sourceColumn: Activité
+
+	column 'Km parcourus'
+		dataType: double
+		lineageTag: 5d29cff8-80b9-5c4e-9543-e77c6c365924
+		summarizeBy: sum
+		sourceColumn: Km parcourus
+
+	column 'Heures usage'
+		dataType: double
+		lineageTag: f3050fdb-be7a-51b6-b3f9-093d1e692be1
+		summarizeBy: sum
+		sourceColumn: Heures usage
+
+	partition Matériel = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Matériel.parquet"))
+				in
+				    Source
+

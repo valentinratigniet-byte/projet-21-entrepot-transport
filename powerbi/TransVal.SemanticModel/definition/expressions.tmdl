@@ -1,0 +1,5 @@
+expression DossierDonnees = "C:\TransVal\powerbi\donnees" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 08792a95-b91e-501f-8685-7a4892afba4a
+
+	annotation PBI_ResultType = Text
+

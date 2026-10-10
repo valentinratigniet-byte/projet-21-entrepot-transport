@@ -1,0 +1,83 @@
+table 'Indicateurs relation'
+	lineageTag: 5500dde0-3fcc-568a-b3c2-d78512b5eaad
+
+	column 'Indicateurs relation'
+		dataType: string
+		lineageTag: 08ba71d3-ed50-57b5-be0a-9e866966de58
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Indicateurs relation Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Indicateurs relation Champs'
+
+	column 'Indicateurs relation Champs'
+		dataType: string
+		isHidden
+		lineageTag: 89568c24-a9b6-5307-acaa-67776dd33f5a
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Indicateurs relation Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Indicateurs relation Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 8e29cba0-1b72-5289-8591-44aeb0b46d5e
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	column 'Indicateurs relation Thème'
+		dataType: string
+		lineageTag: 8d195c73-380d-5b2e-a841-7eb5ddd2c030
+		summarizeBy: none
+		sourceColumn: [Value4]
+		sortByColumn: 'Indicateurs relation Thème ordre'
+
+	column 'Indicateurs relation Thème ordre'
+		dataType: int64
+		isHidden
+		lineageTag: d5e5d728-6b19-5e27-b58c-9d4665c13a9d
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+	partition 'Indicateurs relation' = calculated
+		mode: import
+		source =
+				{
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "CA", 0),
+				    ("CA réparti évolution", NAMEOF('Mesures'[CA réparti évolution]), 1, "CA", 0),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "Voyages", 1),
+				    ("Nb voyages", NAMEOF('Mesures'[Nb voyages]), 2, "Voyages", 1),
+				    ("Nb voyages / jour ouvré", NAMEOF('Mesures'[Nb voyages / jour ouvré]), 3, "Voyages", 1),
+				    ("Nb voyages évolution", NAMEOF('Mesures'[Nb voyages évolution]), 4, "Voyages", 1),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "CA / jour ouvré", 2),
+				    ("CA moyen / jour ouvré réparti", NAMEOF('Mesures'[CA moyen / jour ouvré réparti]), 5, "CA / jour ouvré", 2),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "CA / km", 3),
+				    ("Km total", NAMEOF('Mesures'[Km total]), 6, "CA / km", 3),
+				    ("CA / km réparti", NAMEOF('Mesures'[CA / km réparti]), 7, "CA / km", 3),
+				    ("CA / km réparti évolution", NAMEOF('Mesures'[CA / km réparti évolution]), 8, "CA / km", 3),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "CA / heure", 4),
+				    ("Heures prod", NAMEOF('Mesures'[Heures prod]), 9, "CA / heure", 4),
+				    ("CA / heure réparti", NAMEOF('Mesures'[CA / heure réparti]), 10, "CA / heure", 4),
+				    ("CA / heure réparti évolution", NAMEOF('Mesures'[CA / heure réparti évolution]), 11, "CA / heure", 4),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "MCV €", 5),
+				    ("MCV €", NAMEOF('Mesures'[MCV €]), 12, "MCV €", 5),
+				    ("MCV € évolution", NAMEOF('Mesures'[MCV € évolution]), 13, "MCV €", 5),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "MCV %", 6),
+				    ("MCV €", NAMEOF('Mesures'[MCV €]), 12, "MCV %", 6),
+				    ("MCV %", NAMEOF('Mesures'[MCV %]), 14, "MCV %", 6),
+				    ("MCV % évolution", NAMEOF('Mesures'[MCV % évolution]), 15, "MCV %", 6),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "Appairage", 7),
+				    ("Appairage", NAMEOF('Mesures'[Appairage]), 16, "Appairage", 7),
+				    ("Appairage évolution", NAMEOF('Mesures'[Appairage évolution]), 17, "Appairage", 7),
+				    ("CA réparti", NAMEOF('Mesures'[CA réparti]), 0, "Autoroute", 8),
+				    ("Autoroute € / 100 km", NAMEOF('Mesures'[Autoroute € / 100 km]), 18, "Autoroute", 8),
+				    ("Autoroute € / 100 km évolution", NAMEOF('Mesures'[Autoroute € / 100 km évolution]), 19, "Autoroute", 8)
+				}
+

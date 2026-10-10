@@ -1,0 +1,66 @@
+table 'Compteur paie'
+	lineageTag: de86fb6b-d531-54c2-82dc-523e9f633147
+
+	column Matricule
+		dataType: int64
+		lineageTag: 772c0432-2533-5a10-af6a-aab5807e23a3
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column Mois
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: d9ff5e6e-8e0e-5d6d-8801-8c308149042a
+		summarizeBy: none
+		sourceColumn: Mois
+
+	column 'Heures réalisées'
+		dataType: double
+		lineageTag: 7b459023-6ccc-5383-b67e-da7bc804598c
+		summarizeBy: sum
+		sourceColumn: Heures réalisées
+
+	column 'Heures base'
+		dataType: double
+		lineageTag: 1afc7a3b-4f70-51e1-b2ac-151fb868e82b
+		summarizeBy: sum
+		sourceColumn: Heures base
+
+	column 'Heures sup 50'
+		dataType: double
+		lineageTag: 1c99edc5-9d87-5562-9608-c9990dc77522
+		summarizeBy: sum
+		sourceColumn: Heures sup 50
+
+	column 'Heures payées'
+		dataType: double
+		lineageTag: 00e101e3-2545-5392-9b4b-84d7abf65902
+		summarizeBy: sum
+		sourceColumn: Heures payées
+
+	column 'Salaire brut'
+		dataType: double
+		lineageTag: 9ed65ea1-ad45-5b76-b823-d8d535450936
+		summarizeBy: sum
+		sourceColumn: Salaire brut
+
+	column 'Heures compensées'
+		dataType: double
+		lineageTag: b07a4aea-090d-5bcb-bc1c-52cb910e3be0
+		summarizeBy: sum
+		sourceColumn: Heures compensées
+
+	column 'Plus de 140h'
+		dataType: string
+		lineageTag: 721f767b-4d51-596f-8ed8-46e4a21e1b24
+		summarizeBy: none
+		sourceColumn: Plus de 140h
+
+	partition 'Compteur paie' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Compteur paie.parquet"))
+				in
+				    Source
+

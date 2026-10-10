@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "0254ddca4084271e9e1c",
+  "position": {
+    "x": 1104.2,
+    "y": 138,
+    "z": 12000,
+    "height": 56.5,
+    "width": 159.8,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Atelier"
+                    }
+                  },
+                  "Property": "N° tracteur"
+                }
+              },
+              "queryRef": "Atelier.N° tracteur",
+              "nativeQueryRef": "N° tracteur",
+              "active": true,
+              "displayName": "Code Parc"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

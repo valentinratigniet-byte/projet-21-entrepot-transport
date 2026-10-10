@@ -1,0 +1,464 @@
+table Voyage
+	lineageTag: f5ec1860-d9a1-5904-9959-a5ee29ed450b
+
+	column 'N° voyage'
+		dataType: int64
+		lineageTag: 88aabcd3-5324-5ef1-81c1-476845a7f4d7
+		summarizeBy: none
+		sourceColumn: N° voyage
+
+	column CMR
+		dataType: string
+		lineageTag: 910063b0-1312-53ef-8485-1bba588a2359
+		summarizeBy: none
+		sourceColumn: CMR
+
+	column 'CMR tête de lot'
+		dataType: string
+		lineageTag: bff7039b-d895-5aa0-9935-cf1c19014372
+		summarizeBy: none
+		sourceColumn: CMR tête de lot
+
+	column 'Nb dépotages'
+		dataType: int64
+		lineageTag: 2150388d-1168-545b-acce-2b5bc954d5bd
+		summarizeBy: sum
+		sourceColumn: Nb dépotages
+
+	column 'Date chargement'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: cd5a4f15-8bb5-5db0-8990-ec04b9567efc
+		summarizeBy: none
+		sourceColumn: Date chargement
+
+	column 'Date livraison'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 42e51ccf-dd72-5bc9-8af5-232747d3c949
+		summarizeBy: none
+		sourceColumn: Date livraison
+
+	column 'Code client'
+		dataType: string
+		lineageTag: 3d327cdc-d04b-5cab-9708-92ee83eab420
+		summarizeBy: none
+		sourceColumn: Code client
+
+	column 'Code relation'
+		dataType: string
+		lineageTag: 327aa4b2-46b9-5da0-b4f7-4b35e2d590b9
+		summarizeBy: none
+		sourceColumn: Code relation
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 6d763658-b805-53e8-8679-142a6a472ef5
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: cb8980f2-95c0-50e7-b3bc-bb2520114ddb
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Remorque
+		dataType: string
+		lineageTag: 43842362-d184-59d2-84c4-e6eedb28fdcc
+		summarizeBy: none
+		sourceColumn: Remorque
+
+	column Matricule
+		dataType: int64
+		lineageTag: a95e8a2c-70c0-5df2-b870-34f882ad586b
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column Statut
+		dataType: string
+		lineageTag: e7389204-c9ff-5344-b3a1-1b7c120b86eb
+		summarizeBy: none
+		sourceColumn: Statut
+
+	column 'CA facturé'
+		dataType: double
+		lineageTag: 77ca9320-220c-58d0-984a-7d56764e1d41
+		summarizeBy: sum
+		sourceColumn: CA facturé
+
+	column 'CA réparti'
+		dataType: double
+		lineageTag: 9644c770-f48f-5a3d-9b51-3f95a0741a23
+		summarizeBy: sum
+		sourceColumn: CA réparti
+
+	column 'Qté livrée'
+		dataType: double
+		lineageTag: a7286e14-18a6-5590-a846-0908a7c917a8
+		summarizeBy: sum
+		sourceColumn: Qté livrée
+
+	column 'Qté facturée'
+		dataType: double
+		lineageTag: d958188a-ee24-584d-969f-6567b9ed0e3f
+		summarizeBy: sum
+		sourceColumn: Qté facturée
+
+	column 'Km chargé'
+		dataType: double
+		lineageTag: 7c0f6676-9f44-59aa-be9a-d33486a9a961
+		summarizeBy: sum
+		sourceColumn: Km chargé
+
+	column 'Km vide'
+		dataType: double
+		lineageTag: f9cb5d74-5659-5515-aa66-a688593a975a
+		summarizeBy: sum
+		sourceColumn: Km vide
+
+	column 'Km total'
+		dataType: double
+		lineageTag: a1b3794f-363f-5576-9cd2-5440f535f397
+		summarizeBy: sum
+		sourceColumn: Km total
+
+	column 'Temps chargement h'
+		dataType: double
+		lineageTag: 2b563b12-a343-595a-891c-c3d5041b91fa
+		summarizeBy: sum
+		sourceColumn: Temps chargement h
+
+	column 'Temps livraison h'
+		dataType: double
+		lineageTag: 70268f3b-5620-5c78-ba7d-979a68e01a17
+		summarizeBy: sum
+		sourceColumn: Temps livraison h
+
+	column 'Temps conduite chargé h'
+		dataType: double
+		lineageTag: c5ded452-fe90-5bff-8ce3-01a3c04c6800
+		summarizeBy: sum
+		sourceColumn: Temps conduite chargé h
+
+	column 'Temps total h'
+		dataType: double
+		lineageTag: 04028ba6-97ae-5b6a-8e2e-5b53ba98b519
+		summarizeBy: sum
+		sourceColumn: Temps total h
+
+	column 'MCV coûts variables'
+		dataType: double
+		lineageTag: 9eade1dd-f743-575d-bd70-43514dd99d84
+		summarizeBy: sum
+		sourceColumn: MCV coûts variables
+
+	column 'MCV marge'
+		dataType: double
+		lineageTag: 0988163d-6dbd-5c25-a2f7-bd6dd24dccfa
+		summarizeBy: sum
+		sourceColumn: MCV marge
+
+	column 'MCV marge lissée'
+		dataType: double
+		lineageTag: 1e6d4dbe-6569-5388-a63c-f3643634a549
+		summarizeBy: sum
+		sourceColumn: MCV marge lissée
+
+	column 'MCV péage chargé'
+		dataType: double
+		lineageTag: dfaa882c-0079-5b63-8662-c47888a9060e
+		summarizeBy: sum
+		sourceColumn: MCV péage chargé
+
+	column 'MCV péage vide'
+		dataType: double
+		lineageTag: 355d7310-7664-5978-b0a4-787eda31b848
+		summarizeBy: sum
+		sourceColumn: MCV péage vide
+
+	column 'MCV écotaxe chargé'
+		dataType: double
+		lineageTag: 789336ab-2af7-5fa3-8b6c-9694b7687b94
+		summarizeBy: sum
+		sourceColumn: MCV écotaxe chargé
+
+	column 'MCV écotaxe vide'
+		dataType: double
+		lineageTag: 3ca18643-0e1f-5350-b584-926b6d738e04
+		summarizeBy: sum
+		sourceColumn: MCV écotaxe vide
+
+	column 'MCV lavage int'
+		dataType: double
+		lineageTag: 1fa11b4f-5e61-5992-b5ca-c448ce14abf1
+		summarizeBy: sum
+		sourceColumn: MCV lavage int
+
+	column 'Nb passages péage'
+		dataType: int64
+		lineageTag: e6477e89-fedb-569c-bdf9-cd21dd55f998
+		summarizeBy: sum
+		sourceColumn: Nb passages péage
+
+	column 'Attente h'
+		dataType: double
+		lineageTag: 226bb1e4-2209-5d71-a500-282a3a1a786d
+		summarizeBy: sum
+		sourceColumn: Attente h
+
+	column 'Attente à facturer €'
+		dataType: double
+		lineageTag: a73cb1bd-3d4a-5b2c-b4bc-c1f384dc94ed
+		summarizeBy: sum
+		sourceColumn: Attente à facturer €
+
+	column 'Est livraison samedi'
+		dataType: boolean
+		lineageTag: 74cebead-77ed-5c25-9770-34c47af9cfe6
+		summarizeBy: none
+		sourceColumn: Est livraison samedi
+
+	column 'Est double dépotage'
+		dataType: boolean
+		lineageTag: 886aa0b3-b1f6-55d9-b372-1aadfdd3c826
+		summarizeBy: none
+		sourceColumn: Est double dépotage
+
+	column 'Ville rupture'
+		dataType: string
+		lineageTag: 25f9175e-58bb-5c9f-aaf8-0a0f6573eee0
+		summarizeBy: none
+		sourceColumn: Ville rupture
+
+	column 'Est réalisé'
+		dataType: boolean
+		lineageTag: 02fcd646-bae6-542d-aa72-ad150a47bb44
+		summarizeBy: none
+		sourceColumn: Est réalisé
+
+	column 'MCV marge retenue'
+		dataType: double
+		lineageTag: c792ec8b-27c9-545a-86b1-81c8fc0c7fbf
+		summarizeBy: sum
+		sourceColumn: MCV marge retenue
+
+	column 'Autoroute €'
+		dataType: double
+		lineageTag: 8365feeb-52c1-5166-9b26-4b401911aae1
+		summarizeBy: sum
+		sourceColumn: Autoroute €
+
+	column 'Péage écotaxe chargé'
+		dataType: double
+		lineageTag: d99b8f71-9512-5954-bf32-3708872e00c6
+		summarizeBy: sum
+		sourceColumn: Péage écotaxe chargé
+
+	column 'Km vide €'
+		dataType: double
+		lineageTag: 4e4de183-d517-5fd6-9678-386ea6bc5ecd
+		summarizeBy: sum
+		sourceColumn: Km vide €
+
+	column 'Coût total chargé'
+		dataType: double
+		lineageTag: 915b9cf0-cfb9-502f-a7a0-e238004e94dd
+		summarizeBy: sum
+		sourceColumn: Coût total chargé
+
+	column 'Samedi à facturer €'
+		dataType: int64
+		lineageTag: 40aa0413-aab5-524a-a349-a7fc5f69d537
+		summarizeBy: sum
+		sourceColumn: Samedi à facturer €
+
+	column 'Écart CA réparti'
+		dataType: double
+		lineageTag: 478775f4-4d0e-5a55-bcde-90b27c025f20
+		summarizeBy: sum
+		sourceColumn: Écart CA réparti
+
+	column 'Écart coût total chargé'
+		dataType: double
+		lineageTag: 636802a0-c218-501f-94aa-df0ce3f633be
+		summarizeBy: sum
+		sourceColumn: Écart coût total chargé
+
+	column 'Écart km chargé'
+		dataType: double
+		lineageTag: 18575312-7d3e-506c-aedd-51ec4681aa30
+		summarizeBy: sum
+		sourceColumn: Écart km chargé
+
+	column 'Écart péage écotaxe chargé'
+		dataType: double
+		lineageTag: 6bd2d1a9-5ced-573b-affc-e331d98f2dac
+		summarizeBy: sum
+		sourceColumn: Écart péage écotaxe chargé
+
+	column 'Écart temps chargement'
+		dataType: double
+		lineageTag: 568d8dce-13b8-5f0a-a1ae-b6cf6014c636
+		summarizeBy: sum
+		sourceColumn: Écart temps chargement
+
+	column 'Écart temps conduite chargé'
+		dataType: double
+		lineageTag: 2d0cfb07-7452-5665-a039-dedf53995aeb
+		summarizeBy: sum
+		sourceColumn: Écart temps conduite chargé
+
+	column 'Écart temps livraison'
+		dataType: double
+		lineageTag: 3d83723c-3171-5a7d-aeee-bf8ff97a3e63
+		summarizeBy: sum
+		sourceColumn: Écart temps livraison
+
+	column 'Au moins 5 transports 90 j'
+		dataType: string
+		lineageTag: 13a3d609-88c1-5fc1-a465-67fae45f7c05
+		summarizeBy: none
+		sourceColumn: Au moins 5 transports 90 j
+
+	column 'Anomalie temps conduite chargé'
+		dataType: string
+		lineageTag: e0355f65-3bfd-5cb5-9ec9-41e3bf791b74
+		summarizeBy: none
+		sourceColumn: Anomalie temps conduite chargé
+
+	column 'Anomalie km chargé'
+		dataType: string
+		lineageTag: 5af1c05b-3595-5e13-ac13-5435fed061c1
+		summarizeBy: none
+		sourceColumn: Anomalie km chargé
+
+	column 'Est tête de lot'
+		dataType: boolean
+		lineageTag: cead7ef7-7d82-53ad-8295-525ca86808d4
+		summarizeBy: none
+		sourceColumn: Est tête de lot
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: 775d0da9-a7d2-59ac-91ea-af5575dba2da
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	column 'Est attente'
+		dataType: boolean
+		lineageTag: 6ce99d20-13df-513c-aab9-074579d317a4
+		summarizeBy: none
+		sourceColumn: Est attente
+
+	column 'Attente facturée €'
+		dataType: double
+		lineageTag: 849b1c9c-7b92-563a-982a-4260272898ee
+		summarizeBy: sum
+		sourceColumn: Attente facturée €
+
+	column 'Est attente facturée'
+		dataType: boolean
+		lineageTag: 7a7e98b6-30ef-5dea-a0f4-460c9d3c8a07
+		summarizeBy: none
+		sourceColumn: Est attente facturée
+
+	column 'Est attente justifiée'
+		dataType: boolean
+		lineageTag: 19f61fb9-5644-5a91-98e1-f1cf6debdfa6
+		summarizeBy: none
+		sourceColumn: Est attente justifiée
+
+	column 'Est lavage facturé'
+		dataType: boolean
+		lineageTag: d9480506-a61f-5041-a3c8-2240ce965639
+		summarizeBy: none
+		sourceColumn: Est lavage facturé
+
+	column 'Est lavage justifié'
+		dataType: boolean
+		lineageTag: 48488d5b-53f8-5a4e-a63f-510f7ac3c5fd
+		summarizeBy: none
+		sourceColumn: Est lavage justifié
+
+	column 'Est samedi facturé'
+		dataType: boolean
+		lineageTag: 5adf324b-da28-5fb7-826e-5c91acf2c3a4
+		summarizeBy: none
+		sourceColumn: Est samedi facturé
+
+	column 'Est DD facturé'
+		dataType: boolean
+		lineageTag: 517cfec3-3cd5-5b2c-8107-edab3e9e6e58
+		summarizeBy: none
+		sourceColumn: Est DD facturé
+
+	column 'Affichage attente'
+		dataType: string
+		lineageTag: 910d6478-b365-557b-8c83-2ce9f5b4e55c
+		summarizeBy: none
+		sourceColumn: Affichage attente
+
+	column 'Affichage lavage'
+		dataType: string
+		lineageTag: dcf4e012-9637-533d-8c57-0d90a084b143
+		summarizeBy: none
+		sourceColumn: Affichage lavage
+
+	column 'Affichage samedi'
+		dataType: string
+		lineageTag: 21f2443e-a501-596c-9067-062ffaab8327
+		summarizeBy: none
+		sourceColumn: Affichage samedi
+
+	column 'Affichage DD'
+		dataType: string
+		lineageTag: ebd1a5bb-0310-5dc9-8caa-a4ae9361c5f8
+		summarizeBy: none
+		sourceColumn: Affichage DD
+
+	column 'Affichage justifié'
+		dataType: string
+		lineageTag: 6bb5a88f-2b52-5632-a992-fc9fd0c96926
+		summarizeBy: none
+		sourceColumn: Affichage justifié
+
+	column 'Affichage lavage justifié'
+		dataType: string
+		lineageTag: 01757770-30ec-5799-96df-437075f43863
+		summarizeBy: none
+		sourceColumn: Affichage lavage justifié
+
+	column 'Attentes oui non'
+		dataType: string
+		lineageTag: 5d56bc5d-87a9-5bb5-85ac-786a343189c5
+		summarizeBy: none
+		sourceColumn: Attentes oui non
+
+	column 'Lot import'
+		dataType: int64
+		lineageTag: fb67b221-5c85-55f9-b250-51001d86df59
+		summarizeBy: sum
+		sourceColumn: Lot import
+
+	column 'Temps sur site h'
+		dataType: double
+		lineageTag: af13a198-48b5-58ce-bdc0-0220b733d78c
+		summarizeBy: sum
+		sourceColumn: Temps sur site h
+
+	column 'Est hors franchise'
+		dataType: boolean
+		lineageTag: fa34979b-4dd7-53db-9cac-997e4f01b1d0
+		summarizeBy: none
+		sourceColumn: Est hors franchise
+
+	partition Voyage = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Voyage.parquet"))
+				in
+				    Source
+

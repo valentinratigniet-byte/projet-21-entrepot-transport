@@ -1,0 +1,286 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d1d9526c613f42f45384",
+  "position": {
+    "x": 15.544270467817835,
+    "y": 234.5771725143419,
+    "z": 1001,
+    "height": 532.74454239702948,
+    "width": 1247.78098391665,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "Provenance"
+                }
+              },
+              "queryRef": "Facture atelier.Provenance",
+              "nativeQueryRef": "Provenance"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Facture atelier"
+                        }
+                      },
+                      "Property": "Montant HT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Facture atelier.Montant HT)",
+              "nativeQueryRef": "Somme de Montant HT",
+              "displayName": "HT atelier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "Fournisseur"
+                }
+              },
+              "queryRef": "Facture atelier.Fournisseur",
+              "nativeQueryRef": "Fournisseur",
+              "displayName": "Nom fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "Compte tiers"
+                }
+              },
+              "queryRef": "Facture atelier.Compte tiers",
+              "nativeQueryRef": "Compte tiers",
+              "displayName": "Code fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "N° facture"
+                }
+              },
+              "queryRef": "Facture atelier.N° facture",
+              "nativeQueryRef": "N° facture",
+              "displayName": "Numéro facture fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "Société"
+                }
+              },
+              "queryRef": "Facture atelier.Société",
+              "nativeQueryRef": "Société",
+              "displayName": "Code société"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facture atelier"
+                    }
+                  },
+                  "Property": "Date document"
+                }
+              },
+              "queryRef": "Facture atelier.Date document",
+              "nativeQueryRef": "Date document",
+              "displayName": "Date facture"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9b87a4f60ebca5632f7b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "Provenance"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d3fc99893a080a4dcf06",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Facture atelier"
+                  }
+                },
+                "Property": "Montant HT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0dd6dc29faac0eba4bd3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "Fournisseur"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b44c820242490a811ad3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "Compte tiers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d3b2f3a8586b2917b84d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "N° facture"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a6993f706df741d5dc9a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "Société"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "84ce4f38e88ab26ecf5b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facture atelier"
+              }
+            },
+            "Property": "Date document"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

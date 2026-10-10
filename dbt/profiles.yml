@@ -1,0 +1,7 @@
+transport_dwh:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DWH_PATH', '../data/warehouse.duckdb') }}"
+      threads: 4

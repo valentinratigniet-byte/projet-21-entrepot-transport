@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Activité par relation"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bfa3ec3a-d433-4dfe-b05e-6e579397dd1b"
+  }
+}

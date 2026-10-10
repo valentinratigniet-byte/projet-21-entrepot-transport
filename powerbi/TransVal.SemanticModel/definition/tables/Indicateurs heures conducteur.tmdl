@@ -1,0 +1,71 @@
+table 'Indicateurs heures conducteur'
+	lineageTag: 1fc23e4d-0f02-5b67-843f-a1fa0c246c66
+
+	column 'Indicateurs heures conducteur'
+		dataType: string
+		lineageTag: e3e6d144-42fb-5e2b-a91e-25e6827aab2f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Indicateurs heures conducteur Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Indicateurs heures conducteur Champs'
+
+	column 'Indicateurs heures conducteur Champs'
+		dataType: string
+		isHidden
+		lineageTag: 13438e74-de5b-5666-a63f-e3b0750e2ddb
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Indicateurs heures conducteur Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Indicateurs heures conducteur Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 3cf1f1fd-0ad9-51a5-97d1-1886724ec2a2
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	column 'Indicateurs heures conducteur Thème'
+		dataType: string
+		lineageTag: d120d376-ebbe-57a0-b518-ee03159092c8
+		summarizeBy: none
+		sourceColumn: [Value4]
+		sortByColumn: 'Indicateurs heures conducteur Thème ordre'
+
+	column 'Indicateurs heures conducteur Thème ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 3e07a038-508a-5471-beb0-5ad196302c94
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+	partition 'Indicateurs heures conducteur' = calculated
+		mode: import
+		source =
+				{
+				    ("Heures payées", NAMEOF('Mesures'[Heures payées]), 0, "Heures payées", 0),
+				    ("Heures payées / mois", NAMEOF('Mesures'[Heures payées / mois]), 1, "Heures payées", 0),
+				    ("Écart moyen heures payées", NAMEOF('Mesures'[Écart moyen heures payées]), 2, "Heures payées", 0),
+				    ("Heures compensées (base contrat)", NAMEOF('Mesures'[Heures compensées (base contrat)]), 3, "Heures compensées", 1),
+				    ("Heures compensées €", NAMEOF('Mesures'[Heures compensées €]), 4, "Heures compensées", 1),
+				    ("Heures compensées € / HP", NAMEOF('Mesures'[Heures compensées € / HP]), 5, "Heures compensées", 1),
+				    ("Heures prod", NAMEOF('Mesures'[Heures prod]), 6, "Heures compensées", 1),
+				    ("Heures à justifier payées", NAMEOF('Mesures'[Heures à justifier payées]), 7, "Heures à justifier", 2),
+				    ("% heures à justifier / heures prod", NAMEOF('Mesures'[% heures à justifier / heures prod]), 8, "Heures à justifier", 2),
+				    ("Heures à justifier payées €", NAMEOF('Mesures'[Heures à justifier payées €]), 9, "Heures à justifier", 2),
+				    ("Heures à justifier payées € / HP", NAMEOF('Mesures'[Heures à justifier payées € / HP]), 10, "Heures à justifier", 2),
+				    ("Heures prod", NAMEOF('Mesures'[Heures prod]), 6, "Heures à justifier", 2),
+				    ("Frais conv €", NAMEOF('Mesures'[Frais conv €]), 11, "Frais et primes", 3),
+				    ("Frais conv / HP", NAMEOF('Mesures'[Frais conv / HP]), 12, "Frais et primes", 3),
+				    ("Frais non-conv €", NAMEOF('Mesures'[Frais non-conv €]), 13, "Frais et primes", 3),
+				    ("Frais non-conv / HP", NAMEOF('Mesures'[Frais non-conv / HP]), 14, "Frais et primes", 3),
+				    ("Heures prod", NAMEOF('Mesures'[Heures prod]), 6, "Frais et primes", 3)
+				}
+

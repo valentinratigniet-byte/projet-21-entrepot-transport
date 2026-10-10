@@ -1,0 +1,256 @@
+{
+  "id": "TrVlActualQuot01",
+  "name": "TransVal - Actualisation quotidienne de l'entrepôt",
+  "active": false,
+  "nodes": [
+    {
+      "id": "b1",
+      "name": "Chaque jour ouvré à 6 h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 6 * * 1-5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "b0",
+      "name": "Lancement à la demande",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ],
+      "notes": "Relancer une actualisation hors planning (ou via `n8n execute`).",
+      "parameters": {}
+    },
+    {
+      "id": "b2",
+      "name": "Imports, entrepôt dbt, parité",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        240,
+        0
+      ],
+      "notes": "3 lots importés, dbt build après chacun (complet puis incrémental), Power BI de départ, test de parité. Un échec arrête le workflow et déclenche « Alerte d'échec ».",
+      "parameters": {
+        "command": "set PYTHONIOENCODING=utf-8&& cd /d \"%TRANSVAL_DIR%\" && .venv\\Scripts\\python.exe run_all.py"
+      }
+    },
+    {
+      "id": "b3",
+      "name": "Modèle Power BI (Parquet + TMDL)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        480,
+        0
+      ],
+      "parameters": {
+        "command": "set PYTHONIOENCODING=utf-8&& cd /d \"%TRANSVAL_DIR%\" && .venv\\Scripts\\python.exe powerbi\\build_model.py"
+      }
+    },
+    {
+      "id": "b4",
+      "name": "Rapport d'exécution",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        720,
+        0
+      ],
+      "notes": "Tests dbt, parité, fraîcheur des imports et contrôles qualité comparés aux seuils (ops/seuils_qualite.json). Sortie JSON.",
+      "parameters": {
+        "command": "set PYTHONIOENCODING=utf-8&& cd /d \"%TRANSVAL_DIR%\" && .venv\\Scripts\\python.exe ops\\rapport_execution.py"
+      }
+    },
+    {
+      "id": "b5",
+      "name": "Lire le rapport",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const lignes = $input.first().json.stdout.trim().split('\\n');\nconst rapport = JSON.parse(lignes[lignes.length - 1]);\nrapport.message = [\n  `Actualisation du ${rapport.horodatage} (date de référence ${rapport.date_reference}) : ${rapport.statut}`,\n  '',\n  ...rapport.alertes.map(a => `- ${a}`),\n  '',\n  `Tests dbt : ${rapport.tests_dbt.reussis} réussis, ${rapport.tests_dbt.echecs} en échec`,\n  `Parité Power BI / entrepôt : ${rapport.parite.identiques}/${rapport.parite.total} (+ ${rapport.parite.ecarts_voulus} écarts voulus)`,\n  `Imports : ` + rapport.imports.map(i => `lot ${i.lot} (${i.date}) ${i.lignes} lignes`).join(', '),\n].join('\\n');\nreturn [{ json: rapport }];"
+      }
+    },
+    {
+      "id": "b6",
+      "name": "Alerte ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.statut }}",
+              "rightValue": "ALERTE",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "b7",
+      "name": "Prévenir l'exploitation (e-mail)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1440,
+        -100
+      ],
+      "notes": "Identifiants SMTP à créer dans n8n (credential « SMTP TransVal »). En cas d'envoi impossible, l'exécution continue : le rapport reste écrit dans data/rapports_execution/.",
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "fromEmail": "entrepot@transval.example",
+        "toEmail": "exploitation@transval.example",
+        "subject": "=TransVal - entrepôt : {{ $json.alertes.length }} alerte(s) qualité",
+        "emailFormat": "text",
+        "text": "={{ $json.message }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "smtp": {
+          "id": "SmtpTransVal0001",
+          "name": "SMTP TransVal"
+        }
+      }
+    },
+    {
+      "id": "b8",
+      "name": "Rien à signaler",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        100
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Chaque jour ouvré à 6 h": {
+      "main": [
+        [
+          {
+            "node": "Imports, entrepôt dbt, parité",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Imports, entrepôt dbt, parité": {
+      "main": [
+        [
+          {
+            "node": "Modèle Power BI (Parquet + TMDL)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modèle Power BI (Parquet + TMDL)": {
+      "main": [
+        [
+          {
+            "node": "Rapport d'exécution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rapport d'exécution": {
+      "main": [
+        [
+          {
+            "node": "Lire le rapport",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire le rapport": {
+      "main": [
+        [
+          {
+            "node": "Alerte ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alerte ?": {
+      "main": [
+        [
+          {
+            "node": "Prévenir l'exploitation (e-mail)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rien à signaler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lancement à la demande": {
+      "main": [
+        [
+          {
+            "node": "Imports, entrepôt dbt, parité",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "errorWorkflow": "TrVlAlerteEchec1",
+    "timezone": "Europe/Paris"
+  }
+}

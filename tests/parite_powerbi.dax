@@ -1,0 +1,36 @@
+// Parité modèle Power BI <-> entrepôt : chaque ligne de la table Indicateurs (mart_kpi) est recalculée avec les mesures DAX
+// sur sa période (DATESBETWEEN date début / date fin). Résultat attendu : une seule ligne "__compares" avec dax = vide (0 écart).
+// À exécuter dans DAX Studio ou la vue Requête DAX de Power BI Desktop, sur TransVal.pbip actualisé.
+EVALUATE
+VAR t = ADDCOLUMNS('Indicateurs', "dax",
+  VAR k = 'Indicateurs'[KPI] VAR d0 = 'Indicateurs'[Date début] VAR d1 = 'Indicateurs'[Date fin]
+  RETURN CALCULATE(SWITCH(k,
+    "ca_facture", [CA facturé], "nb_voyages", [Nb voyages], "mcv_pct", [MCV %], "appairage", [Appairage],
+    "autoroute_eur_100km", [Autoroute € / 100 km], "ca_par_km", [CA / km], "ca_par_heure", [CA / heure],
+    "ca_moyen_jour_ouvre", [CA moyen / jour ouvré], "km_vide_eur", [Km à vide €],
+    "attente_a_facturer_eur", [Attente à facturer €], "attente_facturee_eur", [Attentes facturées €], "pct_attente_facturee", [% attentes facturées],
+    "attentes_justifiees", [Nb attentes justifiées], "lavage_a_facturer_eur", [Lavage à facturer €], "lavage_facture_eur", [Lavages facturés €],
+    "samedi_facture_eur", [Samedis facturés €], "double_depotage_facture_eur", [Double dépotage facturé €],
+    "hchc_heures", [HCHC heures], "hchc_par_voyage", [HCHC / voyage], "heures_a_justifier", [Heures à justifier],
+    "heures_chargement_dechargement", [Heures chargement + déchargement], "heures_decroche_raccroche", [Heures décroche / raccroche],
+    "productivite_tc_ts", [Productivité TC / TS], "heures_compensees", [Heures compensées (base contrat)],
+    "heures_realisees_mtd", [Heures réalisées mois en cours], "projection_fin_mois", [Projection fin de mois],
+    "projection_fin_mois_hors_feries", [Projection fin de mois hors fériés],
+    "nb_tracteurs_moyen_jour", [Nb tracteurs / jour ouvré], "jours_tracteur_maintenance", [Jours tracteur en maintenance],
+    "nb_conducteurs_actifs", [Nb conducteurs actifs],
+    "cout_maintenance_100km", [Coût maintenance / 100 km total], "taux_sous_traitance", [Taux sous-traitance],
+    "pannes_10000km", [Pannes / 10 000 km], "tx_reussite_vt", [Taux réussite visites],
+    "nb_ok", [Nb ok], "nb_absent_atelier", [Nb absent atelier], "nb_absent_comptable", [Nb absent comptable], "nb_ecart_montant", [Nb ecart montant],
+    "volume_litres", [Volume litres], "prix_moyen_litre", [Prix moyen / litre], "conso_moyenne_l100", [Conso moyenne L/100 km],
+    "conso_ponderee_l100", [Conso pondérée L/100 km],
+    "nb_infractions", [Nb infractions], "nb_infractions_classe5", [Nb infractions classe 5], "nb_accidents_travail", [Nb AT], "jours_perdus", [Jours perdus],
+    "passages_autoroutes_interdites", [Passages autoroutes interdites], "evenements_autoroutes_justifies", [Événements autoroute justifiés],
+    "nb_anomalies_materiel", [Nb anomalies matériel], "anomalies_a_traiter", [Anomalies à traiter],
+    "absents_uniques", [Absents uniques], "jours_absence", [Jours d'absence], "jours_absence_moyen_par_jour_ouvre", [Jours d'absence / jour ouvré],
+    BLANK()), DATESBETWEEN('Date'[Date], d0, d1)))
+VAR ecarts = FILTER(t, ISBLANK([dax]) <> ISBLANK('Indicateurs'[Valeur])
+                       || ABS([dax] - 'Indicateurs'[Valeur]) > 0.000001 * MAX(1, ABS('Indicateurs'[Valeur])))
+RETURN UNION(
+  ROW("KPI", "__compares", "Période", "", "Valeur", COUNTROWS(t), "dax", COUNTROWS(ecarts)),
+  SELECTCOLUMNS(TOPN(40, ecarts, 'Indicateurs'[KPI]), "KPI", 'Indicateurs'[KPI], "Période", 'Indicateurs'[Période],
+                "Valeur", 'Indicateurs'[Valeur], "dax", [dax]))

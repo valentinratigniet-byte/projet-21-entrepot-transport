@@ -1,0 +1,24 @@
+table Habilitation
+	isHidden
+	lineageTag: 523a01c0-d00b-598c-a484-89669b5faf33
+
+	column E-mail
+		dataType: string
+		lineageTag: bdc86a4a-1cd4-5f42-a2b5-9d605afabaaa
+		summarizeBy: none
+		sourceColumn: E-mail
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 24c955a1-47d1-5e44-be59-91fd4dc8ced0
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	partition Habilitation = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Habilitation.parquet"))
+				in
+				    Source
+

@@ -1,0 +1,13 @@
+libelle_brut,categorie_hchc
+Chargement,chargement_dechargement
+Déchargement,chargement_dechargement
+Chargement hors mission,chargement_dechargement
+Livraison hors mission,chargement_dechargement
+Décrochage,decroche_raccroche
+Decrochage,decroche_raccroche
+Raccrochage,decroche_raccroche
+Lavage intérieur citerne,lavage_interne
+Lavage extérieur citerne,lavage_externe
+Plein gazole,gasoil
+Temps à justifier,a_justifier
+Visite VT / VO,vt_vo

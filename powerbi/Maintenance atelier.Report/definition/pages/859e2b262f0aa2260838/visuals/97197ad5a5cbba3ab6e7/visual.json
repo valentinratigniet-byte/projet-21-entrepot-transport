@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "97197ad5a5cbba3ab6e7",
+  "position": {
+    "x": 646,
+    "y": 328,
+    "z": 1001,
+    "height": 182.7,
+    "width": 618,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Matériel"
+                    }
+                  },
+                  "Property": "Activité"
+                }
+              },
+              "queryRef": "Matériel.Activité",
+              "nativeQueryRef": "Activité",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Atelier"
+                    }
+                  },
+                  "Property": "Mécanicien"
+                }
+              },
+              "queryRef": "Atelier.Mécanicien",
+              "nativeQueryRef": "Mécanicien"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Heures main d'oeuvre"
+                }
+              },
+              "queryRef": "Mesures.Heures main d'oeuvre",
+              "nativeQueryRef": "Heures main d'oeuvre"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Mesures"
+                  }
+                },
+                "Property": "Heures main d'oeuvre"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4a88f66288193b9190af",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matériel"
+              }
+            },
+            "Property": "Activité"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5e0911bcc4519a6ae83d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Heures main d'oeuvre"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f6715ad0edfac0c8a55a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Atelier"
+              }
+            },
+            "Property": "Mécanicien"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+table 'Vue heures'
+	lineageTag: d62c755d-6845-57b5-a408-da75c9636836
+
+	column Vue
+		dataType: string
+		lineageTag: f24d708a-bed1-5850-8c42-8212af8516f3
+		summarizeBy: none
+		sourceColumn: [Vue]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: 256985c6-713f-5b83-afb4-79d080d000af
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Vue heures' = calculated
+		mode: import
+		source = DATATABLE("Vue", STRING, "Ordre", INTEGER, {{"€/HP", 1}, {"Heures", 2}, {"€", 3}})
+

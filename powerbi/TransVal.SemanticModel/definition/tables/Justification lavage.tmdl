@@ -1,0 +1,29 @@
+table 'Justification lavage'
+	lineageTag: 49901504-78ec-5dd5-a92f-7567a46c0b59
+
+	column CMR
+		dataType: string
+		lineageTag: 3b0486d1-7f6c-51b2-93ae-4f43fadd28e9
+		summarizeBy: none
+		sourceColumn: CMR
+
+	column 'Est justifié'
+		dataType: boolean
+		lineageTag: ed060b10-d8c6-5661-b6f4-d85f7eecac39
+		summarizeBy: none
+		sourceColumn: Est justifié
+
+	column Commentaire
+		dataType: string
+		lineageTag: 39f5db72-1c16-58a7-bcf0-ec9a2aefcf1b
+		summarizeBy: none
+		sourceColumn: Commentaire
+
+	partition 'Justification lavage' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Justification lavage.parquet"))
+				in
+				    Source
+

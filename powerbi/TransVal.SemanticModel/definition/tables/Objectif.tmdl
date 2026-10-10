@@ -1,0 +1,35 @@
+table Objectif
+	lineageTag: 2cb20c82-30b2-56e4-af0a-98c1c2aa5b4b
+
+	column Indicateur
+		dataType: string
+		lineageTag: 8c0829cc-165a-52ff-a607-b67edf124824
+		summarizeBy: none
+		sourceColumn: Indicateur
+
+	column 'Code activité'
+		dataType: string
+		lineageTag: 26cf95ec-f5c9-5468-8510-bf689387d2bf
+		summarizeBy: none
+		sourceColumn: Code activité
+
+	column Année
+		dataType: int64
+		lineageTag: c24fdb63-ccdf-532e-bdc9-6d2f89e32bc2
+		summarizeBy: none
+		sourceColumn: Année
+
+	column Objectif
+		dataType: double
+		lineageTag: 8a3cc0b9-9b47-5876-9f2b-eddba2c20b4a
+		summarizeBy: sum
+		sourceColumn: Objectif
+
+	partition Objectif = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Objectif.parquet"))
+				in
+				    Source
+

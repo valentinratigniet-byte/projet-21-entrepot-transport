@@ -1,0 +1,73 @@
+table 'Conso FMS'
+	lineageTag: 10e4f119-60f0-51bf-aa26-08e5ca8a6dec
+
+	column 'N° tracteur'
+		dataType: int64
+		lineageTag: d2b0c3d3-d3a4-5700-b868-e0166aef6fdf
+		summarizeBy: none
+		sourceColumn: N° tracteur
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: d57f6a22-2f99-514e-aecf-c83fe8022ff7
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Matricule
+		dataType: int64
+		lineageTag: ab0f5f20-b793-5d1d-b324-2b9e48a404b8
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Distance km'
+		dataType: double
+		lineageTag: d73a54d8-da9d-5ebf-a9b2-66651dffd71e
+		summarizeBy: sum
+		sourceColumn: Distance km
+
+	column 'Conso conduite l'
+		dataType: double
+		lineageTag: d2ab2cc5-e381-55f1-8f1b-e0bcd2039ba0
+		summarizeBy: sum
+		sourceColumn: Conso conduite l
+
+	column 'Conso totale l'
+		dataType: double
+		lineageTag: 247815f3-201b-5dba-93cf-0e6bf5686e40
+		summarizeBy: sum
+		sourceColumn: Conso totale l
+
+	column 'Conso PTO l'
+		dataType: double
+		lineageTag: d5ce7991-2551-5aef-a074-bd5eae971a7a
+		summarizeBy: sum
+		sourceColumn: Conso PTO l
+
+	column 'CO2 kg'
+		dataType: double
+		lineageTag: df95e580-b052-5222-ad82-8987d7f9bb90
+		summarizeBy: sum
+		sourceColumn: CO2 kg
+
+	column 'Conso L/100 km'
+		dataType: double
+		lineageTag: 8bf66470-9144-5e92-9c4f-a365a7e87338
+		summarizeBy: sum
+		sourceColumn: Conso L/100 km
+
+	column 'Code tracteur'
+		dataType: string
+		isHidden
+		lineageTag: be149a99-4901-5bd8-bb38-fb03d19fd948
+		summarizeBy: none
+		sourceColumn: Code tracteur
+
+	partition 'Conso FMS' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Conso FMS.parquet"))
+				in
+				    Source
+

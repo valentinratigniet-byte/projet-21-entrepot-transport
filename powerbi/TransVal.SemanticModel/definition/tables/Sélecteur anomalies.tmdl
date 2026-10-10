@@ -1,0 +1,21 @@
+table 'Sélecteur anomalies'
+	lineageTag: 7a18b4fa-29b7-5be6-ad72-1a341084c993
+
+	column Indicateur
+		dataType: string
+		lineageTag: 474fcf11-2e1f-53c1-a5f7-11eab8669d80
+		summarizeBy: none
+		sourceColumn: [Indicateur]
+		sortByColumn: Ordre
+
+	column Ordre
+		dataType: int64
+		isHidden
+		lineageTag: cc717dbe-7fbb-53f4-8315-f2ec66d3a637
+		summarizeBy: none
+		sourceColumn: [Ordre]
+
+	partition 'Sélecteur anomalies' = calculated
+		mode: import
+		source = DATATABLE("Indicateur", STRING, "Ordre", INTEGER, {{"Anomalies à traiter", 1}, {"Anomalies en cours", 2}, {"Anomalies traitées 7 derniers jours", 3}})
+

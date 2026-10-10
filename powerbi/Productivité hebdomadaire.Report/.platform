@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Productivité hebdomadaire"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5207489a-1c8e-4446-8c46-888cf28f1aaa"
+  }
+}

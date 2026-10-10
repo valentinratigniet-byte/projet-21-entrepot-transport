@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "0a1bae399744cff81ede",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 240,
+    "width": 320,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justification lavage"
+                    }
+                  },
+                  "Property": "CMR"
+                }
+              },
+              "queryRef": "Justification lavage.CMR",
+              "nativeQueryRef": "CMR"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Justification lavage"
+                    }
+                  },
+                  "Property": "Commentaire"
+                }
+              },
+              "queryRef": "Justification lavage.Commentaire",
+              "nativeQueryRef": "Commentaire"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

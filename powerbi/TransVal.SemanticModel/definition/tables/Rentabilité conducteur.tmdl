@@ -1,0 +1,66 @@
+table 'Rentabilité conducteur'
+	lineageTag: fcefdfc6-75e1-5534-8916-7efcbd694141
+
+	column Mois
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: ab9ed16d-b0ef-5cb8-9e1b-6479939706f6
+		summarizeBy: none
+		sourceColumn: Mois
+
+	column Matricule
+		dataType: int64
+		lineageTag: 5298fda8-88b7-587d-9588-d89bf72a0473
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column CA
+		dataType: double
+		lineageTag: bdf253d0-2da7-5c9b-a328-8cbc5b4ea42a
+		summarizeBy: sum
+		sourceColumn: CA
+
+	column 'Nb voyages'
+		dataType: int64
+		lineageTag: 3a408222-214a-5596-ae6d-1f3413178828
+		summarizeBy: sum
+		sourceColumn: Nb voyages
+
+	column 'Salaire chargé'
+		dataType: double
+		lineageTag: f938a000-8bea-5106-823b-c6ec459f4e7b
+		summarizeBy: sum
+		sourceColumn: Salaire chargé
+
+	column 'Heures payées'
+		dataType: double
+		lineageTag: a2967255-c615-560d-8f39-7308e2cc9a5a
+		summarizeBy: sum
+		sourceColumn: Heures payées
+
+	column Frais
+		dataType: double
+		lineageTag: 5ca346f3-365c-544a-a857-2bfb9e0eb889
+		summarizeBy: sum
+		sourceColumn: Frais
+
+	column Carburant
+		dataType: double
+		lineageTag: a158cf4b-66a0-580e-b368-4b480dc1e801
+		summarizeBy: sum
+		sourceColumn: Carburant
+
+	column Contribution
+		dataType: double
+		lineageTag: bba02abc-d119-5846-a23c-9024538ac44b
+		summarizeBy: sum
+		sourceColumn: Contribution
+
+	partition 'Rentabilité conducteur' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Rentabilité conducteur.parquet"))
+				in
+				    Source
+

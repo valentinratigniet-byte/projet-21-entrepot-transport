@@ -1,0 +1,42 @@
+table 'Pic ou moyenne absences'
+	lineageTag: fcdc2f92-5406-5d1e-8d3b-b8d7f32af540
+
+	column 'Pic ou moyenne absences'
+		dataType: string
+		lineageTag: c7f549ef-adc6-50ce-9074-03611ff36ccf
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Pic ou moyenne absences Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Pic ou moyenne absences Champs'
+
+	column 'Pic ou moyenne absences Champs'
+		dataType: string
+		isHidden
+		lineageTag: 704e6cef-5147-578f-9b9f-b1105687bf46
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Pic ou moyenne absences Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Pic ou moyenne absences Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: dd504830-76f4-5141-8186-e07764c8165b
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	partition 'Pic ou moyenne absences' = calculated
+		mode: import
+		source =
+				{
+				    ("Pic", NAMEOF('Mesures'[Absents uniques]), 0),
+				    ("Moyenne", NAMEOF('Mesures'[Jours d'absence / jour ouvré]), 1)
+				}
+

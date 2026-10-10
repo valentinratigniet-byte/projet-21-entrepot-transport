@@ -1,0 +1,9 @@
+.venv/
+.env
+data/
+__pycache__/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+powerbi/**/.pbi/
+powerbi/donnees/

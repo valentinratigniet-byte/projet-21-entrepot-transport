@@ -1,0 +1,25 @@
+table Paramètres
+	lineageTag: c5b98503-44a5-5fe7-8352-f27abe51494c
+
+	column 'Date référence'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 2d50619f-1c5b-55e9-8748-a08502d3563b
+		summarizeBy: none
+		sourceColumn: Date référence
+
+	column 'Date actualisation'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: c4492cd6-731d-577d-9a85-4de65a164c57
+		summarizeBy: none
+		sourceColumn: Date actualisation
+
+	partition Paramètres = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Paramètres.parquet"))
+				in
+				    Source
+

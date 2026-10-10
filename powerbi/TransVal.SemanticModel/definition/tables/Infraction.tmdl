@@ -1,0 +1,96 @@
+table Infraction
+	lineageTag: 7f2fae9b-209e-5172-86ba-6014963135e5
+
+	column 'Infraction ID'
+		dataType: int64
+		lineageTag: 59cb0520-28c8-5d75-86fb-e1a1c45affd3
+		summarizeBy: none
+		sourceColumn: Infraction ID
+
+	column 'Date infraction'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 8bb4f0d8-ae2d-58a6-9051-511ad462bf56
+		summarizeBy: none
+		sourceColumn: Date infraction
+
+	column Heure
+		dataType: string
+		lineageTag: 523295ec-ea25-51ba-a90f-dbd0c68d53d8
+		summarizeBy: none
+		sourceColumn: Heure
+
+	column Matricule
+		dataType: int64
+		lineageTag: dd4def24-5890-5fff-9777-ca3a19980e67
+		summarizeBy: none
+		sourceColumn: Matricule
+
+	column 'Type infraction'
+		dataType: string
+		lineageTag: d65a579b-f309-5bff-9302-f5500c16691d
+		summarizeBy: none
+		sourceColumn: Type infraction
+
+	column Classe
+		dataType: int64
+		lineageTag: c4631bbb-553b-5818-a840-cf4ba657e8c7
+		summarizeBy: sum
+		sourceColumn: Classe
+
+	column Intitulé
+		dataType: string
+		lineageTag: daf92bdb-5bdb-59aa-b3ab-db7413314ee6
+		summarizeBy: none
+		sourceColumn: Intitulé
+
+	column 'Intitulé cumul1'
+		dataType: string
+		lineageTag: 81e19ef1-5184-5cb1-97df-e63ee44e85ca
+		summarizeBy: none
+		sourceColumn: Intitulé cumul1
+
+	column 'Cumul1 minutes'
+		dataType: double
+		lineageTag: 6259432e-93e8-512a-a4b3-6dc6eb2bac2f
+		summarizeBy: sum
+		sourceColumn: Cumul1 minutes
+
+	column 'Intitulé cumul2'
+		dataType: string
+		lineageTag: 7a500430-5cb3-5ce7-9dc3-bc9198c0cdc7
+		summarizeBy: none
+		sourceColumn: Intitulé cumul2
+
+	column 'Cumul2 minutes'
+		dataType: double
+		lineageTag: ffce0028-63f7-5753-8dbe-4534dec3a18a
+		summarizeBy: sum
+		sourceColumn: Cumul2 minutes
+
+	column 'Valeur cumul1'
+		dataType: string
+		lineageTag: 5bf36a9d-6efc-5493-b2cd-eb65847a9d53
+		summarizeBy: none
+		sourceColumn: Valeur cumul1
+
+	column 'Valeur cumul2'
+		dataType: string
+		lineageTag: feab979e-877e-593e-8bd0-738c24ecc1d6
+		summarizeBy: none
+		sourceColumn: Valeur cumul2
+
+	column 'État heure'
+		dataType: string
+		lineageTag: d27f4ca3-3b43-579c-b2e7-3bebbefa7cf8
+		summarizeBy: none
+		sourceColumn: État heure
+
+	partition Infraction = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Infraction.parquet"))
+				in
+				    Source
+

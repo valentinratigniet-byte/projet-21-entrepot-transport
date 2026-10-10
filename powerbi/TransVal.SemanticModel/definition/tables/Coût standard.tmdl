@@ -1,0 +1,41 @@
+table 'Coût standard'
+	lineageTag: 4e48c433-bccd-5af7-b200-1666a9acb584
+
+	column Année
+		dataType: int64
+		lineageTag: 42784224-aa46-51ea-a413-352090a8c231
+		summarizeBy: none
+		sourceColumn: Année
+
+	column 'Coût chauffeur heure'
+		dataType: double
+		lineageTag: f1383612-f351-54cd-b18c-296f17001704
+		summarizeBy: sum
+		sourceColumn: Coût chauffeur heure
+
+	column 'Coût gazole adblue km'
+		dataType: double
+		lineageTag: eb69dca4-cf92-567a-9867-52466c0085aa
+		summarizeBy: sum
+		sourceColumn: Coût gazole adblue km
+
+	column 'Coût maintenance parc km'
+		dataType: double
+		lineageTag: a0424d2c-e720-51e2-b904-9276dd1492d0
+		summarizeBy: sum
+		sourceColumn: Coût maintenance parc km
+
+	column 'Coût pneus km'
+		dataType: double
+		lineageTag: 983b7756-7c26-50c7-a95e-4d32397282b6
+		summarizeBy: sum
+		sourceColumn: Coût pneus km
+
+	partition 'Coût standard' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Coût standard.parquet"))
+				in
+				    Source
+

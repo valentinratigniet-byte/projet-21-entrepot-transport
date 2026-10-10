@@ -1,0 +1,419 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "664a09d4ddf409219cb3",
+  "position": {
+    "x": 15.544270467817835,
+    "y": 233.16405701726754,
+    "z": 1001,
+    "height": 534.15765789410386,
+    "width": 1247.78098391665,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Intitulé tiers"
+                }
+              },
+              "queryRef": "Écriture comptable.Intitulé tiers",
+              "nativeQueryRef": "Intitulé tiers",
+              "displayName": "Nom fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Compte tiers"
+                }
+              },
+              "queryRef": "Écriture comptable.Compte tiers",
+              "nativeQueryRef": "Compte tiers",
+              "displayName": "Code fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "N° pièce"
+                }
+              },
+              "queryRef": "Écriture comptable.N° pièce",
+              "nativeQueryRef": "N° pièce",
+              "displayName": "Numéro facture fournisseur"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Société"
+                }
+              },
+              "queryRef": "Écriture comptable.Société",
+              "nativeQueryRef": "Société",
+              "displayName": "Code société"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Date pièce"
+                }
+              },
+              "queryRef": "Écriture comptable.Date pièce",
+              "nativeQueryRef": "Date pièce",
+              "displayName": "Date facture"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Écriture comptable"
+                        }
+                      },
+                      "Property": "Montant HT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Écriture comptable.Montant HT)",
+              "nativeQueryRef": "Somme de Montant HT",
+              "displayName": "HT comptabilité"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Journal"
+                }
+              },
+              "queryRef": "Écriture comptable.Journal",
+              "nativeQueryRef": "Journal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Code frais"
+                }
+              },
+              "queryRef": "Écriture comptable.Code frais",
+              "nativeQueryRef": "Code frais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Libellé frais"
+                }
+              },
+              "queryRef": "Écriture comptable.Libellé frais",
+              "nativeQueryRef": "Libellé frais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Code analytique"
+                }
+              },
+              "queryRef": "Écriture comptable.Code analytique",
+              "nativeQueryRef": "Code analytique"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Libellé analytique"
+                }
+              },
+              "queryRef": "Écriture comptable.Libellé analytique",
+              "nativeQueryRef": "Libellé analytique"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "208.21580384148584D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Écriture comptable.Intitulé tiers"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "13bb4689f7ac8ba36c68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Intitulé tiers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cb5b814a080f46b1e19e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Compte tiers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ec6020fb142da6ada1de",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "N° pièce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e82e74e2d9ded6e0ccfa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Société"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f45406f9c9fa2cc77276",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Date pièce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dc185ff9fb83c029febe",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Écriture comptable"
+                  }
+                },
+                "Property": "Montant HT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4e646b3066fdf7006458",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Journal"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e1f3d85f717754943db5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Code frais"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "36b7806241ec1e3918f3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Libellé frais"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ce8bae8cf2ee1ca42608",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Code analytique"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a3dc1751f3f8780f0aa4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Libellé analytique"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

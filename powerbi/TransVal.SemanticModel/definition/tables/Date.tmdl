@@ -1,0 +1,218 @@
+table Date
+	lineageTag: e20f1989-cec4-5591-a532-1acc1cbb0564
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 3fae31c1-1dfc-544c-baf2-a5d81e2109d5
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Année
+		dataType: int64
+		lineageTag: 5b837e89-9be0-542d-b122-6b2e933d951c
+		summarizeBy: none
+		sourceColumn: Année
+
+	column Mois
+		dataType: int64
+		lineageTag: 75daaf77-7475-52a8-ac5a-18980dccbbf5
+		summarizeBy: none
+		sourceColumn: Mois
+
+	column 'Année mois'
+		dataType: string
+		lineageTag: 49ebe558-d6a3-58d4-b3cc-51adb4b1079d
+		summarizeBy: none
+		sourceColumn: Année mois
+
+	column 'Mois année'
+		dataType: string
+		lineageTag: 419e21c0-575c-5e1f-b542-cdad78aed8d5
+		summarizeBy: none
+		sourceColumn: Mois année
+		sortByColumn: 'Année mois'
+
+	column 'Nom mois'
+		dataType: string
+		lineageTag: 50f0eceb-2249-515f-bc2b-a71449eaaa78
+		summarizeBy: none
+		sourceColumn: Nom mois
+		sortByColumn: Mois
+
+	column Trimestre
+		dataType: int64
+		lineageTag: e037e0d8-46c0-5192-b1af-c1f565c345d5
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+	column 'Nom trimestre'
+		dataType: string
+		lineageTag: 256b0af8-49b4-5d71-9ef8-15b84a682600
+		summarizeBy: none
+		sourceColumn: Nom trimestre
+
+	column 'Trimestre année'
+		dataType: string
+		lineageTag: d513ff07-01fb-578a-b115-cc5cf44383ad
+		summarizeBy: none
+		sourceColumn: Trimestre année
+
+	column Semaine
+		dataType: int64
+		lineageTag: c73a46d9-d80a-5e95-816a-cf2180898eb8
+		summarizeBy: none
+		sourceColumn: Semaine
+
+	column 'Année semaine n°'
+		dataType: int64
+		lineageTag: 5f4cfe71-93f8-5b00-a62d-59d6812a5c73
+		summarizeBy: none
+		sourceColumn: Année semaine n°
+
+	column 'Année semaine'
+		dataType: string
+		lineageTag: 42a5ca71-7a61-534c-bc42-b453340aa568
+		summarizeBy: none
+		sourceColumn: Année semaine
+		sortByColumn: 'Année semaine n°'
+
+	column 'Semaine affichage'
+		dataType: string
+		lineageTag: 18251d61-a608-515a-a379-61a170721e03
+		summarizeBy: none
+		sourceColumn: Semaine affichage
+		sortByColumn: 'Année semaine n°'
+
+	column 'Jour semaine'
+		dataType: int64
+		lineageTag: 542e7306-30ff-5449-a166-ff9bd8692bf3
+		summarizeBy: none
+		sourceColumn: Jour semaine
+
+	column 'Nom jour'
+		dataType: string
+		lineageTag: 8c99446e-fccd-5b0b-907a-e2ccc523dc7e
+		summarizeBy: none
+		sourceColumn: Nom jour
+		sortByColumn: 'Jour semaine'
+
+	column 'Jour férié'
+		dataType: string
+		lineageTag: b383acae-1614-5ef6-ab1b-9e1dfc289c0f
+		summarizeBy: none
+		sourceColumn: Jour férié
+
+	column 'Est férié'
+		dataType: boolean
+		lineageTag: 2f40178e-a8a6-5792-ae9d-4ca0b14cbee2
+		summarizeBy: none
+		sourceColumn: Est férié
+
+	column 'Est jour ouvré'
+		dataType: boolean
+		lineageTag: 9a5dbe0e-5205-5a37-809c-251939772914
+		summarizeBy: none
+		sourceColumn: Est jour ouvré
+
+	column 'Est passé'
+		dataType: boolean
+		lineageTag: 70037171-19fa-551f-a470-30ea75f64905
+		summarizeBy: none
+		sourceColumn: Est passé
+
+	column 'Est 12 mois glissants'
+		dataType: boolean
+		lineageTag: 3911864b-1cba-5920-b843-7aea5eb8f34a
+		summarizeBy: none
+		sourceColumn: Est 12 mois glissants
+
+	column 'Est semaine en cours'
+		dataType: boolean
+		lineageTag: 61177c86-df95-5dc7-944b-b54fc18d87bf
+		summarizeBy: none
+		sourceColumn: Est semaine en cours
+
+	column 'Est 4 dernières semaines'
+		dataType: boolean
+		lineageTag: 33036d67-b52b-5413-bfca-db0ec631e388
+		summarizeBy: none
+		sourceColumn: Est 4 dernières semaines
+
+	column 'Est année en cours'
+		dataType: boolean
+		lineageTag: d10fa5ed-d55e-5e94-8ad0-7ce0c5d329dd
+		summarizeBy: none
+		sourceColumn: Est année en cours
+
+	column 'Est mois en cours'
+		dataType: boolean
+		lineageTag: 0098fb67-4187-5a8d-8cd6-5f98283d8fae
+		summarizeBy: none
+		sourceColumn: Est mois en cours
+
+	column 'Semaine en cours'
+		dataType: string
+		lineageTag: 1e0c199f-1c87-5672-9c22-da63586f1281
+		summarizeBy: none
+		sourceColumn: Semaine en cours
+
+	column 'Hors semaine en cours'
+		dataType: string
+		lineageTag: 25b8a0a7-ef70-5502-a07b-a7fa1e3d9130
+		summarizeBy: none
+		sourceColumn: Hors semaine en cours
+
+	column 'Quatre dernières semaines'
+		dataType: string
+		lineageTag: 4652c703-77f5-52df-9454-0b4878e5bbe7
+		summarizeBy: none
+		sourceColumn: Quatre dernières semaines
+
+	column 'Période 12 mois'
+		dataType: string
+		lineageTag: cb0abc24-37e8-53d7-a69f-f8fe1b1ae0c3
+		summarizeBy: none
+		sourceColumn: Période 12 mois
+
+	column Passé
+		dataType: int64
+		lineageTag: d11b0edc-1297-51cf-adb8-6a4ecef4d82a
+		summarizeBy: sum
+		sourceColumn: Passé
+
+	column 'Date passée'
+		dataType: string
+		lineageTag: ad87b370-012e-58f9-aef7-11010a6a17ce
+		summarizeBy: none
+		sourceColumn: Date passée
+
+	hierarchy 'Hiérarchie de dates'
+		lineageTag: 2dc4c0cd-5474-5146-9c4d-0cd830fca01a
+
+		level Année
+			lineageTag: d44331c0-a4df-5854-90bd-bcde5193b4ee
+			column: Année
+
+		level Trimestre
+			lineageTag: f27ec53c-89b2-51fb-867f-3699d7c858ae
+			column: 'Nom trimestre'
+
+		level Mois
+			lineageTag: 5e922a2a-c37d-59a3-aa20-6f371571c1f9
+			column: 'Nom mois'
+
+		level Jour
+			lineageTag: 7de144d8-8f4b-50f4-a5b6-8a2a6a4097ba
+			column: Date
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Date.parquet"))
+				in
+				    Source
+

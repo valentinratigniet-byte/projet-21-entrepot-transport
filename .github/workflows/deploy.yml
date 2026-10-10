@@ -1,0 +1,33 @@
+name: Déploiement Power BI
+
+# Manuel uniquement : nécessite un tenant Fabric / Power BI et un principal de service (secrets du dépôt).
+on:
+  workflow_dispatch:
+    inputs:
+      environnement:
+        type: choice
+        options: [DEV, PROD]
+        default: DEV
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environnement }}  # règles d'approbation GitHub possibles sur PROD
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt fabric-cicd azure-identity
+      - name: "Contrôles avant publication"
+        run: |
+          python run_all.py
+          python powerbi/build_model.py
+          python powerbi/verifier_rapports.py
+      - name: "Publication fabric-cicd"
+        run: python powerbi/deployer.py ${{ inputs.environnement }}
+        env:
+          FABRIC_WORKSPACE_ID: ${{ secrets.FABRIC_WORKSPACE_ID }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}

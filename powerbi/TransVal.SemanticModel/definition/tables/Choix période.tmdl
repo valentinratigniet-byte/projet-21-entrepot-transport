@@ -1,0 +1,44 @@
+table 'Choix période'
+	lineageTag: 5a7d89f8-ff7b-5aa6-9859-e49cd1954a8e
+
+	column 'Choix période'
+		dataType: string
+		lineageTag: e16f5b79-d9be-5a14-9a9c-0729dc93684e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Choix période Ordre'
+
+		relatedColumnDetails
+			groupByColumn: 'Choix période Champs'
+
+	column 'Choix période Champs'
+		dataType: string
+		isHidden
+		lineageTag: 663fdf7e-b784-5853-98ac-8d3e307aa3c1
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Choix période Ordre'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Choix période Ordre'
+		dataType: int64
+		isHidden
+		lineageTag: 55454af0-372b-5e05-9992-b68e22df00bd
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+	partition 'Choix période' = calculated
+		mode: import
+		source =
+				{
+				    ("Année", NAMEOF('Date'[Année]), 0),
+				    ("Trimestre", NAMEOF('Date'[Trimestre année]), 1),
+				    ("Mois", NAMEOF('Date'[Mois année]), 2),
+				    ("Semaine", NAMEOF('Date'[Semaine affichage]), 3)
+				}
+

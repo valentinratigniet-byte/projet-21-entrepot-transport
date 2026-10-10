@@ -1,0 +1,328 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "f4320326ed3581ef7960",
+  "position": {
+    "x": 16,
+    "y": 462.7,
+    "z": 1001,
+    "height": 219.3,
+    "width": 1248,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Code frais"
+                }
+              },
+              "queryRef": "Écriture comptable.Code frais",
+              "nativeQueryRef": "Code frais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Libellé frais"
+                }
+              },
+              "queryRef": "Écriture comptable.Libellé frais",
+              "nativeQueryRef": "Libellé frais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Code analytique"
+                }
+              },
+              "queryRef": "Écriture comptable.Code analytique",
+              "nativeQueryRef": "Code analytique"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Écriture comptable"
+                    }
+                  },
+                  "Property": "Libellé analytique"
+                }
+              },
+              "queryRef": "Écriture comptable.Libellé analytique",
+              "nativeQueryRef": "Libellé analytique"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Écriture comptable"
+                        }
+                      },
+                      "Property": "Montant HT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Écriture comptable.Montant HT)",
+              "nativeQueryRef": "Somme de Montant HT",
+              "displayName": "HT Comptable"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "HT atelier"
+                }
+              },
+              "queryRef": "Mesures.HT atelier",
+              "nativeQueryRef": "HT atelier",
+              "displayName": "HT atelier"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "119.58208721609489D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Écriture comptable.Libellé analytique"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "375e682956d18b55b8b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "Statut rapprochement"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Mesures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "Statut rapprochement"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "'OK'"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "e519dd5878585efa79d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Code analytique"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f444bc10c7902373a040",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Code frais"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fc502c65dbe1f8cdae4e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Libellé analytique"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "15102bf8c3d7020d4bf8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Écriture comptable"
+              }
+            },
+            "Property": "Libellé frais"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6c82bc094d53e4b21a41",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Écriture comptable"
+                  }
+                },
+                "Property": "Montant HT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5d7a7f6977f4f666f6ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Mesures"
+              }
+            },
+            "Property": "HT atelier"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

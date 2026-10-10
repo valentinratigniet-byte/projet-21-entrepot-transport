@@ -1,0 +1,29 @@
+table 'Justification attente'
+	lineageTag: 0dc23b72-2129-5e91-a7fd-f228bcfb4e2f
+
+	column 'N° voyage'
+		dataType: int64
+		lineageTag: 01d0bd33-092c-5a2f-b621-f3447db2b572
+		summarizeBy: none
+		sourceColumn: N° voyage
+
+	column 'Est justifié'
+		dataType: boolean
+		lineageTag: 337c5a21-7504-54bc-baa7-68dba77d9f31
+		summarizeBy: none
+		sourceColumn: Est justifié
+
+	column Commentaire
+		dataType: string
+		lineageTag: f4176437-6f64-566c-9a86-c48d89c5e698
+		summarizeBy: none
+		sourceColumn: Commentaire
+
+	partition 'Justification attente' = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(DossierDonnees & "\Justification attente.parquet"))
+				in
+				    Source
+
