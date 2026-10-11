@@ -1,4 +1,5 @@
 # Projet 21 — Intégrer Power BI dans un transporteur : de l'outil « tout-en-un » à un entrepôt de pilotage
+[![CI](https://github.com/valentinratigniet-byte/projet-21-entrepot-transport/actions/workflows/ci.yml/badge.svg)](https://github.com/valentinratigniet-byte/projet-21-entrepot-transport/actions/workflows/ci.yml)
 
 > **En une phrase** : chez **TransVal Logistique**, transporteur citerne fictif d'Auvergne-Rhône-Alpes, Power BI est
 > branché en direct sur six systèmes de gestion et chaque rapport refait son propre nettoyage. Le projet met en place un
