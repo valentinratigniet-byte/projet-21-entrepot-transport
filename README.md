@@ -26,8 +26,10 @@ Détail : [docs/01-situation-de-depart.md](docs/01-situation-de-depart.md).
 > 🔒 **Entreprise et données entièrement fictives.** Les noms de conducteurs, mécaniciens et clients sont inventés
 > syllabe par syllabe, puis écartés s'ils existent (ou presque) dans les fichiers INSEE des prénoms et des noms de famille.
 
-## 🧭 Démarche en 6 temps
+## 🧭 Démarche en 7 temps
 
+0. **Spécification fonctionnelle** : objectifs, utilisateurs, 23 récits utilisateur avec critères d'acceptation, 12 règles
+   de gestion, recette → [00-specification-fonctionnelle.md](docs/00-specification-fonctionnelle.md)
 1. **Situation de départ** : sources, rapports et défauts → [01-situation-de-depart.md](docs/01-situation-de-depart.md)
 2. **Fonctionnement avant / après** : 6 systèmes sources simulés avec leurs défauts de format, le Power BI de départ
    reproduit tel quel (Power Query + DAX, incohérences comprises), l'entrepôt → [02-fonctionnement.md](docs/02-fonctionnement.md)
