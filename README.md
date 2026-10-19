@@ -43,6 +43,10 @@ Détail : [docs/01-situation-de-depart.md](docs/01-situation-de-depart.md).
 
 ## 🏗️ Architecture
 
+![Schéma d'architecture](docs/architecture.png)
+
+**[Ouvrir le schéma interactif](https://htmlpreview.github.io/?https://github.com/valentinratigniet-byte/projet-21-entrepot-transport/blob/main/docs/architecture.html)** (zoom, recherche, suivi des flux, export PNG/SVG). Généré avec [Archify](https://github.com/tt-a1i/archify) depuis [`docs/architecture.archify.json`](docs/architecture.archify.json).
+
 ```mermaid
 flowchart LR
     subgraph S["6 sources fictives (sources/)"]

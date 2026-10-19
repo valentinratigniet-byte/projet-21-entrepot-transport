@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Entrepôt transport TransVal",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1080,
+      610
+    ],
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "stages": [
+    {
+      "label": "Sources"
+    },
+    {
+      "label": "Ingestion"
+    },
+    {
+      "label": "Transformation"
+    },
+    {
+      "label": "Modèle"
+    },
+    {
+      "label": "Restitution"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "erp",
+      "type": "external",
+      "label": "ERP AS/400",
+      "sublabel": "CSV cp1252",
+      "stage": 0,
+      "row": 0
+    },
+    {
+      "id": "sqlite",
+      "type": "database",
+      "label": "TMS + Compta",
+      "sublabel": "SQLite",
+      "stage": 0,
+      "row": 1
+    },
+    {
+      "id": "files",
+      "type": "external",
+      "label": "Télématique",
+      "sublabel": "JSONL + SharePoint",
+      "stage": 0,
+      "row": 2
+    },
+    {
+      "id": "load",
+      "type": "backend",
+      "label": "load_raw.py",
+      "sublabel": "3 lots · CDC",
+      "stage": 1,
+      "row": 1,
+      "tag": "378k lignes"
+    },
+    {
+      "id": "legacy",
+      "type": "frontend",
+      "label": "Power BI départ",
+      "sublabel": "9 rapports",
+      "stage": 1,
+      "row": 3,
+      "tag": "legacy"
+    },
+    {
+      "id": "dbt",
+      "type": "backend",
+      "label": "dbt + DuckDB",
+      "sublabel": "staging → marts",
+      "stage": 2,
+      "row": 1,
+      "tag": "incrémental"
+    },
+    {
+      "id": "n8n",
+      "type": "messagebus",
+      "label": "n8n",
+      "sublabel": "run quotidien",
+      "stage": 2,
+      "row": 2,
+      "tag": "alerte"
+    },
+    {
+      "id": "model",
+      "type": "database",
+      "label": "TransVal",
+      "sublabel": "TMDL · 352 mesures",
+      "stage": 3,
+      "row": 0,
+      "tag": "constellation"
+    },
+    {
+      "id": "kpi",
+      "type": "database",
+      "label": "mart_kpi",
+      "sublabel": "53 KPI",
+      "stage": 3,
+      "row": 2,
+      "tag": "50 périodes"
+    },
+    {
+      "id": "reports",
+      "type": "frontend",
+      "label": "23 rapports",
+      "sublabel": "Power BI PBIP",
+      "stage": 4,
+      "row": 0,
+      "tag": "fabric-cicd"
+    },
+    {
+      "id": "parity",
+      "type": "security",
+      "label": "Tests de parité",
+      "sublabel": "93/97 · 0 écart",
+      "stage": 4,
+      "row": 3,
+      "tag": "CI"
+    }
+  ],
+  "flows": [
+    {
+      "from": "erp",
+      "to": "load",
+      "label": "export",
+      "variant": "default",
+      "fromSide": "right",
+      "toSide": "top",
+      "via": [
+        [
+          315,
+          157
+        ]
+      ]
+    },
+    {
+      "from": "sqlite",
+      "to": "load",
+      "label": "CDC",
+      "variant": "default",
+      "route": "straight"
+    },
+    {
+      "from": "files",
+      "to": "load",
+      "label": "snapshots",
+      "variant": "default"
+    },
+    {
+      "from": "files",
+      "to": "legacy",
+      "label": "lecture directe",
+      "variant": "dashed"
+    },
+    {
+      "from": "load",
+      "to": "dbt",
+      "label": "raw_*",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "from": "n8n",
+      "to": "dbt",
+      "label": "dbt build",
+      "variant": "dashed"
+    },
+    {
+      "from": "dbt",
+      "to": "model",
+      "label": "8 dims · 26 faits",
+      "variant": "emphasis"
+    },
+    {
+      "from": "dbt",
+      "to": "kpi",
+      "label": "9 domaines",
+      "variant": "default"
+    },
+    {
+      "from": "model",
+      "to": "reports",
+      "label": "RLS",
+      "variant": "security",
+      "route": "straight"
+    },
+    {
+      "from": "kpi",
+      "to": "parity",
+      "label": "2 213 valeurs",
+      "variant": "default",
+      "fromSide": "right",
+      "toSide": "top",
+      "via": [
+        [
+          960,
+          385
+        ]
+      ]
+    },
+    {
+      "from": "legacy",
+      "to": "parity",
+      "label": "97 KPI",
+      "variant": "dashed",
+      "route": "straight"
+    }
+  ]
+}
