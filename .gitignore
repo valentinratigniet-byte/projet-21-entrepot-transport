@@ -7,3 +7,9 @@ dbt/logs/
 dbt/dbt_packages/
 powerbi/**/.pbi/
 powerbi/donnees/
+
+# Reçus de contrôle Archify
+docs/*.finalize.json
+docs/*.finalize-summary.json
+docs/*.delivery.json
+docs/*.browser-check.json
